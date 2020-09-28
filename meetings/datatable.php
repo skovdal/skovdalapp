@@ -535,6 +535,7 @@ if($validateFlag == 200){
 			<td colspan="100%">
 				<input value="<?php echo mysqli_num_rows($result); ?>">
 				<input value="<?php echo getTableVersion('identities'); ?>">
+				<input value="identities">
 			</td>
 		</tr>
 	<?php
@@ -545,6 +546,7 @@ if($validateFlag == 200){
 			<td colspan="100%">
 				<input value="<?php echo mysqli_num_rows($result); ?>">
 				<input value="<?php echo getTableVersion('identities'); ?>">
+				<input value="identities">
 			</td>
 		</tr>
 		<?php
