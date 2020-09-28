@@ -30,7 +30,7 @@ function getTableVersion($tableName){
 		else{
 			while($row = mysqli_fetch_assoc($result)){
 				$tableVersions_lastModified = $row['tableVersions_lastModified'];
-				return $tableVersions_lastModified;
+				return preg_replace('~\D~', '', $tableVersions_lastModified);
 			}
 		}
 		$result->close();

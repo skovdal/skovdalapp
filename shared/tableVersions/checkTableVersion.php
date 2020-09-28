@@ -41,17 +41,17 @@ if($validateFlag == 200){
 		}
 		else{
 			while($row = mysqli_fetch_assoc($result)){
-				$tableVersions_lastModified = $tableVersions_lastModified . $row['tableVersions_lastModified'];
+				$tableVersions_lastModified = $tableVersions_lastModified . preg_replace('~\D~', '', $row['tableVersions_lastModified']);
 			}
 		}
 		$result->close();
 	}
 	
 	if($tableVersions_lastModified == $checksum){
-		echo $tableVersions_lastModified;
+		echo 0;
 	}
 	else{
-		echo $tableVersions_lastModified;
+		echo 1;
 	}
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredEnd.php';
