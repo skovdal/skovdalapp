@@ -462,7 +462,7 @@ if($validateFlag == 200){
 	$_SESSION['systemUsersSystemPreferences_' . 'orderByProcessingActivities_orderBy' . '_' . $processingActivities_id] = $orderBy;
 	?>
 	<script>
-		parent.datatableUpdate('', 'datatable1');
+		parent.datatableUpdate('', 'datatable1', 0);
 		
 		<?php
 		if($shortcutsDelete == 1){

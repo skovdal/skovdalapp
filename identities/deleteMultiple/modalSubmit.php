@@ -222,7 +222,7 @@ if($validateFlag == 200){
 	if($totalCounter == $deletedCounter){
 	?>
 		<script>
-			parent.datatableUpdate('', 'datatable1');
+			parent.datatableUpdate('', 'datatable1', 0);
 			parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 			parent.toastr('success', 'Slet markerede identiteter', 'De markerede identiteter blev slettede.', 0, true, '');
 		</script>
@@ -231,7 +231,7 @@ if($validateFlag == 200){
 	else{
 	?>
 		<script>
-			parent.datatableUpdate('', 'datatable1');
+			parent.datatableUpdate('', 'datatable1', 0);
 			parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 			parent.toastr('<?php echo purify($validateFlagType); ?>', '<?php echo purify($validateFlagTitle); ?>', '<?php echo purify($validateFlagMsg); ?>', <?php echo purify($validateFlagToastrId); ?>, <?php echo purify($validateFlagRegister); ?>, '<?php echo purify($validateFlagOpenUrl); ?>');
 		</script>

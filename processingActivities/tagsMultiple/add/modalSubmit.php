@@ -159,7 +159,7 @@ if($validateFlag == 200){
 	}
 	?>
 	<script>
-		parent.datatableUpdate('', 'datatable1');
+		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 		parent.toastr('success', 'Tilføj mærke på markerede behandlingsaktiviteter', 'Mærket blev tilføjet på de markerede behandlingsaktiviteter.', 0, true, '');
 	</script>

@@ -317,10 +317,10 @@ if($validateFlag == 200){
 				
 				function onLoad(){
 					checkSession();
-					datatableUpdate('', 'datatable1');
+					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function datatableUpdate(focusElement, datatableId){
+				function datatableUpdate(focusElement, datatableId, silent){
 					var requestStart = new Date().getTime();
 					var openUrl = '/systemEvents/datatable.php';
 					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
@@ -443,7 +443,7 @@ if($validateFlag == 200){
 							'&searchFileName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchFileName]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 					else{
 						document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value = newOrderBy;
@@ -472,7 +472,7 @@ if($validateFlag == 200){
 							'&searchFileName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchFileName]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 				}
 			</script>
@@ -507,7 +507,7 @@ if($validateFlag == 200){
 						<div class="nav-btn" onclick="dropdown(this);">
 							<div class="dropdown down right">
 								<ul>
-									<li onclick="datatableUpdate('', this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater systemhændelser</li>
+									<li onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater systemhændelser</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede systemhændelser', 'Der er ikke markeret nogen systemhændelser.', 0, true, '');}else{modal(0, 'large', '/systemEvents/exportMultiple/modal.php', 'POST', '&systemEvents_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/file-export.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Eksporter markerede systemhændelser</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Tilføj mærke på markerede systemhændelser', 'Der er ikke markeret nogen systemhændelser.', 0, true, '');}else{modal(0, 'basic', '/systemEvents/tagsMultiple/add/modal.php', 'POST', '&systemEvents_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/tags.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Tilføj mærke på markerede systemhændelser</li>
 								</ul>
@@ -516,10 +516,10 @@ if($validateFlag == 200){
 						
 						<div class="action-btn circle tags" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Tilføj mærke på markerede systemhændelser', 'Der er ikke markeret nogen systemhændelser.', 0, true, '');}else{modal(0, 'basic', '/systemEvents/tagsMultiple/add/modal.php', 'POST', '&systemEvents_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsSystemEvents_shortcutsTags == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle export" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede systemhændelser', 'Der er ikke markeret nogen systemhændelser.', 0, true, '');}else{modal(0, 'large', '/systemEvents/exportMultiple/modal.php', 'POST', '&systemEvents_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsSystemEvents_shortcutsExport == 1){}else{echo 'display:none;';} ?>"></div>
-						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id);" style="<?php if($preferences_shortcutsSystemEvents_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
+						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="<?php if($preferences_shortcutsSystemEvents_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
 						
 						<hr>
-						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id); return false;">
+						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id, 0); return false;">
 							<input name="orderBy" type="hidden" value="<?php echo orderBy('orderBy', purify($preferences_orderBySystemEvents_orderBy)); ?>">
 							<input name="orderBySort" type="hidden" value="<?php echo orderBy('orderBySort', purify($preferences_orderBySystemEvents_orderBy)); ?>">
 							

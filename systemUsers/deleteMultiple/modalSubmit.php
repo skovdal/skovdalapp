@@ -78,7 +78,7 @@ if($validateFlag == 200){
 	setTableVersion('tagsReferences');
 	?>
 	<script>
-		parent.datatableUpdate('', 'datatable1');
+		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 		parent.toastr('success', 'Slet markerede systembrugere', 'De markerede systembrugere blev slettede.', 0, true, '');
 	</script>

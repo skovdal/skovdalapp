@@ -202,10 +202,10 @@ if($validateFlag == 200){
 				
 				function onLoad(){
 					checkSession();
-					datatableUpdate('', 'datatable1');
+					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function datatableUpdate(focusElement, datatableId){
+				function datatableUpdate(focusElement, datatableId, silent){
 					var requestStart = new Date().getTime();
 					var openUrl = '/files/datatable.php';
 					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +

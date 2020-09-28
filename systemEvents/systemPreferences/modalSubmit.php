@@ -644,7 +644,7 @@ if($validateFlag == 200){
 	$_SESSION['systemUsersSystemPreferences_' . 'orderBySystemEvents_orderBy' . '_' . $systemUsers_id] = $orderBy;
 	?>
 	<script>
-		parent.datatableUpdate('', 'datatable1');
+		parent.datatableUpdate('', 'datatable1', 0);
 		
 		<?php
 		if($shortcutsTags == 1){

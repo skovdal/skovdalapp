@@ -156,7 +156,7 @@ if($validateFlag == 200){
 	setTableVersion('tagsReferences');
 	?>
 	<script>
-		parent.datatableUpdate('', 'datatable1');
+		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 		parent.toastr('success', 'Tilføj mærke på fil', 'Mærket blev tilføjet på filen.', 0, true, '');
 	</script>

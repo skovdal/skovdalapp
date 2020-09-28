@@ -190,10 +190,10 @@ if($validateFlag == 200){
 				
 				function onLoad(){
 					checkSession();
-					datatableUpdate('', 'datatable1');
+					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function datatableUpdate(focusElement, datatableId){
+				function datatableUpdate(focusElement, datatableId, silent){
 					var requestStart = new Date().getTime();
 					var openUrl = '/systemStorages/datatable.php';
 					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
@@ -294,7 +294,7 @@ if($validateFlag == 200){
 							'&searchStorageSize=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchStorageSize]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 					else{
 						document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value = newOrderBy;
@@ -312,7 +312,7 @@ if($validateFlag == 200){
 							'&searchStorageSize=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchStorageSize]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 				}
 			</script>
@@ -348,7 +348,7 @@ if($validateFlag == 200){
 							<div class="dropdown down right">
 								<ul>
 									<li onclick="modal(0, 'large', '/systemStorages/add/modal.php', 'POST', '', true, 1);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/plus.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Nyt systemlager</li>
-									<li onclick="datatableUpdate('', this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater systemlagre</li>
+									<li onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater systemlagre</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'large', '/systemStorages/exportMultiple/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/file-export.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Eksporter markerede systemlagre</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'large', '/systemStorages/backupMultiple/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/history.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Sikkerhedskopier markerede systemlagre</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Tilføj mærke på markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'basic', '/systemStorages/tagsMultiple/add/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/tags.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Tilføj mærke på markerede systemlagre</li>
@@ -360,11 +360,11 @@ if($validateFlag == 200){
 						<div class="action-btn circle delete" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Slet markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'basic', '/systemStorages/deleteMultiple/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsSystemStorages_shortcutsDelete == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle tags" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Tilføj mærke på markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'basic', '/systemStorages/tagsMultiple/add/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsSystemStorages_shortcutsTags == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle export" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede systemlagre', 'Der er ikke markeret nogen systemlagre.', 0, true, '');}else{modal(0, 'large', '/systemStorages/exportMultiple/modal.php', 'POST', '&systemStorages_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsSystemStorages_shortcutsExport == 1){}else{echo 'display:none;';} ?>"></div>
-						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id);" style="<?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
+						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="<?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle add" onclick="modal(0, 'large', '/systemStorages/add/modal.php', 'POST', '', true, 1);" style="<?php if($preferences_shortcutsSystemStorages_shortcutsNew == 1){}else{echo 'display:none;';} ?>"></div>
 						
 						<hr>
-						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id); return false;">
+						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id, 0); return false;">
 							<input name="orderBy" type="hidden" value="<?php echo orderBy('orderBy', purify($preferences_orderBySystemStorages_orderBy)); ?>">
 							<input name="orderBySort" type="hidden" value="<?php echo orderBy('orderBySort', purify($preferences_orderBySystemStorages_orderBy)); ?>">
 							
