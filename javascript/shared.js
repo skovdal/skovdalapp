@@ -6,24 +6,13 @@ function checkTableVersion(datatableId){
 		var request = new XMLHttpRequest();
 		request.onreadystatechange = function(){
 			if(request.readyState == 4 && request.status == 200){
-					console.log('tableName: ' + encodeURIComponent(tableName));
-					console.log('checksum: ' + encodeURIComponent(checksum));
-					console.log('reponse: ' + request.responseText);
-				// if(request.responseText == 0){
-				// 	console.log(0);
-				// 	console.log('tableName: ' + encodeURIComponent(tableName) );
-				// 	console.log('checksum: ' + encodeURIComponent(checksum));
-				// 	console.log('reponse: ' + request.responseText);
-				// 	var timeoutFunction = function(){checkTableVersion(datatableId);}
-				// 	setTimeout(timeoutFunction, 10000);
-				// }
-				// else{
-				// 	console.log(1);
-				// 	console.log('tableName: ' + encodeURIComponent(tableName) );
-				// 	console.log('checksum: ' + encodeURIComponent(checksum));
-				// 	console.log('reponse: ' + request.responseText);
-				// 	// datatableUpdate('', datatableId);
-				// }
+				if(request.responseText == 0){
+					var timeoutFunction = function(){checkTableVersion(datatableId);}
+					setTimeout(timeoutFunction, 10000);
+				}
+				else{
+					datatableUpdate('', datatableId);
+				}
 			}
 			else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
 				// toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?3');
@@ -780,17 +769,14 @@ function toastr(type, title, msg, toastrId, register, openUrl){
 	var validateFlag = 200;
 	
 	if(type != 'danger' && type != 'success' && type != 'info' && type != 'warning' && type != ''){
-		console.log('type: ' + type);
 		var validateFlag = 400;
 	}
 	
 	if(isNaN(toastrId) === true){
-		console.log('toastrId: ' + toastrId);
 		var validateFlag = 400;
 	}
 	
 	if(register !== true && register !== false && register != 1 && register != 0){
-		console.log('register: ' + register);
 		var validateFlag = 400;
 	}
 	
