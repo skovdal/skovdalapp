@@ -251,11 +251,12 @@ if($validateFlag == 200){
 						document.querySelectorAll('#' + datatableId + ' form table tr')[i].innerHTML = '';
 					}
 					
-					document.querySelectorAll('#' + datatableId + ' > h2')[0].innerHTML = 'Behandlingsaktiviteter';
-					document.title = document.querySelectorAll('#' + datatableId + ' > h2')[0].innerHTML;
-					document.querySelectorAll('#' + datatableId + ' form table')[0].insertAdjacentHTML('beforeend', '<tr class="loading"><td colspan="' + document.querySelectorAll('#' + datatableId + ' form table tr td').length + '"><img src="/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/heart-rate.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>" height="75"><div class="progress"><div class="status"></div></div></td></tr>');
-					
-					document.querySelectorAll('#' + datatableId + ' form table tr.loading td div.progress > div.status')[0].style.animationDuration = '<?php echo getProgressTime('/processingActivities/datatable.php') . 'ms'; ?>';
+					if(silent == 0){
+						document.querySelectorAll('#' + datatableId + ' > h2')[0].innerHTML = 'Behandlingsaktiviteter';
+						document.title = document.querySelectorAll('#' + datatableId + ' > h2')[0].innerHTML;
+						document.querySelectorAll('#' + datatableId + ' form table')[0].insertAdjacentHTML('beforeend', '<tr class="loading"><td colspan="' + document.querySelectorAll('#' + datatableId + ' form table tr td').length + '"><img src="/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/heart-rate.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>" height="75"><div class="progress"><div class="status"></div></div></td></tr>');
+						document.querySelectorAll('#' + datatableId + ' form table tr.loading td div.progress > div.status')[0].style.animationDuration = '<?php echo getProgressTime('/processingActivities/datatable.php') . 'ms'; ?>';
+					}
 					
 					var request = new XMLHttpRequest();
 					request.onreadystatechange = function(){
