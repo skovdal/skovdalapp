@@ -11,7 +11,7 @@ function checkTableVersion(datatableId){
 					setTimeout(timeoutFunction, 10000);
 				}
 				else{
-					datatableUpdate('', datatableId);
+					datatableUpdate('', datatableId, 1);
 				}
 			}
 			else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
