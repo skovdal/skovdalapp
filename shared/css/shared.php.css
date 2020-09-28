@@ -1,0 +1,1726 @@
+:root{
+	--color-accent:rgba(0,190,215,1);
+	--color-info:rgba(45,155,245,1);
+	--color-primary:rgba(75,90,215,1);
+	--color-success:rgba(45,185,155,1);
+	--color-warning:rgba(255,175,30,1);
+	--color-danger:rgba(240,70,95,1);
+	--color-metal:rgba(190,190,210,1);
+	--color-brand:rgba(100,95,195,1);
+	--color-focus:rgba(140,25,240,1);
+	--color-white:rgba(255,255,255,1);
+	--color-black:rgba(0,0,0,1);
+	--color-nav-background:rgba(45,45,60,1);
+	--color-nav-links:rgba(255,255,255,1);
+	--color-nav-hover:rgba(140,25,240,1);
+	--color-nav-active:rgba(140,25,240,1);
+}
+
+@font-face{
+	font-family:"BrandonTextWeb-Regular";
+	src:url("/shared/fonts/BrandonTextWeb-Regular/BrandonTextWeb-Regular.eot");
+	src:url("/shared/fonts/BrandonTextWeb-Regular/BrandonTextWeb-Regular.eot?#iefix") format("embedded-opentype"),url("/shared/fonts/BrandonTextWeb-Regular/BrandonTextWeb-Regular.woff2") format("woff2"),url("/shared/fonts/BrandonTextWeb-Regular/BrandonTextWeb-Regular.woff") format("woff"),url("/shared/fonts/BrandonTextWeb-Regular/BrandonTextWeb-Regular.ttf") format("truetype");
+}
+
+@font-face{
+	font-family:"Magistral-Light";
+	src:url("/shared/fonts/Magistral-Light/Magistral-Light.eot");
+	src:url("/shared/fonts/Magistral-Light/Magistral-Light.eot?#iefix") format("embedded-opentype"),url("/shared/fonts/Magistral-Light/Magistral-Light.woff2") format("woff2"),url("/shared/fonts/Magistral-Light/Magistral-Light.woff") format("woff"),url("/shared/fonts/Magistral-Light/Magistral-Light.ttf") format("truetype");
+}
+
+*{
+	box-sizing:border-box;
+}
+
+html{
+	height:100%;
+}
+
+body{
+	height:100%;
+	margin:0 0 0 0;
+	overflow:hidden;
+}
+
+body div.darkener{
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+	background-color:rgba(0,0,0,0.5);
+	display:none;
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+}
+
+@keyframes darkenerShow{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+
+@keyframes darkenerHide{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+
+body a{
+	color:var(--color-primary);
+	position:relative;
+	text-decoration:none;
+}
+
+body a:after{
+	animation-delay:0s;
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+	animation-name:none;
+	animation-timing-function:ease-in-out;
+	content:"";
+	background:var(--color-primary); 
+	position:absolute; 
+	bottom:-3px; 
+	left:0; 
+	height:1px; 
+	width:0%;
+}
+
+body a:hover{
+	color:var(--color-focus);
+}
+
+body a:hover:after{
+	animation-name:modalLinkUnderlineShow;
+	background:var(--color-focus); 
+}
+
+@keyframes modalLinkUnderlineShow{
+	0%{
+		color:var(--color-primary);
+		width:0%;
+	}
+	100%{
+		color:var(--color-focus);
+		width:100%;
+	}
+}
+
+body div.modal{
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	background-color:rgba(240,245,250,1);
+	border-radius:5px;
+	box-shadow:2px 2px 2px 2px rgba(0,0,0,0.1);
+	color:rgba(90,95,100,1);
+	display:none;
+	font-family:Verdana;
+	font-size:12px;
+	left:50%;
+	opacity:0;
+	position:fixed;
+}
+
+body div.modal.basic{
+	margin-left:-250px;
+	width:500px;
+}
+
+body div.modal.small{
+	margin-left:-150px;
+	width:300px;
+}
+
+body div.modal.large{
+	margin-left:-400px;
+	width:800px;
+}
+
+body div.modal.fullWindow{
+	margin-left:calc(-50% + 15px);
+	width:calc(100% - 30px);
+}
+
+@keyframes modalShow{
+	0%{
+		opacity:0;
+		top:-100px;
+	}
+	100%{
+		opacity:1;
+		top:15px;
+	}
+}
+
+@keyframes modalHide{
+	0%{
+		opacity:1;
+		top:15px;
+	}
+	100%{
+		opacity:0;
+		top:-100px;
+	}
+}
+	
+	body div.modal input.addTag[type="button"]{
+		background-color:var(--color-white);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		-webkit-appearance:none;
+	}
+	
+	body div.modal input.addTag[type="button"]:hover{
+		background-color:rgba(245,250,255,1);
+	}
+	
+	body div.modal input.addContent[type="button"]{
+		background-color:var(--color-white);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		-webkit-appearance:none;
+	}
+	
+	body div.modal input.addContent[type="button"]:hover{
+		background-color:rgba(245,250,255,1);
+	}
+	
+	body div.modal input[type="submit"]{
+		background-color:var(--color-primary);
+		border:1px solid var(--color-primary);
+		border-radius:3px;
+		color:var(--color-white);
+		font-family:Verdana;
+		font-size:12px;
+		margin-left:7px;
+		padding:10px 15px 10px 15px;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input[type="submit"]:hover{
+		background-color:var(--color-white);
+		color:var(--color-focus);
+	}
+
+	body div.modal input.example[type="button"]{
+		background-color:var(--color-white);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		-webkit-appearance:none;
+	}
+	
+	body div.modal input.example[type="button"]:hover{
+		background-color:rgba(245,250,255,1);
+	}
+	
+	body div.modal input.edit[type="button"]{
+		background-color:var(--color-white);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input.edit[type="button"]:hover{
+		background-color:rgba(245,250,255,1);
+	}
+	
+	body div.modal input.delete[type="button"]{
+		background-color:transparent;
+		border:1px solid transparent;
+		border-radius:3px;
+		color:var(--color-danger);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input.delete[type="button"]:hover{
+		background-color:var(--color-danger);
+		color:var(--color-white);
+	}
+	
+	body div.modal input.delete[type="submit"]{
+		background-color:var(--color-danger);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:var(--color-white);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input.delete[type="submit"]:hover{
+		background-color:rgba(245,250,255,1);
+		color:rgba(90,95,100,1);
+	}
+	
+	body div.modal input.close[type="button"]{
+		background-color:var(--color-white);
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		outline:none;
+		padding:10px 15px 10px 15px;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input.close[type="button"]:hover{
+		background-color:rgba(245,250,255,1);
+	}
+	
+	body div.modal div.tagTab{
+		padding:25px 25px 25px 25px;
+	}
+	
+	body div.modal div.tagTab div.tagContainer{
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		display:inline-block;
+		margin-bottom:15px;
+		height:250px;
+		overflow:auto;
+		padding:15px 15px 15px 15px;
+		position:relative;
+		width:100%;
+	}
+		
+		body div.modal div.tagTab div.tagContainer > div.noContent{
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftag.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:auto 100px;
+			margin-left:-15px;
+			margin-top:-85px;
+			position:absolute;
+			text-align:center;
+			top:50%;
+			width:100%;
+		}
+		
+		body div.modal div.tagTab div.tagContainer > div.tag{
+			background-position:calc(100% - 3px) center;
+			background-repeat:no-repeat;
+			background-size:12px;
+			border-radius:5px;
+			box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
+			cursor:pointer;
+			display:inline-block;
+			font-family:Verdana;
+			font-size:9px;
+			margin:0px 5px 5px 0px;
+			padding:3px 24px 3px 9px;
+		}
+		
+		body div.modal div.tagTab div.tagContainer > div.tag:hover{
+			box-shadow:none;
+		}
+				
+	body div.modal div.contentTab{
+		padding:25px 25px 25px 25px;
+	}
+	
+	body div.modal div.contentTab.noPadding{
+		padding:0 0 0 0;
+	}
+	
+	body div.modal div.contentTab div.contentContainer{
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		display:inline-block;
+		margin-bottom:15px;
+		height:250px;
+		overflow:auto;
+		padding:0 0 0 0;
+		position:relative;
+		width:100%;
+	}
+		
+		body div.modal div.contentTab div.contentContainer > div.noContent{
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:auto 100px;
+			margin-top:-85px;
+			position:absolute;
+			text-align:center;
+			top:50%;
+			width:100%;
+		}
+		
+	body div.modal div.contentDatatableTab{
+		padding:0 0 0 0;
+	}
+	
+	body div.modal div.contentDatatableTab div.contentContainer{
+		display:inline-block;
+		height:250px;
+		overflow:auto;
+		padding:0 0 0 0;
+		position:relative;
+		width:100%;
+	}
+		
+		body div.modal div.contentDatatableTab div.contentContainer > div.noContent{
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:auto 100px;
+			border:1px solid rgba(225,230,235,1);
+			border-radius:3px;
+			margin-top:-85px;
+			position:absolute;
+			text-align:center;
+			top:50%;
+			width:100%;
+		}
+		
+		body div.modal div.contentDatatableTab div.contentContainer > table{
+			border-collapse:collapse;
+			width:100%;
+		}
+			
+			body div.modal div.contentDatatableTab div.contentContainer > table tr th{
+				border-bottom:2px solid rgba(240,245,250,1);
+				color:rgba(90,95,100,1);
+				font-family:Verdana;
+				font-size:12px;
+				font-weight:bold;
+				padding:15px 15px 15px 15px;
+				text-align:left;
+				white-space:nowrap;
+			}
+			
+			body div.modal div.contentDatatableTab div.contentContainer > table tr td{
+				background-color:transparent;
+				border-bottom:1px solid rgba(240,245,250,1);
+				color:rgba(90,95,100,1);
+				cursor:pointer;
+				font-family:Verdana;
+				font-size:12px;
+				padding:20px 15px 20px 15px;
+			}
+			
+			body div.modal div.contentDatatableTab div.contentContainer > table tr td.photo{
+				padding:20px 15px 20px 57px;
+				position:relative;
+			}
+			
+			body div.modal div.contentDatatableTab div.contentContainer > table tr:hover td{
+				background-color:rgba(245,250,255,1);
+			}
+			
+				body div.modal div.contentDatatableTab div.contentContainer > table tr td.photo div.photo{
+					background-position:center center;
+					background-repeat:no-repeat;
+					background-size:cover;
+					border:1px solid rgba(240,245,250,1);
+					border-radius:50%;
+					box-shadow:inset -1px -1px 1px 0 rgba(0,0,0,0.1);
+					display:inline-block;
+					height:32px;
+					margin-left:-42px;
+					margin-top:-8px;
+					position:absolute;
+					width:32px;
+				}
+	
+	body div.modal div.contentTab div.dragDropFileContainer{
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		display:inline-block;
+		margin-bottom:15px;
+		height:250px;
+		overflow:auto;
+		padding:0 0 0 0;
+		position:relative;
+		width:100%;
+	}
+		
+		body div.modal div.contentTab div.dragDropFileContainer > div.noContent{
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ffile-upload.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:auto 100px;
+			margin-top:-85px;
+			position:absolute;
+			text-align:center;
+			top:50%;
+			width:100%;
+		}
+		
+	body div.modal form iframe{
+		display:none;
+	}
+	
+	body div.modal > div.countdown{
+		animation-delay:0s;
+		animation-duration:30s;
+		animation-fill-mode:forwards;
+		animation-name:modalTimeoutCountdown;
+		animation-timing-function:linear;
+		background-color:var(--color-primary);
+		border-bottom-left-radius:5px;
+		border-bottom-right-radius:5px;
+		bottom:0;
+		height:7px;
+		left:0;
+		pointer-events:inherit;
+		position:absolute;
+		width:100%;
+	}
+	
+	@keyframes modalTimeoutCountdown{
+		0%{
+			border-bottom-right-radius:5px;
+			width:100%;
+		}
+		1%{
+			border-bottom-right-radius:0px;
+			width:calc(100% - 5px);
+		}
+		100%{
+			border-bottom-right-radius:0px;
+			width:0%;
+		}
+	}
+
+body div.modal > h1 ~ ul{
+	color:rgba(135,140,145,1);
+	display:block;
+	font-family:Verdana;
+	font-size:12px;
+	height:50px;
+	list-style:none;
+	margin:25px 0 0 0;
+	overflow:auto;
+	padding:24px 25px 0 25px;
+	scrollbar-width:none;
+	white-space:nowrap;
+	width:auto;
+}
+
+body div.modal > h1 ~ ul::-webkit-scrollbar{
+	display:none;
+}
+	
+	body div.modal > h1 ~ ul li{
+		animation-delay:0s;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+		animation-name:none;
+		animation-timing-function:ease-in-out;
+		background-color:rgba(225,230,235,1);
+		background-position:left center;
+		background-repeat:no-repeat;
+		background-size:12px;
+		border-bottom:1px solid rgba(225,230,235,1);
+		border-top-left-radius:3px;
+		border-top-right-radius:3px;
+		border-bottom-left-radius:0;
+		border-bottom-right-radius:0;
+		box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
+		color:inherit;
+		cursor:pointer;
+		display:inline;
+		margin:0 3px 0 3px;
+		padding:10px 60px 10px 15px;
+		white-space:nowrap;
+	}
+	
+	body div.modal > h1 ~ ul li:hover{
+		animation-name:modalTabHover;
+		border-bottom:1px solid rgba(225,230,235,1);
+	}
+	
+	@keyframes modalTabHover{
+		100%{
+			background-color:var(--color-focus);
+			color:var(--color-white);
+		}
+	}
+	
+	body div.modal > h1 ~ ul li.active{
+		background-color:var(--color-white);
+		border-bottom:1px solid var(--color-white);
+		color:inherit;
+	}
+	
+	body div.modal > h1 ~ ul li.active:hover{
+		color:inherit;
+	}
+	
+	body div.modal h1{
+		border-bottom:1px solid rgba(225,230,235,1);
+		color:rgba(60,65,70,1);
+		font-family:"Magistral-Light";
+		font-size:22px;
+		font-weight:bold;
+		padding:0 0 15px 25px;
+		margin:25px 0 0 0;
+		width:100%;
+	}
+	
+	body div.modal div.buttons{
+		background-color:rgba(240,245,250,1);
+		border-bottom-left-radius:5px;
+		border-bottom-right-radius:5px;
+		text-align:right;
+	}
+	
+	body div.modal div.maximizeWindow{
+		background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fexpand.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-size:12px;
+		cursor:pointer;
+		height:42px;
+		position:absolute;
+		right:30px;
+		top:0;
+		width:42px;
+	}
+	
+	body div.modal div.maximizeWindow:hover{
+		animation-duration:0.5s;
+		animation-name:modalButtonHover;
+	}
+	
+	body div.modal div.minimizeWindow{
+		background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcompress.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-size:12px;
+		cursor:pointer;
+		display:none;
+		height:42px;
+		position:absolute;
+		right:30px;
+		top:0;
+		width:42px;
+	}
+	
+	body div.modal div.minimizeWindow:hover{
+		animation-duration:0.5s;
+		animation-name:modalButtonHover;
+	}
+	
+	body div.modal div.close{
+		background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftimes.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-size:12px;
+		cursor:pointer;
+		height:42px;
+		position:absolute;
+		right:0;
+		top:0;
+		width:42px;
+	}
+	
+	body div.modal div.close:hover{
+		animation-duration:0.5s;
+		animation-name:modalButtonHover;
+	}
+	
+	@keyframes modalButtonHover{
+		0%{
+			background-size:12px;
+		}
+		50%{
+			background-size:15px;
+		}
+		100%{
+			background-size:12px;
+		}
+	}
+	
+	body div.modal input[type="checkbox"] + label{
+		padding:0 0 0 0;
+	}
+	
+	body div.modal input[type="file"] + label{
+		cursor:pointer;
+		color:var(--color-primary);
+		position:relative;
+	}
+	
+	body div.modal input[type="file"] + label:hover{
+		color:var(--color-focus);
+	}
+	
+	body div.modal input[type="file"] + label:hover:after{
+		animation-name:modalLinkUnderlineShow;
+		background:var(--color-focus); 
+	}
+	
+	body div.modal input:not(input[type="checkbox"]):not(input[type="file"]) + label, body div.modal select + label, body div.modal textarea + label{
+		font-family:Verdana;
+		font-size:10px;
+		pointer-events:none;
+		position:absolute;
+		margin:10px 0 0 calc(-100% + 66px);
+	}
+	
+	body div.modal input.photo:not(input[type="checkbox"]):not(input[type="file"]) + label, body div.modal select.photo + label{
+		margin-left:calc(-100% + 271px);
+	}
+		
+		input:not(input[type="checkbox"]):invalid:not(input[type="file"]):invalid + label, select:invalid + label, textarea:invalid + label{
+			color:var(--color-danger);
+		}
+		
+		input:not(input[type="checkbox"]):valid:not(input[type="file"]):valid + label, select:valid + label, textarea:valid + label{
+			color:var(--color-success);
+		}
+	
+	body div.modal form > div{
+		background-color:var(--color-white);
+		box-shadow:0 -1px 1px 0 rgba(0,0,0,0.1);
+		padding:25px 25px 25px 25px;
+		width:100%;
+	}
+	
+	body div.modal form > div > div.photo{
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-size:cover;
+		border:1px solid rgba(240,245,250,1);
+		border-radius:50%;
+		box-shadow:inset -3px -3px 3px 0 rgba(0,0,0,0.1);
+		display:inline-block;
+		height:180px;
+		margin-left:calc(100% - 230px);
+		position:absolute;
+		width:180px;
+	}
+	
+	body div.modal input[type="checkbox"]{
+		display:none;
+	}
+	
+	body div.modal input[type="file"]{
+		display:none;
+	}
+	
+	body div.modal div.checkbox{
+		background-repeat:no-repeat, no-repeat;
+		display:inline-block;
+		height:30px;
+		padding-left:20px
+	}
+		
+		body div.modal div.checkbox.unchecked{
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsquare.svg&fill=rgba%2890%2C95%2C100%2C1%29"), url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+			background-position:left top, 0px 0px;
+			background-size:14px, 0px;
+		}
+		
+		body div.modal div.checkbox.checked{
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsquare.svg&fill=rgba%2890%2C95%2C100%2C1%29"), url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+			background-position:left top, 3px 3px;
+			background-size:14px, 8px;
+		}
+	
+	body div.modal select{
+		animation-delay:0s;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+		animation-name:none;
+		animation-timing-function:ease-in-out;
+		background-color:transparent;
+		background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fangle-down.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+		background-position:calc(100% - 15px) center;
+		background-repeat:no-repeat;
+		background-size:auto 35%;
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		margin-bottom:15px;
+		outline:none;
+		padding:25px 15px 15px 15px;
+		width:100%;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal select:focus{
+		animation-name:modalSelectFocus;
+	}
+	
+	body div.modal select.photo{
+		width:calc(100% - 205px);
+	}
+
+	@keyframes modalSelectFocus{
+		100%{
+			border:1px solid var(--color-focus);
+		}
+	}
+	
+	body div.modal select.colorPicker{
+		background:linear-gradient(90deg, transparent 90%, Aquamarine 10%);
+	}
+	
+	body div.modal input[type="text"], body div.modal input[type="tel"], body div.modal input[type="email"], body div.modal input[type="number"], body div.modal input[type="password"], body div.modal textarea{
+		animation-delay:0s;
+		animation-duration:0.5s;
+		animation-fill-mode:forwards;
+		animation-name:none;
+		animation-timing-function:ease-in-out;
+		border:1px solid rgba(225,230,235,1);
+		border-radius:3px;
+		color:rgba(90,95,100,1);
+		font-family:Verdana;
+		font-size:12px;
+		margin-bottom:15px;
+		outline:none;
+		padding:25px 15px 15px 15px;
+		width:100%;
+		
+		-webkit-appearance:none;
+		-o-appearance:none;
+		-ms-appearance:none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	
+	body div.modal input[type="text"]:focus, body div.modal input[type="tel"]:focus, body div.modal input[type="email"]:focus, body div.modal input[type="number"]:focus, body div.modal input[type="password"]:focus, body div.modal select:focus, body div.modal textarea:focus{
+		animation-name:modalInputFocus;
+	}
+	
+	body div.modal textarea{
+		min-height:250px;
+	}
+	
+	body div.modal input.photo[type="text"]{
+		width:calc(100% - 205px);
+	}
+	
+	@keyframes modalInputFocus{
+		100%{
+			border:1px solid var(--color-focus);
+		}
+	}
+	
+body div.toastr{
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	background-position:15px center;
+	background-repeat:no-repeat;
+	background-size:24px;
+	border-radius:3px;
+	display:none;
+	font-family:Verdana;
+	font-size:12px;
+	padding:15px 15px 15px 54px;
+	pointer-events:none;
+	position:fixed;
+	margin-left:-250px;
+	right:15px;
+	width:300px;
+}
+	
+@keyframes toastrShow{
+	0%{
+		opacity:0;
+	}
+	100%{
+		opacity:0.95;
+	}
+}
+
+@keyframes toastrHide{
+	0%{
+		opacity:0.95;
+	}
+	100%{
+		opacity:0;
+	}
+}
+	
+	body div.toastr > div.countdown{
+		animation-delay:2s;
+		animation-duration:5s;
+		animation-fill-mode:forwards;
+		animation-name:toastrTimeoutCountdown;
+		animation-timing-function:linear;
+		background-color:var(--color-white);
+		border-bottom-left-radius:3px;
+		border-bottom-right-radius:3px;
+		bottom:0;
+		height:5px;
+		left:0;
+		pointer-events:inherit;
+		position:absolute;
+		width:300px;
+	}
+	
+	@keyframes toastrTimeoutCountdown{
+		0%{
+			border-bottom-right-radius:3px;
+			width:300px;
+		}
+		1%{
+			border-bottom-right-radius:0px;
+			width:297px;
+		}
+		100%{
+			border-bottom-right-radius:0px;
+			width:0px;
+		}
+	}
+	
+body div.dropdown{
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+	background-color:var(--color-white);
+	box-shadow:2px 2px 2px 2px rgba(0,0,0,0.1);
+	border-radius:5px;
+	display:none;
+	padding:20px 20px 20px 20px;
+	position:absolute;
+	z-index:1;
+}
+
+body div.dropdown:after{
+	bottom:100%;
+	border:solid transparent;
+	content:"";
+	height:0;
+	position:absolute;
+	width:0;
+}
+
+@keyframes dropdownHide{
+	0%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+	}
+}
+	
+	body div.dropdown.down:after{
+		border-color:transparent;
+		border-bottom-color:var(--color-white);
+		border-width:12px;
+		bottom:100%;
+		right:18px;
+	}
+	
+	body div.dropdown.up:after{
+		border-color:transparent;
+		border-top-color:var(--color-white);
+		border-width:12px;
+		right:13px;
+		top:100%;
+	}
+	
+	body div.dropdown.down.right{
+		right:-10px;
+		top:55px;
+	}
+	
+	@keyframes dropdownDownRightShow{
+		0%{
+			opacity:0;
+			top:75px;
+		}
+		100%{
+			opacity:1;
+			top:55px;
+		}
+	}
+	
+	body div.dropdown.up.right{
+		bottom:45px;
+		right:-10px;
+	}
+	
+	@keyframes dropdownUpRightShow{
+		0%{
+			bottom:65px;
+			opacity:0;
+		}
+		100%{
+			bottom:45px;
+			opacity:1;
+		}
+	}
+	
+	body div.dropdown ul{
+		color:rgba(135,140,145,1);
+		display:block;
+		font-family:Verdana;
+		font-size:12px;
+		list-style:none;
+		margin:0 0 0 0;
+		padding:0 0 0 0;
+	}
+		
+		body div.dropdown ul li{
+			background-position:left center;
+			background-repeat:no-repeat;
+			background-size:12px;
+			color:inherit;
+			display:block;
+			padding:10px 0 10px 24px;
+			white-space:nowrap;
+		}
+		
+		body div.dropdown ul li.warning{
+			color:var(--color-danger);
+		}
+		
+		body div.dropdown ul li:hover{
+			color:var(--color-focus);
+		}
+		
+header{
+	height:100%;
+}
+	
+	header > div.header{
+		background-color:var(--color-white);
+		box-shadow:0 2px 2px 0 rgba(0,0,0,0.1);
+		height:70px;
+		left:255px;
+		position:fixed;
+		top:0;
+		width:calc(100% - 255px);
+	}
+	
+		header > div.header > div.button{
+			background-repeat:no-repeat;
+			background-position:center center;
+			background-size:auto 35%;
+			cursor:pointer;
+			height:100%;
+			position:absolute;
+			top:0;
+			width:84px;
+		}
+		
+		header > div.header > div.button:hover{
+			animation-duration:0.5s;
+			animation-name:headerRightButtonsHover;
+		}
+		
+		@keyframes headerRightButtonsHover{
+			0%{
+				background-size:auto 35%;
+			}
+			50%{
+				background-size:auto 40%;
+			}
+			100%{
+				background-size:auto 35%;
+			}
+		}
+		
+		@keyframes headerRightButtonsAddToNotificationCenter{
+			0%{
+				background-size:auto 35%;
+			}
+			25%{
+				background-size:auto 37%;
+			}
+			50%{
+				background-size:auto 35%;
+			}
+			75%{
+				background-size:auto 37%;
+			}
+			100%{
+				background-size:auto 35%;
+			}
+		}
+		
+main{
+	height:100%;
+}
+	
+	main > div.main{
+		background-color:rgba(240,245,250,1);
+		height:calc(100% - 70px);
+		left:255px;
+		overflow:auto;
+		padding:30px 30px 0px 30px;
+		position:fixed;
+		top:70px;
+		width:calc(100% - 255px);
+		
+		-webkit-overflow-scrolling:touch;
+	}
+		
+		main > div.main i{
+			color:inherit;
+		}
+		
+		main > div.main input[type="checkbox"]{
+			display:none;
+		}
+		
+		main > div.main ul.breadcrumbs{
+			color:rgba(135,140,145,1);
+			display:inline;
+			font-family:Verdana;
+			font-size:12px;
+			list-style:none;
+			padding:0 0 0 25px;
+		}
+			
+			main > div.main ul.breadcrumbs li{
+				color:inherit;
+				cursor:pointer;
+				display:inline;
+			}
+			
+			main > div.main ul.breadcrumbs li:hover{
+				color:var(--color-focus);
+			}
+			
+			main > div.main ul.breadcrumbs li+li:before{
+				padding:16px;
+				content:"/";
+			}
+				
+		main > div.main h1{
+			border-right:1px solid rgba(225,230,235,1);
+			color:rgba(60,65,70,1);
+			display:inline;
+			font-family:"Magistral-Light";
+			font-size:22px;
+			font-weight:bold;
+			margin:0;
+			padding:5px 25px 5px 0;
+		}
+		
+		main > div.main > div.nav-btn{
+			background-color:var(--color-white);
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fellipsis-h.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			background-position:center center;
+			background-repeat:no-repeat;
+			background-size:50%;
+			border-radius:50%;
+			box-shadow:0 1px 1px 0 rgba(0,0,0,0.1);
+			cursor:pointer;
+			height:40px;
+			position:absolute;
+			right:30px;
+			top:30px;
+			width:40px;
+		}
+		
+		main > div.main > div.nav-btn:hover{
+			background-color:var(--color-focus);
+			background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fellipsis-h.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+		}
+		
+		main > div.main div.info{
+			background-color:var(--color-white);
+			background-position:25px 25px;
+			background-repeat:no-repeat;
+			background-size:auto 35%;
+			box-shadow:0 1px 1px 0 rgba(0,0,0,0.1);
+			color:rgba(90,95,100,1);
+			font-family:Verdana;
+			font-size:12px;
+			margin-top:40px;
+			min-height:100px;
+			min-width:100%;
+			padding:25px 25px 25px 100px;
+			position:relative;
+			width:intrinsic;
+		}
+		
+		main > div.main div.footer{
+			background-color:var(--color-white);
+			bottom:0;
+			box-shadow:0 1px 1px 0 rgba(0,0,0,0.1);
+			color:rgba(135,140,145,1);
+			font-family:Verdana;
+			font-size:12px;
+			left:-30px;
+			margin-top:60px;
+			min-width:100%;
+			padding:25px 25px 25px 25px;
+			position:relative;
+			width:calc(100% + 60px);
+		}
+		
+		main > div.main div.datatable{
+			background-color:var(--color-white);
+			box-shadow:0 1px 1px 0 rgba(0,0,0,0.1);
+			margin-top:30px;
+			min-width:100%;
+			padding:25px 25px 25px 25px;
+			position:relative;
+			width:intrinsic;
+		}
+			
+			main > div.main div.datatable h2{
+				color:rgba(90,95,100,1);
+				display:inline;
+				font-family:"BrandonTextWeb-Regular";
+				font-size:16px;
+				font-weight:bold;
+			}
+			
+			main > div.main div.datatable > div.nav-btn{
+				background-color:var(--color-white);
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fellipsis-h.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+				background-position:center center;
+				background-repeat:no-repeat;
+				background-size:50%;
+				border:1px solid rgba(240,245,250,1);
+				border-radius:50%;
+				cursor:pointer;
+				display:inline-block;
+				float:right;
+				height:40px;
+				margin-top:-10px;
+				width:40px;
+			}
+			
+			main > div.main div.datatable > div.nav-btn:hover{
+				background-color:rgba(245,250,255,1);
+			}
+			
+			main > div.main div.datatable > div.action-btn{
+				background-color:var(--color-primary);
+				background-position:30px center;
+				background-repeat:no-repeat;
+				background-size:auto 40%;
+				border:1px solid rgba(240,245,250,1);
+				border-radius:20px;
+				color:var(--color-white);
+				cursor:pointer;
+				display:inline-block;
+				float:right;
+				font-family:Verdana;
+				font-size:12px;
+				height:40px;
+				margin-right:10px;
+				margin-top:-10px;
+				min-width:50px;
+				padding:10px 30px 0 52px;
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.add{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fplus.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.add:hover{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fplus.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.update{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsync.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.update:hover{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsync.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.export{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ffile-export.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.export:hover{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ffile-export.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.tags{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftags.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.tags:hover{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftags.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.delete{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftrash-alt.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle.delete:hover{
+				background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Ftrash-alt.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+			}
+			
+			main > div.main div.datatable > div.action-btn.circle{
+				background-position:center center;
+				min-width:40px;
+				padding:0;
+				width:40px;
+			}
+			main > div.main div.datatable > div.action-btn:hover{
+				background-color:var(--color-white);
+				color:var(--color-focus);
+				border:1px solid var(--color-focus);
+			}
+				
+			main > div.main div.datatable hr{
+				border:1px solid rgba(225,230,235,1);
+				left:-25px;
+				margin-bottom:45px;
+				margin-top:25px;
+				position:relative;
+				width:calc(100% + 50px);
+			}
+			
+			main > div.main div.datatable table{
+				border-collapse:collapse;
+				width:100%;
+			}
+					
+				main > div.main div.datatable table tr.datatableInfo{
+					/* display:none; */
+				}
+					
+					main > div.main div.datatable table tr.loading td{
+						font-family:Verdana;
+						font-size:12px;
+						height:250px;
+						padding-top:15px;
+						position:relative;
+						text-align:center;
+					}
+						
+						main > div.main div.datatable table tr.loading td div.progress{
+							border:1px solid var(--color-primary);
+							border-radius:5px;
+							height:10px;
+							left:50%;
+							margin-left:-150px;
+							overflow:hidden;
+							position:absolute;
+							top:200px;
+							width:300px;
+						}
+							
+							main > div.main div.datatable table tr.loading td div.progress > div.status{
+								animation-fill-mode:forwards;
+								animation-name:progressForward;
+								animation-timing-function:linear;
+								background-color:var(--color-primary);
+								border-radius:0;
+								height:100%;
+								left:0;
+								position:absolute;
+								top:0;
+							}
+							
+							@keyframes progressForward{
+								0%{
+									opacity:0.5;
+									width:0%;
+								}
+								100%{
+									opacity:1;
+									width:100%;
+								}
+							}
+							
+							@keyframes progressBackward{
+								0%{
+									opacity:1;
+									width:0%;
+								}
+								100%{
+									opacity:0.5;
+									width:100%;
+								}
+							}
+						
+					main > div.main div.datatable table tr th{
+						background-position:calc(100% - 10px) center;
+						background-repeat:no-repeat;
+						background-size:16px;
+						border-top:1px solid rgba(240,245,250,1);
+						border-left:1px solid rgba(240,245,250,1);
+						border-right:1px solid rgba(240,245,250,1);
+						border-bottom:2px solid rgba(240,245,250,1);
+						color:rgba(90,95,100,1);
+						cursor:pointer;
+						font-family:Verdana;
+						font-size:12px;
+						font-weight:bold;
+						padding:20px 10px 20px 10px;
+						text-align:left;
+						white-space:nowrap;
+					}
+					
+					main > div.main div.datatable table tr th.checkbox{
+						animation-duration:0.25s;
+						animation-fill-mode:forwards;
+						background-position:center center;
+						background-repeat:no-repeat;
+						background-size:15px;
+						width:45px;
+					}
+						
+						main > div.main div.datatable table tr th.checkbox.unchecked{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%28235%2C240%2C245%2C1%29");
+						}
+						
+						@keyframes checkboxHeadUnchecked{
+							0%{
+								background-size:15px;
+							}
+							50%{
+								background-size:20px;
+							}
+							100%{
+								background-size:15px;
+							}
+						}
+						
+						main > div.main div.datatable table tr th.checkbox.checked{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+						}
+						
+						@keyframes checkboxHeadChecked{
+							0%{
+								background-size:15px;
+							}
+							50%{
+								background-size:20px;
+							}
+							100%{
+								background-size:15px;
+							}
+						}
+						
+						main > div.main div.datatable table tr th.checkbox.indeterminate{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fminus.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+						}
+						
+						@keyframes checkboxHeadIndeterminate{
+							0%{
+								background-size:15px;
+							}
+							50%{
+								background-size:20px;
+							}
+							100%{
+								background-size:15px;
+							}
+						}
+						
+					main > div.main div.datatable table tr th:first-child, main > div.main div.datatable table tr th:last-child{
+						cursor:default;
+					}
+					
+					main > div.main div.datatable table tr td{
+						background-color:transparent;
+						border:1px solid rgba(240,245,250,1);
+						color:rgba(90,95,100,1);
+						font-family:Verdana;
+						font-size:12px;
+						padding:20px 10px 20px 10px;
+					}
+						
+					main > div.main div.datatable table tr td.photo{
+						padding:20px 10px 20px 52px;
+						position:relative;
+					}
+						
+						main > div.main div.datatable table tr td div.tag{
+							border-radius:5px;
+							box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
+							display:inline-block;
+							font-family:Verdana;
+							font-size:9px;
+							margin:0px 5px 5px 0px;
+							padding:3px 9px 3px 9px;
+						}
+						
+						main > div.main div.datatable table tr td.photo div.photo{
+							background-position:center center;
+							background-repeat:no-repeat;
+							background-size:cover;
+							border:1px solid rgba(240,245,250,1);
+							border-radius:50%;
+							box-shadow:inset -1px -1px 1px 0 rgba(0,0,0,0.1);
+							display:inline-block;
+							height:32px;
+							margin-left:-42px;
+							margin-top:-8px;
+							position:absolute;
+							width:32px;
+						}
+						
+					main > div.main div.datatable table tr td.checkbox{
+						animation-duration:0.25s;
+						animation-fill-mode:forwards;
+						background-position:center center;
+						background-repeat:no-repeat;
+						background-size:15px;
+						width:45px;
+					}
+						
+						main > div.main div.datatable table tr td.checkbox.unchecked{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%28225%2C2300%2C235%2C1%29");
+						}
+						
+						@keyframes checkboxUnchecked{
+							0%{
+								background-size:15px;
+							}
+							50%{
+								background-size:20px;
+							}
+							100%{
+								background-size:15px;
+							}
+						}
+						
+						main > div.main div.datatable table tr td.checkbox.checked{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fcheck.svg&fill=rgba%2890%2C95%2C100%2C1%29");
+						}
+						
+						@keyframes checkboxChecked{
+							0%{
+								background-size:15px;
+							}
+							50%{
+								background-size:20px;
+							}
+							100%{
+								background-size:15px;
+							}
+						}
+						
+					main > div.main div.datatable table tr:hover:not(tr.search,tr.loading) td{
+						background-color:rgba(245,250,255,1);
+					}
+						
+						main > div.main div.datatable table tr td div.status{
+							border-radius:10px;
+							display:inline-block;
+							font-family:Verdana;
+							font-size:9px;
+							padding:3px 9px 3px 9px;
+							text-align:center;
+						}
+						
+						main > div.main div.datatable table tr td div.status.green{
+							background-color:var(--color-success);
+							color:rgba(90,95,100,1);
+						}
+						
+						main > div.main div.datatable table tr td div.status.red{
+							background-color:var(--color-danger);
+							color:var(--color-white);
+						}
+						
+						main > div.main div.datatable table tr td div.type{
+							border-radius:10px;
+							display:inline-block;
+							font-family:Verdana;
+							font-size:9px;
+							padding:3px 9px 3px 9px;
+							text-align:center;
+						}
+						
+						main > div.main div.datatable table tr td div.type.red{
+							background-color:var(--color-white);
+							border:1px solid var(--color-danger);
+							color:var(--color-danger);
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn{
+							background-color:var(--color-white);
+							background-position:center center;
+							background-repeat:no-repeat;
+							background-size:50%;
+							border-radius:50%;
+							cursor:pointer;
+							display:inline-block;
+							height:30px;
+							position:relative;
+							width:30px;
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn:hover{
+							background-color:var(--color-focus);
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn.ellipsis-h{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fellipsis-h.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn.ellipsis-h:hover{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fellipsis-h.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn.edit{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fedit.svg&fill=rgba%28135%2C140%2C145%2C1%29");
+						}
+						
+						main > div.main div.datatable table tr td > div.nav-btn.edit:hover{
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fedit.svg&fill=rgba%28255%2C255%2C255%2C1%29");
+						}
+						
+					main > div.main div.datatable table tr.search td{
+						border-top:1px solid rgba(240,245,250,1);
+						border-left:1px solid rgba(240,245,250,1);
+						border-right:1px solid rgba(240,245,250,1);
+						border-bottom:2px solid rgba(240,245,250,1);
+						color:rgba(90,95,100,1);
+						padding:10px 10px 10px 10px;
+					}
+						
+						main > div.main div.datatable table tr.search td input{
+							animation-delay:0s;
+							animation-duration:0.5s;
+							animation-fill-mode:forwards;
+							animation-name:none;
+							animation-timing-function:ease-in-out;
+							background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsearch.svg&fill=rgba%28225%2C230%2C235%2C1%29"), url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fsearch.svg&fill=rgba%28240%2C25%2C240%2C1%29");
+							background-position:calc(100% - 7px) center, calc(100% - 7px) center;
+							background-repeat:no-repeat, no-repeat;
+							background-size:auto 16px, 0 0;
+							border:1px solid rgba(225,230,235,1);
+							border-radius:3px;
+							color:rgba(90,95,100,1);
+							font-family:Verdana;
+							font-size:12px;
+							outline:none;
+							padding:5px 30px 5px 7px;
+							width:100%;
+							-webkit-appearance:textfield;
+						}
+						
+						main > div.main div.datatable table tr.search td input:focus{
+							animation-name:datatableSearchInputFocus;
+						}
+						
+						@keyframes datatableSearchInputFocus{
+							100%{
+								background-size:0 0, auto 16px;
+								border:1px solid var(--color-focus);
+							}
+						}
+						
+nav{
+	height:100%;
+}
+	
+	nav > .nav{
+		background-color:var(--color-nav-background);
+		height:100%;
+		left:0;
+		overflow:auto;
+		position:fixed;
+		top:0;
+		width:255px;
+		
+		-webkit-overflow-scrolling:touch;
+	}
+		
+		nav > .nav ul{
+			color:var(--color-nav-links);
+			display:block;
+			font-family:Verdana;
+			font-size:12px;
+			list-style:none;
+			margin:0 0 0 0;
+			padding:0 0 0 0;
+		}
+		
+		nav > .nav ul:nth-child(1){
+			padding:50px 25px 25px 25px;
+			width:100%;
+		}
+			
+			nav > .nav ul li{
+				background-position:left center;
+				background-repeat:no-repeat;
+				background-size:auto 18px;
+				color:inherit;
+				display:block;
+			}
+			
+			nav > .nav ul li{
+				padding:25px 0 10px 0;
+			}
+			
+			nav > .nav ul ul li{
+				padding:10px 0 10px 39px;
+			}
+			
+			nav > .nav ul ul ul li{
+				padding:10px 0 10px 54px;
+			}
+			
+			nav > .nav ul li:hover{
+				color:var(--color-nav-hover);
+			}
+				
+				nav > .nav ul li a{
+					color:inherit;
+					text-decoration:none;
+				}

@@ -1,0 +1,11 @@
+runtime: php73
+
+handlers:
+- url: /(.+\.(eot|woff|woff2|ttf|js|css|gif|png|svg|jpg|jpeg|json|xml|html|htm))$
+  static_files: \1
+  upload: .+\.(eot|woff|woff2|ttf|js|css|gif|png|svg|jpg|jpeg|json|xml|html|htm)$
+  secure: always
+
+- url: .*
+  script: auto
+  secure: always
