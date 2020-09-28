@@ -1336,7 +1336,7 @@ main{
 			}
 					
 				main > div.main div.datatable table tr.datatableInfo{
-					/* display:none; */
+					display:none;
 				}
 					
 					main > div.main div.datatable table tr.loading td{

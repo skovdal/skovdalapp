@@ -309,7 +309,7 @@ if($validateFlag == 200){
 		<tr class="datatableInfo">
 			<td colspan="100%">
 				<input value="<?php echo mysqli_num_rows($result); ?>">
-				<input value="<?php echo md5(getTableVersion('filesMetaData')); ?>">
+				<input value="<?php echo getTableVersion('filesMetaData'); ?>">
 			</td>
 		</tr>
 	<?php
@@ -319,7 +319,7 @@ if($validateFlag == 200){
 		<tr class="datatableInfo">
 			<td colspan="100%">
 				<input value="<?php echo mysqli_num_rows($result); ?>">
-				<input value="<?php echo md5(getTableVersion('filesMetaData')); ?>">
+				<input value="<?php echo getTableVersion('filesMetaData'); ?>">
 			</td>
 		</tr>
 		<?php
