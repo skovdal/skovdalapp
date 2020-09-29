@@ -309,7 +309,7 @@ if($validateFlag == 200){
 							'&searchLastModified=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchLastModified]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 					else{
 						document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value = newOrderBy;
@@ -328,7 +328,7 @@ if($validateFlag == 200){
 							'&searchLastModified=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchLastModified]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
-						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
+						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId, 0);
 					}
 				}
 			</script>
@@ -367,7 +367,7 @@ if($validateFlag == 200){
 								<ul>
 									<li onclick="modal(0, 'large', '/files/add/modal.php', 'POST', '', true, 1);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/plus.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Nye filer</li>
 									<li onclick="" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/file-import.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Importer filer</li>
-									<li onclick="datatableUpdate('', this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater filer</li>
+									<li onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/sync.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Opdater filer</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Del markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'large', '/files/shareMultiple/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/share.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Del markerede filer</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Download markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'large', '/files/decryptMultiple/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/eye.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Dekrypter markerede filer</li>
 									<li onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Download markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'large', '/files/downloadMultiple/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/file-download.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');">Download markerede filer</li>
@@ -384,11 +384,11 @@ if($validateFlag == 200){
 						<div class="action-btn circle delete" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Slet markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'basic', '/files/deleteMultiple/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsFiles_shortcutsDelete == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle tags" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Tilføj mærke på markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'basic', '/files/tagsMultiple/add/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsFiles_shortcutsTags == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle export" onclick="if(datatableGetCheckedCheckboxes(this.closest('div.datatable').id) === false){toastr('warning', 'Eksporter markerede filer', 'Der er ikke markeret nogen filer.', 0, true, '');}else{modal(0, 'large', '/files/exportMultiple/modal.php', 'POST', '&files_id=' + encodeURIComponent(datatableGetCheckedCheckboxes(this.closest('div.datatable').id)), true, 1);}" style="<?php if($preferences_shortcutsFiles_shortcutsExport == 1){}else{echo 'display:none;';} ?>"></div>
-						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id);" style="<?php if($preferences_shortcutsFiles_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
+						<div class="action-btn circle update" onclick="datatableUpdate('', this.closest('div.datatable').id, 0);" style="<?php if($preferences_shortcutsFiles_shortcutsUpdate == 1){}else{echo 'display:none;';} ?>"></div>
 						<div class="action-btn circle add" onclick="modal(0, 'large', '/files/add/modal.php', 'POST', '', true, 1);" style="<?php if($preferences_shortcutsFiles_shortcutsNew == 1){}else{echo 'display:none;';} ?>"></div>
 						
 						<hr>
-						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id); return false;">
+						<form onsubmit="datatableUpdate(document.activeElement, this.closest('div.datatable').id, 0); return false;">
 							<input name="orderBy" type="hidden" value="<?php echo orderBy('orderBy', purify($preferences_orderByFiles_orderBy)); ?>">
 							<input name="orderBySort" type="hidden" value="<?php echo orderBy('orderBySort', purify($preferences_orderByFiles_orderBy)); ?>">
 							
