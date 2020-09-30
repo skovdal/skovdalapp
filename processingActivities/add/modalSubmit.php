@@ -25,6 +25,16 @@ else{
 	}
 }
 
+if(isset($_POST['purpose']) === false){
+	$validateFlag = 400;
+}
+else{
+	$purpose = $_POST['purpose'];
+	if(strlen($purpose) < 3){
+		$validateFlag = 400;
+	}
+}
+
 if(isset($_POST['securityClearance']) === false){
 	$validateFlag = 400;
 }
@@ -36,7 +46,7 @@ if(isset($_POST['responsible_identities_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$identities_id = $_POST['responsible_identities_id'];
+	$responsible_identities_id = $_POST['responsible_identities_id'];
 	if(decodeId($responsible_identities_id) == -1){
 		$validateFlag = 400;
 	}
@@ -49,7 +59,7 @@ if(isset($_POST['dpo_identities_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$identities_id = $_POST['dpo_identities_id'];
+	$dpo_identities_id = $_POST['dpo_identities_id'];
 	if(decodeId($dpo_identities_id) == -1){
 		$validateFlag = 400;
 	}
@@ -66,6 +76,7 @@ if($validateFlag == 200){
 			`c0`.`processingActivities`
 		(
 			`c0`.`processingActivities`.`name`,
+			`c0`.`processingActivities`.`purpose`,
 			`c0`.`processingActivities`.`securityClearance`,
 			`c0`.`processingActivities`.`responsible_identities_id`,
 			`c0`.`processingActivities`.`dpo_identities_id`
@@ -75,10 +86,11 @@ if($validateFlag == 200){
 			?,
 			?,
 			?,
+			?,
 			?
 		)
 	");
-	$stmt->bind_param('ssii', $name, $securityClearance, $responsible_identities_id, $dpo_identities_id);
+	$stmt->bind_param('sssii', $name, $purpose, $securityClearance, $responsible_identities_id, $dpo_identities_id);
 	$stmt->execute();
 	$processingActivities_id = mysqli_insert_id($con);
 	setTableVersion('processingActivities');
