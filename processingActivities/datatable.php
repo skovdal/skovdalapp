@@ -13,29 +13,29 @@ if($preferences_columnsProcessingActivities_columnsSecurityClearance == -1){
 	$preferences_columnsProcessingActivities_columnsSecurityClearance = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityType = getSystemPreferences('columnsProcessingActivities_columnsEntityType');
-if($preferences_columnsProcessingActivities_columnsEntityType == -1){
-	$preferences_columnsProcessingActivities_columnsEntityType = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityType = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityType');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityType = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityName = getSystemPreferences('columnsProcessingActivities_columnsEntityName');
-if($preferences_columnsProcessingActivities_columnsEntityName == -1){
-	$preferences_columnsProcessingActivities_columnsEntityName = 1;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityName = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityName');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityName = 1;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityName2 = getSystemPreferences('columnsProcessingActivities_columnsEntityName2');
-if($preferences_columnsProcessingActivities_columnsEntityName2 == -1){
-	$preferences_columnsProcessingActivities_columnsEntityName2 = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityName2');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityPhone = getSystemPreferences('columnsProcessingActivities_columnsEntityPhone');
-if($preferences_columnsProcessingActivities_columnsEntityPhone == -1){
-	$preferences_columnsProcessingActivities_columnsEntityPhone = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityPhone');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityEmail = getSystemPreferences('columnsProcessingActivities_columnsEntityEmail');
-if($preferences_columnsProcessingActivities_columnsEntityEmail == -1){
-	$preferences_columnsProcessingActivities_columnsEntityEmail = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityEmail');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail = 0;
 }
 
 $preferences_columnsProcessingActivities_columnsTags = getSystemPreferences('columnsProcessingActivities_columnsTags');
@@ -51,44 +51,44 @@ else{
 	$searchNameSql = '%' . $searchName . '%';
 }
 
-if(isset($_POST['searchEntityType']) === false){
+if(isset($_POST['searchResponsibleIdentityType']) === false){
 	$validateFlag = 400;
 }
 else{
-	$searchEntityType = $_POST['searchEntityType'];
-	$searchEntityTypeSql = '%' . $searchEntityType . '%';
+	$searchResponsibleIdentityType = $_POST['searchResponsibleIdentityType'];
+	$searchResponsibleIdentityTypeSql = '%' . $searchResponsibleIdentityType . '%';
 }
 
-if(isset($_POST['searchEntityName']) === false){
+if(isset($_POST['searchResponsibleIdentityName']) === false){
 	$validateFlag = 400;
 }
 else{
-	$searchEntityName = $_POST['searchEntityName'];
-	$searchEntityNameSql = '%' . $searchEntityName . '%';
+	$searchResponsibleIdentityName = $_POST['searchResponsibleIdentityName'];
+	$searchResponsibleIdentityNameSql = '%' . $searchResponsibleIdentityName . '%';
 }
 
-if(isset($_POST['searchEntityName2']) === false){
+if(isset($_POST['searchResponsibleIdentityName2']) === false){
 	$validateFlag = 400;
 }
 else{
-	$searchEntityName2 = $_POST['searchEntityName2'];
-	$searchEntityName2Sql = '%' . $searchEntityName2 . '%';
+	$searchResponsibleIdentityName2 = $_POST['searchResponsibleIdentityName2'];
+	$searchResponsibleIdentityName2Sql = '%' . $searchResponsibleIdentityName2 . '%';
 }
 
-if(isset($_POST['searchEntityPhone']) === false){
+if(isset($_POST['searchResponsibleIdentityPhone']) === false){
 	$validateFlag = 400;
 }
 else{
-	$searchEntityPhone = $_POST['searchEntityPhone'];
-	$searchEntityPhoneSql = '%' . $searchEntityPhone . '%';
+	$searchResponsibleIdentityPhone = $_POST['searchResponsibleIdentityPhone'];
+	$searchResponsibleIdentityPhoneSql = '%' . $searchResponsibleIdentityPhone . '%';
 }
 
-if(isset($_POST['searchEntityEmail']) === false){
+if(isset($_POST['searchResponsibleIdentityEmail']) === false){
 	$validateFlag = 400;
 }
 else{
-	$searchEntityEmail = $_POST['searchEntityEmail'];
-	$searchEntityEmailSql = '%' . $searchEntityEmail . '%';
+	$searchResponsibleIdentityEmail = $_POST['searchResponsibleIdentityEmail'];
+	$searchResponsibleIdentityEmailSql = '%' . $searchResponsibleIdentityEmail . '%';
 }
 
 if(isset($_POST['searchTags']) === false){
@@ -161,19 +161,19 @@ function orderBy($request){
 		else if($orderBy == 'SecurityClearance'){
 			$orderBy = '`c0`.`processingActivities`.`securityClearance`';
 		}
-		else if($orderBy == 'EntityType'){
+		else if($orderBy == 'ResponsibleIdentityType'){
 			$orderBy = '`c0`.`identities`.`type`';
 		}
-		else if($orderBy == 'EntityName'){
+		else if($orderBy == 'ResponsibleIdentityName'){
 			$orderBy = '`c0`.`identities`.`name`';
 		}
-		else if($orderBy == 'EntityName2'){
+		else if($orderBy == 'ResponsibleIdentityName2'){
 			$orderBy = '`c0`.`identities`.`name2`';
 		}
-		else if($orderBy == 'EntityPhone'){
+		else if($orderBy == 'ResponsibleIdentityPhone'){
 			$orderBy = '`c0`.`identities`.`phone`';
 		}
-		else if($orderBy == 'EntityEmail'){
+		else if($orderBy == 'ResponsibleIdentityEmail'){
 			$orderBy = '`c0`.`identities`.`email`';
 		}
 		else if($orderBy == 'Tags'){
@@ -251,7 +251,7 @@ if($validateFlag == 200){
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
 	
-	if($searchNameSql == '%%' && $searchEntityTypeSql == '%%' && $searchEntityNameSql == '%%' && $searchEntityName2Sql == '%%' && $searchEntityPhoneSql == '%%' && $searchEntityEmailSql == '%%' && $searchTagsSql == '%%'){
+	if($searchNameSql == '%%' && $searchResponsibleIdentityTypeSql == '%%' && $searchResponsibleIdentityNameSql == '%%' && $searchResponsibleIdentityName2Sql == '%%' && $searchResponsibleIdentityPhoneSql == '%%' && $searchResponsibleIdentityEmailSql == '%%' && $searchTagsSql == '%%'){
 		$stmt->prepare("
 			SELECT
 				`c0`.`processingActivities`.`id` AS `processingActivities_id`,
@@ -268,7 +268,7 @@ if($validateFlag == 200){
 			INNER JOIN
 				`c0`.`identities`
 			ON
-				`c0`.`processingActivities`.`identities_id` = `c0`.`identities`.`id`
+				`c0`.`processingActivities`.`responsible_identities_id` = `c0`.`identities`.`id`
 			WHERE
 				`c0`.`processingActivities`.`deleteFlag` IS NULL
 				AND
@@ -297,7 +297,7 @@ if($validateFlag == 200){
 				INNER JOIN
 					`c0`.`identities`
 				ON
-					`c0`.`processingActivities`.`identities_id` = `c0`.`identities`.`id`
+					`c0`.`processingActivities`.`responsible_identities_id` = `c0`.`identities`.`id`
 				WHERE
 					`c0`.`processingActivities`.`name` LIKE ?
 					AND
@@ -321,7 +321,7 @@ if($validateFlag == 200){
 				ORDER BY
 					" . orderBy('orderBy') . " " . orderBy('orderBySort') . "
 			");
-			$stmt->bind_param('ssssss', $searchNameSql, $searchEntityTypeSql, $searchEntityNameSql, $searchEntityName2Sql, $searchEntityPhoneSql, $searchEntityEmailSql);
+			$stmt->bind_param('ssssss', $searchNameSql, $searchResponsibleIdentityTypeSql, $searchResponsibleIdentityNameSql, $searchResponsibleIdentityName2Sql, $searchResponsibleIdentityPhoneSql, $searchResponsibleIdentityEmailSql);
 		}
 		else{
 			$stmt->prepare("
@@ -340,7 +340,7 @@ if($validateFlag == 200){
 				INNER JOIN
 					`c0`.`identities`
 				ON
-					`c0`.`processingActivities`.`identities_id` = `c0`.`identities`.`id`
+					`c0`.`processingActivities`.`responsible_identities_id` = `c0`.`identities`.`id`
 				WHERE
 					`c0`.`processingActivities`.`name` LIKE ?
 					AND
@@ -362,7 +362,7 @@ if($validateFlag == 200){
 				ORDER BY
 					" . orderBy('orderBy') . " " . orderBy('orderBySort') . "
 			");
-			$stmt->bind_param('ssssss', $searchNameSql, $searchEntityTypeSql, $searchEntityNameSql, $searchEntityName2Sql, $searchEntityPhoneSql, $searchEntityEmailSql);
+			$stmt->bind_param('ssssss', $searchNameSql, $searchResponsibleIdentityTypeSql, $searchResponsibleIdentityNameSql, $searchResponsibleIdentityName2Sql, $searchResponsibleIdentityPhoneSql, $searchResponsibleIdentityEmailSql);
 		}
 	}
 	
@@ -406,12 +406,12 @@ if($validateFlag == 200){
 					echo purify($row['processingActivities_securityClearance']);
 					?>
 				</td>
-				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityType == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
+				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					echo purify($row['identities_type']);
 					?>
 				</td>
-				<td class="photo" onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityName == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
+				<td class="photo" onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					if($row['identities_photo_filesMetaData_id'] === null){
 					?>
@@ -426,17 +426,17 @@ if($validateFlag == 200){
 					echo purify($row['identities_name']);
 					?>
 				</td>
-				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityName2 == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
+				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					echo purify($row['identities_name2']);
 					?>
 				</td>
-				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityPhone == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
+				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					echo purify($row['identities_phone']);
 					?>
 				</td>
-				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityEmail == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
+				<td onclick="modal(0, 'large', '/processingActivities/view/modal.php', 'POST', '&processingActivities_id=<?php echo encodeId(purify($row['processingActivities_id'])); ?>', true, 1);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					echo purify($row['identities_email']);
 					?>
