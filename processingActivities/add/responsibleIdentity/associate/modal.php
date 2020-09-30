@@ -19,7 +19,7 @@ else{
 
 if($validateFlag == 200){
 ?>
-	<h1>Tilknyt identitet</h1>
+	<h1>Tilknyt identitet som ansvarlig</h1>
 	<form>
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">

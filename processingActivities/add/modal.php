@@ -172,7 +172,7 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<div class="photo" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/user-circle.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');"></div>
-			<input id="inputDpoIdentityId" name="identities_id" type="hidden" value="<?php echo encodeId(purify($processingActivities_identities_id)); ?>">
+			<input id="inputDpoIdentityId" name="dpo_identities_id" type="hidden" value="<?php echo encodeId(purify($processingActivities_identities_id)); ?>">
 			<input class="photo" id="inputDpoIdentityType" type="text" readonly><label>Type</label><br>
 			<input class="photo" id="inputDpoIdentityName" type="text" readonly><label>Navn</label><br>
 			<input class="photo" id="inputDpoIdentityName2" type="text" readonly><label>Supplerende navneoplysninger</label><br>
