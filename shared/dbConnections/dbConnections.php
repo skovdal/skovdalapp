@@ -2,7 +2,7 @@
 function dbConnection(){
 	$systemIdentities_id = 1;
 	
-	$conSystemConfiguration = new mysqli('34.76.251.67', 'root', 'BU7zq9BfXU883W9U9RCHnMZdbPdeYLMCrwCiTRdrmMiXMeoXCVdsX6Q9oAPPNPJG');
+	$conSystemConfiguration = new mysqli('34.77.178.201', 'root', 'BU7zq9BfXU883W9U9RCHnMZdbPdeYLMCrwCiTRdrmMiXMeoXCVdsX6Q9oAPPNPJG');
 	$stmtSystemConfiguration = $conSystemConfiguration->stmt_init();
 	$stmtSystemConfiguration->prepare("
 		SELECT

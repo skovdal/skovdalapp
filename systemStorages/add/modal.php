@@ -36,25 +36,30 @@ if($validateFlag == 200){
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="Jens Nielsen" type="text" required autofocus><label for="inputName">Navn</label><br>
 			<select id="inputType" name="type" required>
 				<optgroup label="Database">
-					<option value="MariaDB">MariaDB</option>
-					<option value="MySQL">MySQL</option>
-					<option value="Oracle">Oracle</option>
-					<option value="PostgreSQL">PostgreSQL</option>
-					<option value="SQL">SQL</option>
+<!-- 					<option value="MariaDB">MariaDB</option> -->
+<!-- 					<option value="MySQL 5.6">MySQL 5.6</option> -->
+<!-- 					<option value="MySQL 5.7">MySQL 5.7</option> -->
+					<option value="MySQL 8.0">MySQL 8.0</option>
+<!-- 					<option value="Oracle">Oracle</option> -->
+<!-- 					<option value="PostgreSQL 9.6">PostgreSQL 9.6</option> -->
+<!-- 					<option value="PostgreSQL 10">PostgreSQL 10</option> -->
+<!-- 					<option value="PostgreSQL 11">PostgreSQL 11</option> -->
+<!-- 					<option value="PostgreSQL 12">PostgreSQL 12</option> -->
+<!-- 					<option value="SQL 2017">SQL 2017</option> -->
 				</optgroup>
 				<option disabled></option>
 				<optgroup label="Fillager">
-					<option value="Amazon S3">Amazon S3</option>
-					<option value="Box">Box</option>
-					<option value="Dropbox">Dropbox</option>
+<!-- 					<option value="Amazon S3">Amazon S3</option> -->
+<!-- 					<option value="Box">Box</option> -->
+<!-- 					<option value="Dropbox">Dropbox</option> -->
 					<option value="FTP">FTP</option>
 					<option value="FTPS">FTPS</option>
-					<option value="Google Drive">Google Drives</option>
-					<option value="Microsoft Azure">Microsoft Azure</option>
-					<option value="Microsoft OneDrive">Microsoft OneDrive</option>
-					<option value="Microsoft OneDrive for Business">Microsoft OneDrive for Business</option>
-					<option value="SFTP">SFTP</option>
-					<option value="WebDav">WebDav</option>
+<!-- 					<option value="Google Drive">Google Drives</option> -->
+<!-- 					<option value="Microsoft Azure">Microsoft Azure</option> -->
+<!-- 					<option value="Microsoft OneDrive">Microsoft OneDrive</option> -->
+<!-- 					<option value="Microsoft OneDrive for Business">Microsoft OneDrive for Business</option> -->
+<!-- 					<option value="SFTP">SFTP</option> -->
+<!-- 					<option value="WebDav">WebDav</option> -->
 				</optgroup>
 			</select><label for="inputType">Type</label><br>
 		</div>
