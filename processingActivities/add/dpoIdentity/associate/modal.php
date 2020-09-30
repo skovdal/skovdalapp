@@ -67,13 +67,12 @@ if($validateFlag == 200){
 						?>
 							<tr>
 								<td class="photo" onclick="
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityId')[0].value = '<?php echo encodeId(purify($row['identities_id'])); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityType')[0].value = '<?php echo purify($row['identities_type']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityName')[0].value = '<?php echo purify($row['identities_name']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityName2')[0].value = '<?php echo purify($row['identities_name2']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityPhone')[0].value = '<?php echo purify($row['identities_phone']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityEmail')[0].value = '<?php echo purify($row['identities_email']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityEmail')[0].value = '<?php echo purify($row['identities_email']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityId')[0].value = '<?php echo encodeId(purify($row['identities_id'])); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityType')[0].value = '<?php echo purify($row['identities_type']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityName')[0].value = '<?php echo purify($row['identities_name']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityName2')[0].value = '<?php echo purify($row['identities_name2']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityPhone')[0].value = '<?php echo purify($row['identities_phone']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputDpoIdentityEmail')[0].value = '<?php echo purify($row['identities_email']); ?>';
 									<?php
 									if($row['identities_photo_filesMetaData_id'] === null){
 									?>

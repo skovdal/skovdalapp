@@ -67,12 +67,12 @@ if($validateFlag == 200){
 						?>
 							<tr>
 								<td class="photo" onclick="
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityId')[0].value = '<?php echo encodeId(purify($row['identities_id'])); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityType')[0].value = '<?php echo purify($row['identities_type']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityName')[0].value = '<?php echo purify($row['identities_name']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityName2')[0].value = '<?php echo purify($row['identities_name2']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityPhone')[0].value = '<?php echo purify($row['identities_phone']); ?>';
-									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputEntityEmail')[0].value = '<?php echo purify($row['identities_email']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityId')[0].value = '<?php echo encodeId(purify($row['identities_id'])); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityType')[0].value = '<?php echo purify($row['identities_type']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityName')[0].value = '<?php echo purify($row['identities_name']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityName2')[0].value = '<?php echo purify($row['identities_name2']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityPhone')[0].value = '<?php echo purify($row['identities_phone']); ?>';
+									document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> #inputResponsibleIdentityEmail')[0].value = '<?php echo purify($row['identities_email']); ?>';
 									<?php
 									if($row['identities_photo_filesMetaData_id'] === null){
 									?>
@@ -81,7 +81,7 @@ if($validateFlag == 200){
 									}
 									else{
 									?>
-										document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> form > div > div.photo')[0].style.backgroundImage = 'url(\'<?php echo '/serve/photo.php?id=' . encodeId(purify($row['identities_photo_filesMetaData_id'])); ?>\')';
+										document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> form > div > div.photo')[0].style.backgroundImage = 'url(\'<?php echo '/serve/photo.php?id=' . purify($row['identities_photo_filesMetaData_id']); ?>\')';
 									<?php
 									}
 									?>
@@ -96,7 +96,7 @@ if($validateFlag == 200){
 									}
 									else{
 									?>
-										<div class="photo" style="background-image:url('<?php echo '/serve/photo.php?id=' . encodeId(purify($row['identities_photo_filesMetaData_id'])); ?>');"></div>
+										<div class="photo" style="background-image:url('<?php echo '/serve/photo.php?id=' . purify($row['identities_photo_filesMetaData_id']); ?>');"></div>
 									<?php
 									}
 									echo purify($row['identities_name']);
@@ -118,14 +118,13 @@ if($validateFlag == 200){
 		</div>
 	</form>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logProcessingActivities') == 1 || getSystemConfigurations('logProcessingActivities') == -1){
 		$type = 'view';
-		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
+		$processingActivities_id = $_SESSION['processingActivities_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
 		$startTime = $systemEvents_addEvent_startTime;
 		$endTime = microtime(true);
-		$latency = ($endTime - $startTime);
-		$finished = 0;
+		$finished = 1;
 		$host = $_SERVER['SERVER_NAME'];
 		$httpVersion = $_SERVER['SERVER_PROTOCOL'];
 		$instanceId = session_id();
@@ -137,30 +136,9 @@ if($validateFlag == 200){
 		$getData = json_encode($_GET);
 		$httpsEnabled = $_SERVER['HTTPS'];
 		$fileName = $_SERVER['SCRIPT_FILENAME'];
-		$devices_id = null;
-		$exports_id = null;
-		$filesContent_id = null;
-		$filesMetaData_id = null;
-		$identities_id = null;
-		$meetings_id = null;
-		$policies_id = null;
-		$processingActivities_id = null;
-		$processingActivitiesLegalBasises_id = null;
-		$progressTime_id = null;
-		$pseudoNames_id = null;
-		$sessions_id = null;
-		$systemConfigurations_id = null;
-		$systemEvents_id = null;
-		$systemNotifications_id = null;
-		$systemStorages_id = null;
-		$systemUsers_id = null;
-		$systemUsersSystemPreferences_id = null;
-		$tableVersions_id = null;
-		$tags_id = null;
-		$tagsReferences_id = null;
 		
 		addSystemEvent(
-			$trigger_systemUsers_id,
+			$processingActivities_id,
 			$type,
 			$ipAddress,
 			$startTime,
@@ -176,35 +154,14 @@ if($validateFlag == 200){
 			$postData,
 			$getData,
 			$httpsEnabled,
-			$fileName,
-			$devices_id,
-			$exports_id,
-			$filesContent_id,
-			$filesMetaData_id,
-			$identities_id,
-			$meetings_id,
-			$policies_id,
-			$processingActivities_id,
-			$processingActivitiesLegalBasises_id,
-			$progressTime_id,
-			$pseudoNames_id,
-			$sessions_id,
-			$systemConfigurations_id,
-			$systemEvents_id,
-			$systemNotifications_id,
-			$systemStorages_id,
-			$systemUsers_id,
-			$systemUsersSystemPreferences_id,
-			$tableVersions_id,
-			$tags_id,
-			$tagsReferences_id
+			$fileName
 		);
 	}
 }
 else{
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logProcessingActivities') == 1 || getSystemConfigurations('logProcessingActivities') == -1){
 		$type = 'view';
-		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
+		$processingActivities_id = $_SESSION['processingActivities_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
 		$startTime = $systemEvents_addEvent_startTime;
 		$endTime = microtime(true);
@@ -221,30 +178,9 @@ else{
 		$getData = json_encode($_GET);
 		$httpsEnabled = $_SERVER['HTTPS'];
 		$fileName = $_SERVER['SCRIPT_FILENAME'];
-		$devices_id = null;
-		$exports_id = null;
-		$filesContent_id = null;
-		$filesMetaData_id = null;
-		$identities_id = null;
-		$meetings_id = null;
-		$policies_id = null;
-		$processingActivities_id = null;
-		$processingActivitiesLegalBasises_id = null;
-		$progressTime_id = null;
-		$pseudoNames_id = null;
-		$sessions_id = null;
-		$systemConfigurations_id = null;
-		$systemEvents_id = null;
-		$systemNotifications_id = null;
-		$systemStorages_id = null;
-		$systemUsers_id = null;
-		$systemUsersSystemPreferences_id = null;
-		$tableVersions_id = null;
-		$tags_id = null;
-		$tagsReferences_id = null;
 		
 		addSystemEvent(
-			$trigger_systemUsers_id,
+			$processingActivities_id,
 			$type,
 			$ipAddress,
 			$startTime,
@@ -260,28 +196,7 @@ else{
 			$postData,
 			$getData,
 			$httpsEnabled,
-			$fileName,
-			$devices_id,
-			$exports_id,
-			$filesContent_id,
-			$filesMetaData_id,
-			$identities_id,
-			$meetings_id,
-			$policies_id,
-			$processingActivities_id,
-			$processingActivitiesLegalBasises_id,
-			$progressTime_id,
-			$pseudoNames_id,
-			$sessions_id,
-			$systemConfigurations_id,
-			$systemEvents_id,
-			$systemNotifications_id,
-			$systemStorages_id,
-			$systemUsers_id,
-			$systemUsersSystemPreferences_id,
-			$tableVersions_id,
-			$tags_id,
-			$tagsReferences_id
+			$fileName
 		);
 	}
 }

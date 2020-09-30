@@ -159,26 +159,26 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<div class="photo" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/user-circle.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');"></div>
-			<input id="inputEntityId" name="identities_id" type="hidden">
-			<input class="photo" id="inputEntityType" type="text" readonly><label>Type</label><br>
-			<input class="photo" id="inputEntityName" type="text" readonly><label>Navn</label><br>
-			<input class="photo" id="inputEntityName2" type="text" readonly><label>Supplerende navneoplysninger</label><br>
-			<input id="inputEntityPhone" type="text" readonly><label>Telefon</label><br>
-			<input id="inputEntityEmail" type="text" readonly><label>E-mail</label><br>
-			<input class="addContent" onclick="modal(0, 'basic', '/processingActivities/add/entity/associate/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>', true, 1);" type="button" value="Tilknyt identitet" autofocus>
+			<input id="inputResponsibleIdentityId" name="responsible_identities_id" type="hidden">
+			<input class="photo" id="inputResponsibleIdentityType" type="text" readonly><label>Type</label><br>
+			<input class="photo" id="inputResponsibleIdentityName" type="text" readonly><label>Navn</label><br>
+			<input class="photo" id="inputResponsibleIdentityName2" type="text" readonly><label>Supplerende navneoplysninger</label><br>
+			<input id="inputResponsibleIdentityPhone" type="text" readonly><label>Telefon</label><br>
+			<input id="inputResponsibleIdentityEmail" type="text" readonly><label>E-mail</label><br>
+			<input class="addContent" onclick="modal(0, 'basic', '/processingActivities/add/responsibleIdentity/associate/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>', true, 1);" type="button" value="Tilknyt identitet" autofocus>
 		</div>
 		
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<div class="photo" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/solid/user-circle.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>');"></div>
-			<input id="inputEntityId" name="identities_id" type="hidden" value="<?php echo encodeId(purify($processingActivities_identities_id)); ?>">
-			<input class="photo" id="inputEntityType" type="text" readonly><label>Type</label><br>
-			<input class="photo" id="inputEntityName" type="text" readonly><label>Navn</label><br>
-			<input class="photo" id="inputEntityName2" type="text" readonly><label>Supplerende navneoplysninger</label><br>
-			<input id="inputEntityPhone" type="text" readonly><label>Telefon</label><br>
-			<input id="inputEntityEmail" type="text" readonly><label>E-mail</label><br>
-			<input class="addContent" onclick="modal(0, 'basic', '/processingActivities/add/entity/associate/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>', true, 1);" type="button" value="Tilknyt identitet" autofocus>
+			<input id="inputDpoIdentityId" name="identities_id" type="hidden" value="<?php echo encodeId(purify($processingActivities_identities_id)); ?>">
+			<input class="photo" id="inputDpoIdentityType" type="text" readonly><label>Type</label><br>
+			<input class="photo" id="inputDpoIdentityName" type="text" readonly><label>Navn</label><br>
+			<input class="photo" id="inputDpoIdentityName2" type="text" readonly><label>Supplerende navneoplysninger</label><br>
+			<input id="inputDpoIdentityPhone" type="text" readonly><label>Telefon</label><br>
+			<input id="inputDpoIdentityEmail" type="text" readonly><label>E-mail</label><br>
+			<input class="addContent" onclick="modal(0, 'basic', '/processingActivities/add/dpoIdentity/associate/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>', true, 1);" type="button" value="Tilknyt identitet" autofocus>
 		</div>
 		
 		<div class="contentTab">
