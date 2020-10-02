@@ -637,7 +637,7 @@ if($validateFlag == 200){
 	<?php
 	if(getSystemConfigurations('logProcessingActivities') == 1 || getSystemConfigurations('logProcessingActivities') == -1){
 		$type = 'view';
-		$processingActivities_id = $_SESSION['processingActivities_id'];
+		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
 		$startTime = $systemEvents_addEvent_startTime;
 		$endTime = microtime(true);
@@ -653,9 +653,30 @@ if($validateFlag == 200){
 		$getData = json_encode($_GET);
 		$httpsEnabled = $_SERVER['HTTPS'];
 		$fileName = $_SERVER['SCRIPT_FILENAME'];
+		$devices_id = null;
+		$exports_id = null;
+		$filesContent_id = null;
+		$filesMetaData_id = null;
+		$identities_id = null;
+		$meetings_id = null;
+		$policies_id = null;
+		$processingActivities_id = null;
+		$processingActivitiesLegalBasises_id = null;
+		$progressTime_id = null;
+		$pseudoNames_id = null;
+		$sessions_id = null;
+		$systemConfigurations_id = null;
+		$systemEvents_id = null;
+		$systemNotifications_id = null;
+		$systemStorages_id = null;
+		$systemUsers_id = null;
+		$systemUsersSystemPreferences_id = null;
+		$tableVersions_id = null;
+		$tags_id = null;
+		$tagsReferences_id = null;
 		
 		addSystemEvent(
-			$processingActivities_id,
+			$trigger_systemUsers_id,
 			$type,
 			$ipAddress,
 			$startTime,
@@ -671,14 +692,35 @@ if($validateFlag == 200){
 			$postData,
 			$getData,
 			$httpsEnabled,
-			$fileName
+			$fileName,
+			$devices_id,
+			$exports_id,
+			$filesContent_id,
+			$filesMetaData_id,
+			$identities_id,
+			$meetings_id,
+			$policies_id,
+			$processingActivities_id,
+			$processingActivitiesLegalBasises_id,
+			$progressTime_id,
+			$pseudoNames_id,
+			$sessions_id,
+			$systemConfigurations_id,
+			$systemEvents_id,
+			$systemNotifications_id,
+			$systemStorages_id,
+			$systemUsers_id,
+			$systemUsersSystemPreferences_id,
+			$tableVersions_id,
+			$tags_id,
+			$tagsReferences_id
 		);
 	}
 }
 else{
 	if(getSystemConfigurations('logProcessingActivities') == 1 || getSystemConfigurations('logProcessingActivities') == -1){
 		$type = 'view';
-		$processingActivities_id = $_SESSION['processingActivities_id'];
+		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
 		$startTime = $systemEvents_addEvent_startTime;
 		$endTime = microtime(true);
@@ -695,9 +737,30 @@ else{
 		$getData = json_encode($_GET);
 		$httpsEnabled = $_SERVER['HTTPS'];
 		$fileName = $_SERVER['SCRIPT_FILENAME'];
+		$devices_id = null;
+		$exports_id = null;
+		$filesContent_id = null;
+		$filesMetaData_id = null;
+		$identities_id = null;
+		$meetings_id = null;
+		$policies_id = null;
+		$processingActivities_id = null;
+		$processingActivitiesLegalBasises_id = null;
+		$progressTime_id = null;
+		$pseudoNames_id = null;
+		$sessions_id = null;
+		$systemConfigurations_id = null;
+		$systemEvents_id = null;
+		$systemNotifications_id = null;
+		$systemStorages_id = null;
+		$systemUsers_id = null;
+		$systemUsersSystemPreferences_id = null;
+		$tableVersions_id = null;
+		$tags_id = null;
+		$tagsReferences_id = null;
 		
 		addSystemEvent(
-			$processingActivities_id,
+			$trigger_systemUsers_id,
 			$type,
 			$ipAddress,
 			$startTime,
@@ -713,7 +776,28 @@ else{
 			$postData,
 			$getData,
 			$httpsEnabled,
-			$fileName
+			$fileName,
+			$devices_id,
+			$exports_id,
+			$filesContent_id,
+			$filesMetaData_id,
+			$identities_id,
+			$meetings_id,
+			$policies_id,
+			$processingActivities_id,
+			$processingActivitiesLegalBasises_id,
+			$progressTime_id,
+			$pseudoNames_id,
+			$sessions_id,
+			$systemConfigurations_id,
+			$systemEvents_id,
+			$systemNotifications_id,
+			$systemStorages_id,
+			$systemUsers_id,
+			$systemUsersSystemPreferences_id,
+			$tableVersions_id,
+			$tags_id,
+			$tagsReferences_id
 		);
 	}
 }
