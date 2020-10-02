@@ -39,29 +39,29 @@ if($preferences_columnsProcessingActivities_columnsSecurityClearance == -1){
 	$preferences_columnsProcessingActivities_columnsSecurityClearance = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityType = getSystemPreferences('columnsProcessingActivities_columnsEntityType');
-if($preferences_columnsProcessingActivities_columnsEntityType == -1){
-	$preferences_columnsProcessingActivities_columnsEntityType = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityType = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityType');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityType = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityName = getSystemPreferences('columnsProcessingActivities_columnsEntityName');
-if($preferences_columnsProcessingActivities_columnsEntityName == -1){
-	$preferences_columnsProcessingActivities_columnsEntityName = 1;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityName = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityName');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityName = 1;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityName2 = getSystemPreferences('columnsProcessingActivities_columnsEntityName2');
-if($preferences_columnsProcessingActivities_columnsEntityName2 == -1){
-	$preferences_columnsProcessingActivities_columnsEntityName2 = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityName2');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityPhone = getSystemPreferences('columnsProcessingActivities_columnsEntityPhone');
-if($preferences_columnsProcessingActivities_columnsEntityPhone == -1){
-	$preferences_columnsProcessingActivities_columnsEntityPhone = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityPhone');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone = 0;
 }
 
-$preferences_columnsProcessingActivities_columnsEntityEmail = getSystemPreferences('columnsProcessingActivities_columnsEntityEmail');
-if($preferences_columnsProcessingActivities_columnsEntityEmail == -1){
-	$preferences_columnsProcessingActivities_columnsEntityEmail = 0;
+$preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail = getSystemPreferences('columnsProcessingActivities_columnsResponsibleIdentityEmail');
+if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == -1){
+	$preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail = 0;
 }
 
 $preferences_columnsProcessingActivities_columnsTags = getSystemPreferences('columnsProcessingActivities_columnsTags');
@@ -81,7 +81,7 @@ function orderBy($request, $preferences_orderByProcessingActivities_orderBy){
 	}
 	else{
 		$orderBy = $_GET['orderBy'];
-		if($orderBy != 'Name' && $orderBy != 'EntityType' && $orderBy != 'EntityName' && $orderBy != 'EntityName2' && $orderBy != 'EntityPhone' && $orderBy != 'EntityEmail'){
+		if($orderBy != 'Name' && $orderBy != 'ResponsibleIdentityType' && $orderBy != 'ResponsibleIdentityName' && $orderBy != 'ResponsibleIdentityName2' && $orderBy != 'ResponsibleIdentityPhone' && $orderBy != 'ResponsibleIdentityEmail'){
 			$orderBy = 'Name';
 		}
 		
@@ -145,39 +145,39 @@ else{
 	$searchName = $_GET['searchName'];
 }
 
-if(isset($_GET['searchEntityType']) === false){
-	$searchEntityType = '';
+if(isset($_GET['searchResponsibleIdentityType']) === false){
+	$searchResponsibleIdentityType = '';
 }
 else{
-	$searchEntityType = $_GET['searchEntityType'];
+	$searchResponsibleIdentityType = $_GET['searchResponsibleIdentityType'];
 }
 
-if(isset($_GET['searchEntityName']) === false){
-	$searchEntityName = '';
+if(isset($_GET['searchResponsibleIdentityName']) === false){
+	$searchResponsibleIdentityName = '';
 }
 else{
-	$searchEntityName = $_GET['searchEntityName'];
+	$searchResponsibleIdentityName = $_GET['searchResponsibleIdentityName'];
 }
 
-if(isset($_GET['searchEntityName2']) === false){
-	$searchEntityName2 = '';
+if(isset($_GET['searchResponsibleIdentityName2']) === false){
+	$searchResponsibleIdentityName2 = '';
 }
 else{
-	$searchEntityName2 = $_GET['searchEntityName2'];
+	$searchResponsibleIdentityName2 = $_GET['searchResponsibleIdentityName2'];
 }
 
-if(isset($_GET['searchEntityPhone']) === false){
-	$searchEntityPhone = '';
+if(isset($_GET['searchResponsibleIdentityPhone']) === false){
+	$searchResponsibleIdentityPhone = '';
 }
 else{
-	$searchEntityPhone = $_GET['searchEntityPhone'];
+	$searchResponsibleIdentityPhone = $_GET['searchResponsibleIdentityPhone'];
 }
 
-if(isset($_GET['searchEntityEmail']) === false){
-	$searchEntityEmail = '';
+if(isset($_GET['searchResponsibleIdentityEmail']) === false){
+	$searchResponsibleIdentityEmail = '';
 }
 else{
-	$searchEntityEmail = $_GET['searchEntityEmail'];
+	$searchResponsibleIdentityEmail = $_GET['searchResponsibleIdentityEmail'];
 }
 
 if(isset($_GET['searchTags']) === false){
@@ -240,11 +240,11 @@ if($validateFlag == 200){
 					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
 						'&orderBySort=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBySort]')[0].value) +
 						'&searchName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchName]')[0].value) +
-						'&searchEntityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityType]')[0].value) +
-						'&searchEntityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName]')[0].value) +
-						'&searchEntityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName2]')[0].value) +
-						'&searchEntityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityPhone]')[0].value) +
-						'&searchEntityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityEmail]')[0].value) +
+						'&searchResponsibleIdentityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityType]')[0].value) +
+						'&searchResponsibleIdentityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName]')[0].value) +
+						'&searchResponsibleIdentityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName2]')[0].value) +
+						'&searchResponsibleIdentityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityPhone]')[0].value) +
+						'&searchResponsibleIdentityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityEmail]')[0].value) +
 						'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value);
 					
 					for(var i = 2; i < document.querySelectorAll('#' + datatableId + ' form table tr').length; i++){
@@ -335,11 +335,11 @@ if($validateFlag == 200){
 							'?orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
 							'&orderBySort=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBySort]')[0].value) +
 							'&searchName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchName]')[0].value) +
-							'&searchEntityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityType]')[0].value) +
-							'&searchEntityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName]')[0].value) +
-							'&searchEntityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName2]')[0].value) +
-							'&searchEntityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityPhone]')[0].value) +
-							'&searchEntityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityEmail]')[0].value) +
+							'&searchResponsibleIdentityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityType]')[0].value) +
+							'&searchResponsibleIdentityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName]')[0].value) +
+							'&searchResponsibleIdentityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName2]')[0].value) +
+							'&searchResponsibleIdentityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityPhone]')[0].value) +
+							'&searchResponsibleIdentityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityEmail]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
 						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
@@ -356,11 +356,11 @@ if($validateFlag == 200){
 							'?orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
 							'&orderBySort=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBySort]')[0].value) +
 							'&searchName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchName]')[0].value) +
-							'&searchEntityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityType]')[0].value) +
-							'&searchEntityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName]')[0].value) +
-							'&searchEntityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityName2]')[0].value) +
-							'&searchEntityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityPhone]')[0].value) +
-							'&searchEntityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityEmail]')[0].value) +
+							'&searchResponsibleIdentityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityType]')[0].value) +
+							'&searchResponsibleIdentityName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName]')[0].value) +
+							'&searchResponsibleIdentityName2=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityName2]')[0].value) +
+							'&searchResponsibleIdentityPhone=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityPhone]')[0].value) +
+							'&searchResponsibleIdentityEmail=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchResponsibleIdentityEmail]')[0].value) +
 							'&searchTags=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchTags]')[0].value)
 						);
 						datatableUpdate(document.querySelectorAll('#' + datatableId + ' form input[name=search' + newOrderBy + ']')[0], datatableId);
@@ -428,20 +428,20 @@ if($validateFlag == 200){
 									</td>
 									<td style="<?php if($preferences_columnsProcessingActivities_columnsSecurityClearance == 1){}else{echo 'display:none;';} ?>">
 									</td>
-									<td style="<?php if($preferences_columnsProcessingActivities_columnsEntityType == 1){}else{echo 'display:none;';} ?>">
-										<input name="searchEntityType" type="search" value="<?php echo purify($searchEntityType); ?>">
+									<td style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == 1){}else{echo 'display:none;';} ?>">
+										<input name="searchResponsibleIdentityType" type="search" value="<?php echo purify($searchResponsibleIdentityType); ?>">
 									</td>
-									<td style="<?php if($preferences_columnsProcessingActivities_columnsEntityName == 1){}else{echo 'display:none;';} ?>">
-										<input name="searchEntityName" type="search" value="<?php echo purify($searchEntityName); ?>">
+									<td style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){}else{echo 'display:none;';} ?>">
+										<input name="searchResponsibleIdentityName" type="search" value="<?php echo purify($searchResponsibleIdentityName); ?>">
 									</td>
-									<td style="<?php if($preferences_columnsProcessingActivities_columnsEntityName2 == 1){}else{echo 'display:none;';} ?>">
-										<input name="searchEntityName2" type="search" value="<?php echo purify($searchEntityName2); ?>">
+									<td style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == 1){}else{echo 'display:none;';} ?>">
+										<input name="searchResponsibleIdentityName2" type="search" value="<?php echo purify($searchResponsibleIdentityName2); ?>">
 									</td>
-									<td style="<?php if($preferences_columnsProcessingActivities_columnsEntityPhone == 1){}else{echo 'display:none;';} ?>">
-										<input name="searchEntityPhone" type="search" value="<?php echo purify($searchEntityPhone); ?>">
+									<td style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == 1){}else{echo 'display:none;';} ?>">
+										<input name="searchResponsibleIdentityPhone" type="search" value="<?php echo purify($searchResponsibleIdentityPhone); ?>">
 									</td>
-									<td style="<?php if($preferences_columnsProcessingActivities_columnsEntityEmail == 1){}else{echo 'display:none;';} ?>">
-										<input name="searchEntityEmail" type="search" value="<?php echo purify($searchEntityEmail); ?>">
+									<td style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == 1){}else{echo 'display:none;';} ?>">
+										<input name="searchResponsibleIdentityEmail" type="search" value="<?php echo purify($searchResponsibleIdentityEmail); ?>">
 									</td>
 									<td style="<?php if($preferences_columnsProcessingActivities_columnsTags == 1){}else{echo 'display:none;';} ?>">
 										<input list="searchTagsList" name="searchTags" type="search" value="<?php echo purify($searchTags); ?>">
@@ -500,105 +500,105 @@ if($validateFlag == 200){
 										Sikkerhedsgodkendelse
 									</th>
 									<?php
-									if('EntityType' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
+									if('ResponsibleIdentityType' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderByProcessingActivities_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('EntityType', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityType == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityType', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('EntityType', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityType == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityType', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('EntityType', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityType == 1){}else{echo 'display:none;';} ?>">
+										<th onclick="datatableOrderBy('ResponsibleIdentityType', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityType == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
 										Identitetstype
 									</th>
 									<?php
-									if('EntityName' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
+									if('ResponsibleIdentityName' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderByProcessingActivities_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('EntityName', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityName == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityName', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('EntityName', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityName == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityName', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){}else{echo 'display:none;';} ?>">
 										<?php
-										}
+		ResponsibleIdentity								}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('EntityName', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityName == 1){}else{echo 'display:none;';} ?>">
+										<th onclick="datatableOrderBy('ResponsibleIdentityName', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
 										Identitetsnavn
 									</th>
 									<?php
-									if('EntityName2' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
+									if('ResponsibleIdentityName2' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderByProcessingActivities_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('EntityName2', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityName2 == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityName2', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('EntityName2', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityName2 == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityName2', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('EntityName2', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityName2 == 1){}else{echo 'display:none;';} ?>">
+										<th onclick="datatableOrderBy('ResponsibleIdentityName2', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName2 == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
 										Supplerende identitetsnavn
 									</th>
 									<?php
-									if('EntityPhone' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
+									if('ResponsibleIdentityPhone' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderByProcessingActivities_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('EntityPhone', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityPhone == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityPhone', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('EntityPhone', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityPhone == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityPhone', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('EntityPhone', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityPhone == 1){}else{echo 'display:none;';} ?>">
+										<th onclick="datatableOrderBy('ResponsibleIdentityPhone', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityPhone == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
 										Identitetstelefon
 									</th>
 									<?php
-									if('EntityEmail' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
+									if('ResponsibleIdentityEmail' == orderBy('orderBy', $preferences_orderByProcessingActivities_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderByProcessingActivities_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('EntityEmail', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityEmail == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityEmail', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('EntityEmail', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsEntityEmail == 1){}else{echo 'display:none;';} ?>">
+											<th onclick="datatableOrderBy('ResponsibleIdentityEmail', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('EntityEmail', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsEntityEmail == 1){}else{echo 'display:none;';} ?>">
+										<th onclick="datatableOrderBy('ResponsibleIdentityEmail', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityEmail == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
