@@ -531,7 +531,7 @@ if($validateFlag == 200){
 										?>
 											<th onclick="datatableOrderBy('ResponsibleIdentityName', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); padding:20px 36px 20px 10px; <?php if($preferences_columnsProcessingActivities_columnsResponsibleIdentityName == 1){}else{echo 'display:none;';} ?>">
 										<?php
-		ResponsibleIdentity								}
+										}
 									}
 									else{
 									?>
