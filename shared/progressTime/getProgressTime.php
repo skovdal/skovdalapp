@@ -20,7 +20,7 @@ function getProgressTime($url){
 				`s0`.`progressTime`.`url` = ?
 			ORDER BY
 				`s0`.`progressTime`.`id` DESC
-			LIMIT 10
+			LIMIT 1
 		");
 		$stmt->bind_param('s', $url);
 		$stmt->execute();

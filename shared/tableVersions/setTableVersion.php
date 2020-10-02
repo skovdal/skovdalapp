@@ -18,7 +18,6 @@ function setTableVersion($tableName){
 				`s0`.`tableVersions`
 			WHERE
 				`s0`.`tableVersions`.`tableName` = ?
-			LIMIT 1
 		");
 		$stmt->bind_param('s', $tableName);
 		$stmt->execute();

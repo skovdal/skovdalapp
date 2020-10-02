@@ -21,11 +21,23 @@ if($validateFlag == 200){
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
+		DELETE FROM
+			`s0`.`progressTime`
+		WHERE
+			`s0`.`progressTime`.`url` = ?
+	");
+	$stmt->bind_param('s', $url);
+	$stmt->execute();
+	setTableVersion('progressTime');
+	
+	if(isset($con) === false){$con = dbConnection();}
+	$stmt = $con->stmt_init();
+	$stmt->prepare("
 		INSERT INTO
 			`s0`.`progressTime`
 		(
-			`s0`.`url`,
-			`s0`.`time`
+			`s0`.`progressTime`.`url`,
+			`s0`.`progressTime`.`time`
 		)
 		VALUES
 		(
