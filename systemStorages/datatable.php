@@ -303,8 +303,8 @@ if($validateFlag == 200){
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
-					echo purify($row['systemStorages_name']);
-					?>
+					echo purify($row['systemStorages_name']) ;
+					?> ///// <?php echo encodeId(purify($row['systemStorages_id'])); ?> ///// <?php echo decodeId(encodeId(purify($row['systemStorages_id']))); ?>
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsType == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
