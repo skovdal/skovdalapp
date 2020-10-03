@@ -3,11 +3,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
-$configuration_deleteConfirmationSystemStorages = getSystemConfigurations('deleteConfirmationSystemStorages');
-if($configuration_deleteConfirmationSystemStorages == -1){
-	$configuration_deleteConfirmationSystemStorages = 1;
-}
-
 if(isset($_POST['modalId']) === false){
 	$validateFlag = 400;
 }
