@@ -322,7 +322,7 @@ if($validateFlag == 200){
 		<body onload="onLoad();">
 			<main>
 				<div class="main">
-					<h1>Systemlagre</h1>
+					<h1>Systemlagre <?php echo session_id(); ?></h1>
 					
 					<div class="nav-btn" onclick="dropdown(this);">
 						<div class="dropdown down right">
