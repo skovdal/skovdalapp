@@ -59,7 +59,7 @@ if($validateFlag == 200){
 	<form action="/systemStorages/prepareDefaultDatabaseSingle/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
-		<input name="systemStorages_id" type="hidden" value="<?php echo encodeId(purify($systemStorages_id)); ?>">
+		<input name="systemStorages_id" type="hidden" value="<?php echo encodeId($systemStorages_id); ?>">
 		<div>
 			Bekræft venligst at du ønsker at klargøre systemlageret <strong><?php echo purify($systemStorages_name); ?></strong> som standarddatabase for systemet.<br>
 			<br>

@@ -303,8 +303,8 @@ if($validateFlag == 200){
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
-					echo purify($row['systemStorages_name']) ;
-					?> ///// <?php echo encodeId(purify($row['systemStorages_id'])); ?> ///// <?php echo decodeId(encodeId(purify($row['systemStorages_id']))); ?>
+					echo purify($row['systemStorages_name']);
+					?>
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsType == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
@@ -330,7 +330,7 @@ if($validateFlag == 200){
 					<div class="nav-btn ellipsis-h" onclick="dropdown(this);">
 						<div class="dropdown up right">
 							<ul>
-								<li onclick="modal(0, 'basic', '/systemStorages/prepareDefaultDatabaseSingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/database.svg&fill=rgba(135,140,145,1)');">Klargør systemlager til at være standarddatabase</li>
+								<li onclick="modal(0, 'basic', '/systemStorages/prepareDefaultDatabaseSingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId($row['systemStorages_id']); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/database.svg&fill=rgba(135,140,145,1)');">Klargør systemlager til at være standarddatabase</li>
 								<li onclick="modal(0, 'large', '/systemStorages/copySingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/copy.svg&fill=rgba(135,140,145,1)');">Kopier systemlager til nyt systemlager</li>
 								<li onclick="modal(0, 'large', '/systemStorages/copySingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/history.svg&fill=rgba(135,140,145,1)');">Sikkerhedskopier systemlager</li>
 								<li onclick="modal(0, 'basic', '/systemStorages/tagsSingle/add/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/tag.svg&fill=rgba(135,140,145,1)');">Tilføj mærke på systemlager</li>
