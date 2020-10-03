@@ -716,6 +716,7 @@ function modal(modalId, modalStyle, modalUrl, modalMethod, modalParameters, show
 					}
 					else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
 						toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?14');
+						console.log(request.responseText);
 					}
 				}
 				request.open(modalMethod, modalUrl);
