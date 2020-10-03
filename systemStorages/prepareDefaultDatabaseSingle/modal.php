@@ -5,6 +5,7 @@ $validateFlag = 200;
 
 if(isset($_POST['modalId']) === false){
 	$validateFlag = 400;
+	$errorMessages_id = 1;
 }
 else{
 	$modalId = $_POST['modalId'];
@@ -12,11 +13,13 @@ else{
 
 if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
+	$errorMessages_id = 2;
 }
 else{
 	$systemStorages_id = $_POST['systemStorages_id'];
 	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
+		$errorMessages_id = 3;
 	}
 	else{
 		$systemStorages_id = decodeId($systemStorages_id);
@@ -40,6 +43,7 @@ $result = $stmt->get_result();
 
 if(mysqli_num_rows($result) == 0){
 	$validateFlag = 400;
+	$errorMessages_id = 4;
 }
 else{
 	while($row = mysqli_fetch_assoc($result)){
@@ -150,6 +154,9 @@ if($validateFlag == 200){
 	}
 }
 else{
+	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request', true, 400);
+	echo $errorMessages_id;
+	
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
