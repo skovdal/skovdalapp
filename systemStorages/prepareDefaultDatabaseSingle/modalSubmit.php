@@ -129,6 +129,26 @@ if($validateFlag == 200){
 	");
 	$stmtExternal->execute();
 	
+	$stmtExternal->prepare("
+		DROP TABLE IF EXISTS `filesContent`;
+	");
+	$stmtExternal->execute();
+	
+	$stmtExternal->prepare("
+		CREATE TABLE `filesContent` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `content` longtext,
+		  `filesMetaData_id` int(11) DEFAULT NULL,
+		  `deleteFlag` bit(1) DEFAULT NULL,
+		  `tempFlag` bit(1) DEFAULT NULL,
+		  `legacyFlag` bit(1) DEFAULT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `filesMetaData_id` (`filesMetaData_id`),
+		  CONSTRAINT `filesContent_filesMetaData_id` FOREIGN KEY (`filesMetaData_id`) REFERENCES `filesMetaData` (`id`)
+		) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+	");
+	$stmtExternal->execute();
+	
 	$conExternal->close();
 	?>
 	<script>
