@@ -24,30 +24,30 @@ else{
 	$password = $_POST['password'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	$systemUsers_id_array = explode(',', $systemUsers_id);
+	$systemStorages_id = $_POST['systemStorages_id'];
+	$systemStorages_id_array = explode(',', $systemStorages_id);
 	
-	foreach($systemUsers_id_array as $systemUsers_id){
-		if(decodeId($systemUsers_id) == -1){
+	foreach($systemStorages_id_array as $systemStorages_id){
+		if(decodeId($systemStorages_id) == -1){
 			$validateFlag = 400;
 		}
 		else{
-			$systemUsers_id = decodeId($systemUsers_id);
+			$systemStorages_id = decodeId($systemStorages_id);
 			
-			if(isset($systemUsers_ids) === false){
-				$systemUsers_ids = $systemUsers_id;
+			if(isset($systemStorages_ids) === false){
+				$systemStorages_ids = $systemStorages_id;
 			}
 			else{
-				$systemUsers_ids = $systemUsers_ids . ',' . $systemUsers_id;
+				$systemStorages_ids = $systemStorages_ids . ',' . $systemStorages_id;
 			}
 		}
 	}
-	$systemUsers_id = $systemUsers_ids;
-	$systemUsers_id_array = explode(',', $systemUsers_id);
+	$systemStorages_id = $systemStorages_ids;
+	$systemStorages_id_array = explode(',', $systemStorages_id);
 }
 
 if($validateFlag == 200){
@@ -55,14 +55,14 @@ if($validateFlag == 200){
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
 		UPDATE
-			`c0`.`systemUsers`
+			`c0`.`systemStorages`
 		SET
-			`c0`.`systemUsers`.`deleteFlag` = 1
+			`c0`.`systemStorages`.`deleteFlag` = 1
 		WHERE
-			`c0`.`systemUsers`.`id` IN (" . $systemUsers_id . ")
+			`c0`.`systemStorages`.`id` IN (" . $systemStorages_id . ")
 	");
 	$stmt->execute();
-	setTableVersion('systemUsers');
+	setTableVersion('systemStorages');
 	
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -72,7 +72,7 @@ if($validateFlag == 200){
 		SET
 			`s0`.`tagsReferences`.`deleteFlag` = 1
 		WHERE
-			`s0`.`tagsReferences`.`systemUsers_id` IN (" . $systemUsers_id . ")
+			`s0`.`tagsReferences`.`systemStorages_id` IN (" . $systemStorages_id . ")
 	");
 	$stmt->execute();
 	setTableVersion('tagsReferences');
@@ -80,10 +80,10 @@ if($validateFlag == 200){
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Slet markerede systembrugere', 'De markerede systembrugere blev slettede.', 0, true, '');
+		parent.toastr('success', 'Slet markerede systemlagre', 'De markerede systemlagre blev slettede.', 0, true, '');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'delete';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -170,11 +170,11 @@ else{
 ?>
 	<script>
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].disabled = false;
-		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet systembruger';
+		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet markerede systemlagre';
 		parent.toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'delete';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];

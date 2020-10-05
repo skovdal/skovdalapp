@@ -55,13 +55,13 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<h1>Slet systembruger</h1>
+	<h1>Slet systemlager</h1>
 	<form action="/systemStorages/deleteSingle/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="systemStorages_id" type="hidden" value="<?php echo encodeId(purify($systemStorages_id)); ?>">
 		<div>
-			Bekræft venligst at du ønsker at slette systembrugeren <strong><?php echo purify($systemStorages_name); ?></strong>.<br>
+			Bekræft venligst at du ønsker at slette systemlageret <strong><?php echo purify($systemStorages_name); ?></strong>.<br>
 			<?php
 			if($configuration_deleteConfirmationSystemStorages == 2){
 			?>
@@ -129,7 +129,7 @@ if($validateFlag == 200){
 			?>
 		</div>
 		<div class="buttons">
-			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input class="delete" type="submit" value="Slet systembruger" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'disabled';}?>>
+			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input class="delete" type="submit" value="Slet systemlager" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'disabled';}?>>
 		</div>
 	</form>
 	<?php

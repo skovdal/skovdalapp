@@ -325,7 +325,7 @@ else{
 ?>
 	<script>
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].disabled = false;
-		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet identitet';
+		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet markerede identiteter';
 		parent.toastr('<?php echo purify($validateFlagType); ?>', '<?php echo purify($validateFlagTitle); ?>', '<?php echo purify($validateFlagMsg); ?>', <?php echo purify($validateFlagToastrId); ?>, <?php echo purify($validateFlagRegister); ?>, '<?php echo purify($validateFlagOpenUrl); ?>');
 	</script>
 	<?php
