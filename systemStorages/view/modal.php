@@ -106,25 +106,26 @@ if($validateFlag == 200){
 			<br>
 			<input type="text" value="<?php echo purify($systemStorages_name); ?>" readonly><label>Navn</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_type); ?>" readonly><label>Type</label><br>
-		</div>
-		
-		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
-			<br>
-			<input type="text" value="<?php echo purify($systemStorages_username); ?>" readonly><label>Brugernavn</label><br>
-			<input type="password" value="" readonly><label>Adgangskode</label><br>
-		</div>
-		
-		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
-			<br>
-			<input type="text" value="<?php echo purify($systemStorages_host); ?>" readonly><label>Vært</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_port); ?>" readonly><label>Port</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_timeout); ?>" readonly><label>Timeout</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_storageSize); ?>" readonly><label>Lagerstørrelse</label><br>
+		</div>
+		
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
+			<br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>Brugernavn</label><br>
+			<input type="password" placeholder="Vises ikke" readonly><label>Adgangskode</label><br>
+		</div>
+		
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
+			<br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_dbname); ?>" readonly><label>MySQL-database</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_host); ?>" readonly><label>MySQL-værtsadresse</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_port); ?>" readonly><label>MySQL-port</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL socket</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
 			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label></div><br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL socket</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_timeout); ?>" readonly><label>FTP-timeout</label><br>
 		</div>
 		
 		<div class="contentTab">
