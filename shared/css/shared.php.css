@@ -624,7 +624,7 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 		text-align:right;
 	}
 	
-	body div.modal div.buttons statusLight{
+	body div.modal div.buttons div.statusLight{
 		background-color:RED;
 		border-radius:50%;
 		height:20px;
