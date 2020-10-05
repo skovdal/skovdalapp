@@ -61,12 +61,27 @@ $result->close();
 
 if($validateFlag == 200){
 	$conExternal = new mysqli($systemStorages_mysql_host, $systemStorages_mysql_username, $systemStorages_mysql_password, $systemStorages_mysql_dbname, $systemStorages_mysql_port, $systemStorages_mysql_socket);
+	
 	$stmtExternal = $conExternal->stmt_init();
 	$stmtExternal->prepare("
 		SET NAMES utf8mb4;
+	");
+	$stmtExternal->execute();
+	
+	$stmtExternal = $conExternal->stmt_init();
+	$stmtExternal->prepare("
 		SET FOREIGN_KEY_CHECKS = 0;
-		
+	");
+	$stmtExternal->execute();
+	
+	$stmtExternal = $conExternal->stmt_init();
+	$stmtExternal->prepare("
 		DROP TABLE IF EXISTS `devices`;
+	");
+	$stmtExternal->execute();
+	
+	$stmtExternal = $conExternal->stmt_init();
+	$stmtExternal->prepare("
 		CREATE TABLE `devices` (
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
 		  `type` varchar(255) DEFAULT NULL,
@@ -98,6 +113,7 @@ if($validateFlag == 200){
 	");
 // 	$stmtExternal->bind_param('i', $systemStorages_id);
 	$stmtExternal->execute();
+	
 	$conExternal->close();
 	?>
 	<script>
@@ -148,7 +164,7 @@ if($validateFlag == 200){
 		$tagsReferences_id = null;
 		
 		addSystemEvent(
-			$systemUsers_id,
+			$trigger_systemUsers_id,
 			$type,
 			$ipAddress,
 			$startTime,
@@ -164,10 +180,31 @@ if($validateFlag == 200){
 			$postData,
 			$getData,
 			$httpsEnabled,
-			$fileName
-			);
-		}
+			$fileName,
+			$devices_id,
+			$exports_id,
+			$filesContent_id,
+			$filesMetaData_id,
+			$identities_id,
+			$meetings_id,
+			$policies_id,
+			$processingActivities_id,
+			$processingActivitiesLegalBasises_id,
+			$progressTime_id,
+			$pseudoNames_id,
+			$sessions_id,
+			$systemConfigurations_id,
+			$systemEvents_id,
+			$systemNotifications_id,
+			$systemStorages_id,
+			$systemUsers_id,
+			$systemUsersSystemPreferences_id,
+			$tableVersions_id,
+			$tags_id,
+			$tagsReferences_id
+		);
 	}
+}
 else{
 ?>
 	<script>
