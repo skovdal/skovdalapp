@@ -38,36 +38,14 @@ else{
 }
 
 if($validateFlag == 200){
-/*
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
-		UPDATE
-			`c0`.`systemStorages`
-		SET
-			`c0`.`systemStorages`.`deleteFlag` = 1
-		WHERE
-			`c0`.`systemStorages`.`id` = ?
-		LIMIT 1
+		SET NAMES utf8mb4;
+		SET FOREIGN_KEY_CHECKS = 0;
 	");
 	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
-	setTableVersion('systemStorages');
-	
-	if(isset($con) === false){$con = dbConnection();}
-	$stmt = $con->stmt_init();
-	$stmt->prepare("
-		UPDATE
-			`s0`.`tagsReferences`
-		SET
-			`s0`.`tagsReferences`.`deleteFlag` = 1
-		WHERE
-			`s0`.`tagsReferences`.`systemStorages_id` = ?
-	");
-	$stmt->bind_param('i', $systemStorages_id);
-	$stmt->execute();
-	setTableVersion('tagsReferences');
-*/
 	?>
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);

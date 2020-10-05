@@ -62,11 +62,12 @@ if($validateFlag == 200){
 		<div>
 			Bekræft venligst at du ønsker at klargøre systemlageret <strong><?php echo purify($systemStorages_name); ?></strong> som standarddatabase for systemet.<br>
 			<br>
-			<strong>VIGTIGT!<br>
-			Alle data på systemlageret slettes, inden klargøringen påbegyndes. Handlingen kan ikke fortrydes.</strong>
+			<strong>Alle data på systemlageret slettes i forbindelse med klargøringen.<br>
+			<br>
+			Handlingen kan ikke fortrydes.</strong>
 		</div>
 		<div class="buttons">
-			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input class="delete" type="submit" value="Klargør systemlager">
+			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Klargør systemlager">
 		</div>
 	</form>
 	<?php
