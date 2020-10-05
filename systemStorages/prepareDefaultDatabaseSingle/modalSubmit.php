@@ -61,26 +61,23 @@ $result->close();
 
 if($validateFlag == 200){
 	$conExternal = new mysqli($systemStorages_mysql_host, $systemStorages_mysql_username, $systemStorages_mysql_password, $systemStorages_mysql_dbname, $systemStorages_mysql_port, $systemStorages_mysql_socket);
-	
 	$stmtExternal = $conExternal->stmt_init();
+	
 	$stmtExternal->prepare("
 		SET NAMES utf8mb4;
 	");
 	$stmtExternal->execute();
 	
-	$stmtExternal = $conExternal->stmt_init();
 	$stmtExternal->prepare("
 		SET FOREIGN_KEY_CHECKS = 0;
 	");
 	$stmtExternal->execute();
 	
-	$stmtExternal = $conExternal->stmt_init();
 	$stmtExternal->prepare("
 		DROP TABLE IF EXISTS `devices`;
 	");
 	$stmtExternal->execute();
 	
-	$stmtExternal = $conExternal->stmt_init();
 	$stmtExternal->prepare("
 		CREATE TABLE `devices` (
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -111,7 +108,25 @@ if($validateFlag == 200){
 		  PRIMARY KEY (`id`)
 		) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 	");
-// 	$stmtExternal->bind_param('i', $systemStorages_id);
+	$stmtExternal->execute();
+	
+	$stmtExternal->prepare("
+		DROP TABLE IF EXISTS `exports`;
+	");
+	$stmtExternal->execute();
+	
+	$stmtExternal->prepare("
+		CREATE TABLE `exports` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `modalId` varchar(50) DEFAULT NULL,
+		  `date` datetime DEFAULT NULL,
+		  `systemUsers_id` int(11) DEFAULT NULL,
+		  `status` int(50) DEFAULT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `systemUsers_id` (`systemUsers_id`),
+		  CONSTRAINT `exports_systemUsers_id` FOREIGN KEY (`systemUsers_id`) REFERENCES `systemUsers` (`id`)
+		) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+	");
 	$stmtExternal->execute();
 	
 	$conExternal->close();
