@@ -626,7 +626,7 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 		
 		body div.modal div.buttons div.pulse{
 			animation-delay:0s;
-			animation-duration:1s;
+			animation-duration:3s;
 			animation-name:pulseGrow;
 			animation-iteration-count:infinite;
 			animation-timing-function:ease-in-out;
@@ -651,7 +651,7 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 			}
 			100%{
 				height:30px;
-				left:30px;
+				left:-15px;
 				margin-top:-15px;
 				opacity:0;
 				width:30px;
