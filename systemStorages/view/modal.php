@@ -112,8 +112,10 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>Brugernavn</label><br>
-			<input type="password" placeholder="Vises ikke" readonly><label>Adgangskode</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>MySQL-brugernavn</label><br>
+			<input type="password" placeholder="Vises ikke" readonly><label>MySQL-adgangskode</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_login_username); ?>" readonly><label>FTP-brugernavn</label><br>
+			<input type="password" placeholder="Vises ikke" readonly><label>FTP-adgangskode</label><br>
 		</div>
 		
 		<div>
@@ -122,8 +124,13 @@ if($validateFlag == 200){
 			<input type="text" value="<?php echo purify($systemStorages_mysql_dbname); ?>" readonly><label>MySQL-database</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_mysql_host); ?>" readonly><label>MySQL-værtsadresse</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_mysql_port); ?>" readonly><label>MySQL-port</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL socket</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL-socket</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" readonly><label>FTP-værtsadresse</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" readonly><label>FTP-port</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" readonly><label>FTP-timeout</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" readonly><label>FTP-SSL-port</label><br>
+			<input type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" readonly><label>FTP-SSL-timeout</label><br>
 			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label></div><br>
 			<input type="text" value="<?php echo purify($systemStorages_timeout); ?>" readonly><label>FTP-timeout</label><br>
 		</div>
