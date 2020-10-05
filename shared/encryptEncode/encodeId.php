@@ -101,7 +101,7 @@ function encodeId($id){
 		$check2 = str_ireplace('0', 'X', $check2);
 	}
 	else{
-		$check2 = preg_replace('/[^a-zA-Z]/', '', $sessionId);
+		$check2 = preg_replace('/[^a-z]/i', '', $sessionId);
 		$check2 = str_ireplace('A', '3', $check2);
 		$check2 = str_ireplace('B', '3', $check2);
 		$check2 = str_ireplace('C', '3', $check2);

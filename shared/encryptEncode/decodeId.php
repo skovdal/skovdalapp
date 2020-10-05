@@ -45,7 +45,7 @@ function decodeId($id){
 			$check = str_ireplace('0', 'E', $check);
 		}
 		else{
-			$check = preg_replace('/[^a-zA-Z]/', '', $sessionId);
+			$check = preg_replace('/[^a-z]/i', '', $sessionId);
 			$check = str_ireplace('A', 'R', $check);
 			$check = str_ireplace('B', 'V', $check);
 			$check = str_ireplace('C', 'H', $check);
@@ -91,7 +91,7 @@ function decodeId($id){
 			$check2 = str_ireplace('0', 'X', $check2);
 		}
 		else{
-			$check2 = preg_replace('/[^a-zA-Z]/', '', $sessionId);
+			$check2 = preg_replace('/[^a-z]/i', '', $sessionId);
 			$check2 = str_ireplace('A', '3', $check2);
 			$check2 = str_ireplace('B', '3', $check2);
 			$check2 = str_ireplace('C', '3', $check2);
