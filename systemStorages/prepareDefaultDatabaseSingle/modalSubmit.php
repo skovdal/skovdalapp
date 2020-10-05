@@ -10,20 +10,6 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['confirmationCode']) === false){
-// 	$validateFlag = 400;
-}
-else{
-	$confirmationCode = $_POST['confirmationCode'];
-}
-
-if(isset($_POST['password']) === false){
-// 	$validateFlag = 400;
-}
-else{
-	$password = $_POST['password'];
-}
-
 if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
@@ -37,15 +23,82 @@ else{
 	}
 }
 
+if(isset($con) === false){$con = dbConnection();}
+$stmt = $con->stmt_init();
+$stmt->prepare("
+	SELECT
+		`c0`.`systemStorages`.`mysql_host` AS `systemStorages_mysql_host`,
+		`c0`.`systemStorages`.`mysql_username` AS `systemStorages_mysql_username`,
+		`c0`.`systemStorages`.`mysql_password` AS `systemStorages_mysql_password`,
+		`c0`.`systemStorages`.`mysql_dbname` AS `systemStorages_mysql_dbname`,
+		`c0`.`systemStorages`.`mysql_port` AS `systemStorages_mysql_port`,
+		`c0`.`systemStorages`.`mysql_socket` AS `systemStorages_mysql_socket`
+	FROM
+		`c0`.`systemStorages`
+	WHERE
+		`c0`.`systemStorages`.`id` = ?
+	LIMIT 1
+");
+$stmt->bind_param('i', $systemStorages_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if(mysqli_num_rows($result) == 0){
+	$validateFlag = 400;
+	$errorMessages_id = 4;
+}
+else{
+	while($row = mysqli_fetch_assoc($result)){
+		$systemStorages_mysql_host = $row['systemStorages_mysql_host'];
+		$systemStorages_mysql_username = $row['systemStorages_mysql_username'];
+		$systemStorages_mysql_password = $row['systemStorages_mysql_password'];
+		$systemStorages_mysql_dbname = $row['systemStorages_mysql_dbname'];
+		$systemStorages_mysql_port = $row['systemStorages_mysql_port'];
+		$systemStorages_mysql_socket = $row['systemStorages_mysql_socket'];
+	}
+}
+$result->close();
+
 if($validateFlag == 200){
-	if(isset($con) === false){$con = dbConnection();}
-	$stmt = $con->stmt_init();
-	$stmt->prepare("
+	$conExternal = new mysqli($systemStorages_mysql_host, $systemStorages_mysql_username, $systemStorages_mysql_password, $systemStorages_mysql_dbname, $systemStorages_mysql_port, $systemStorages_mysql_socket);
+	$stmtExternal = $conExternal->stmt_init();
+	$stmtExternal->prepare("
 		SET NAMES utf8mb4;
 		SET FOREIGN_KEY_CHECKS = 0;
+		
+		DROP TABLE IF EXISTS `devices`;
+		CREATE TABLE `devices` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `type` varchar(255) DEFAULT NULL,
+		  `name` varchar(255) DEFAULT NULL,
+		  `name2` varchar(255) DEFAULT NULL,
+		  `cvrNumber` varchar(255) DEFAULT NULL,
+		  `cprNumber` varchar(255) DEFAULT NULL,
+		  `address` varchar(255) DEFAULT NULL,
+		  `address2` varchar(255) DEFAULT NULL,
+		  `zipCode` varchar(255) DEFAULT NULL,
+		  `city` varchar(255) DEFAULT NULL,
+		  `country` varchar(255) DEFAULT NULL,
+		  `phone` varchar(255) DEFAULT NULL,
+		  `phone2` varchar(255) DEFAULT NULL,
+		  `email` varchar(255) DEFAULT NULL,
+		  `email2` varchar(255) DEFAULT NULL,
+		  `dawaAddress` varchar(255) DEFAULT NULL,
+		  `deleteFlag` bit(1) DEFAULT NULL,
+		  `legacyFlag` bit(1) DEFAULT NULL,
+		  `tempFlag` bit(1) DEFAULT NULL,
+		  `emailVerified` bit(1) DEFAULT NULL,
+		  `email2Verified` bit(1) DEFAULT NULL,
+		  `phoneVerified` bit(1) DEFAULT NULL,
+		  `phone2Verified` bit(1) DEFAULT NULL,
+		  `addressVerified` bit(1) DEFAULT NULL,
+		  `dawaAddressVerified` bit(1) DEFAULT NULL,
+		  PRIMARY KEY (`id`)
+		) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 	");
-	$stmt->bind_param('i', $systemStorages_id);
-	$stmt->execute();
+// 	$stmtExternal->bind_param('i', $systemStorages_id);
+	$stmtExternal->execute();
+	$conExternal->close();
 	?>
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
