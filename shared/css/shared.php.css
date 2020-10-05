@@ -620,7 +620,19 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 		background-color:rgba(240,245,250,1);
 		border-bottom-left-radius:5px;
 		border-bottom-right-radius:5px;
+		position:relative;
 		text-align:right;
+	}
+	
+	body div.modal div.buttons statusLight{
+		background-color:RED;
+		border-radius:50%;
+		height:20px;
+		position:absolute;
+		left:25px;
+		margin-top:-10px;
+		top:50%;
+		width:20px;
 	}
 	
 	body div.modal div.maximizeWindow{
