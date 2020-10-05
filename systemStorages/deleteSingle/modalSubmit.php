@@ -24,16 +24,16 @@ else{
 	$password = $_POST['password'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	if(decodeId($systemUsers_id) == -1){
+	$systemStorages_id = $_POST['systemStorages_id'];
+	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
 	}
 	else{
-		$systemUsers_id = decodeId($systemUsers_id);
+		$systemStorages_id = decodeId($systemStorages_id);
 	}
 }
 
@@ -42,16 +42,16 @@ if($validateFlag == 200){
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
 		UPDATE
-			`c0`.`systemUsers`
+			`c0`.`systemStorages`
 		SET
-			`c0`.`systemUsers`.`deleteFlag` = 1
+			`c0`.`systemStorages`.`deleteFlag` = 1
 		WHERE
-			`c0`.`systemUsers`.`id` = ?
+			`c0`.`systemStorages`.`id` = ?
 		LIMIT 1
 	");
-	$stmt->bind_param('i', $systemUsers_id);
+	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
-	setTableVersion('systemUsers');
+	setTableVersion('systemStorages');
 	
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -61,19 +61,19 @@ if($validateFlag == 200){
 		SET
 			`s0`.`tagsReferences`.`deleteFlag` = 1
 		WHERE
-			`s0`.`tagsReferences`.`systemUsers_id` = ?
+			`s0`.`tagsReferences`.`systemStorages_id` = ?
 	");
-	$stmt->bind_param('i', $systemUsers_id);
+	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
 	setTableVersion('tagsReferences');
 	?>
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Slet systembruger', 'Systembrugeren blev slettet.', 0, true, '');
+		parent.toastr('success', 'Slet systemlager', 'Systemlageret blev slettet.', 0, true, '');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'delete';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -139,11 +139,11 @@ else{
 ?>
 	<script>
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].disabled = false;
-		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet systembruger';
+		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet systemlager';
 		parent.toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'delete';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
