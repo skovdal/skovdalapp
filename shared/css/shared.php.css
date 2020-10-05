@@ -623,18 +623,41 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 		position:relative;
 		text-align:right;
 	}
-	
-	body div.modal div.buttons div.statusLight{
-		background-color:RED;
-		border-radius:50%;
-		height:20px;
-		position:absolute;
-		left:25px;
-		margin-top:-10px;
-		top:50%;
-		width:20px;
-	}
-	
+		
+		body div.modal div.buttons div.pulse{
+			animation-delay:0s;
+			animation-duration:1s;
+			animation-name:pulseGrow;
+			animation-iteration-count:infinite;
+			animation-timing-function:ease-in-out;
+			border:2px solid red;
+			border-radius:50%;
+			height:20px;
+			opacity:1;
+			position:absolute;
+			left:25px;
+			margin-top:-10px;
+			top:50%;
+			width:20px;
+		}
+		
+		@keyframes pulseGrow{
+			0%{
+				height:20px;
+				left:25px;
+				margin-top:-10px;
+				opacity:1;
+				width:20px;
+			}
+			100%{
+				height:30px;
+				left:30px;
+				margin-top:-15px;
+				opacity:0;
+				width:30px;
+			}
+		}
+		
 	body div.modal div.maximizeWindow{
 		background-image:url("/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fexpand.svg&fill=rgba%28135%2C140%2C145%2C1%29");
 		background-position:center center;
