@@ -56,15 +56,15 @@ if($validateFlag == 200){
 		$result = $stmt->get_result();
 		
 		if(mysqli_num_rows($result) > 0){
-			echo 1;
+			echo 200;
 		}
 		else{
-			echo 0;
+			echo 404;
 		}
 		$result->close();
 	}
 	else{
-		echo 0;
+		echo 400;
 	}
 	$conExternal->close();
 	

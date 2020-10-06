@@ -200,16 +200,26 @@ if($validateFlag == 200){
 					var request = new XMLHttpRequest();
 					request.onreadystatechange = function(){
 						if(request.readyState == 4 && request.status == 200){
-							if(request.responseText == 0){
+							if(request.responseText == 200){
+								console.log('Database Success');
+								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
+								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
+							}
+							else (request.responseText == 400){
 								var timeoutFunction = function(){checkConnection();}
 								setTimeout(timeoutFunction, 10000);
 								
+								console.log('Database Bad Request');
 								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
-							else{
-								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
-								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
+							else (request.responseText == 404){
+								var timeoutFunction = function(){checkConnection();}
+								setTimeout(timeoutFunction, 10000);
+								
+								console.log('Database Not Found');
+								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
 						}
 						else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
