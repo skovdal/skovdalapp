@@ -119,14 +119,14 @@ body div.pulse{
 	animation-fill-mode:forwards;
 	animation-name:pulseGrow;
 	animation-iteration-count:infinite;
-	animation-timing-function:ease-in-out;
+	animation-timing-function:ease-out;
 	border:2px solid red;
 	border-radius:50%;
 	height:0px;
 	opacity:0;
 	position:absolute;
-	left:25px;
-	top:25px;
+	left:35px;
+	top:35px;
 	width:0px;
 }
 
