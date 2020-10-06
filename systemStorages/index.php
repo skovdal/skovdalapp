@@ -193,15 +193,17 @@ if($validateFlag == 200){
 					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket){
-					pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
-					pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
+				function checkConnection(silent, pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket){
+					if(silent == 0){
+						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
+						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
+					}
 					
 					var request = new XMLHttpRequest();
 					request.onreadystatechange = function(){
 						if(request.readyState == 4 && request.status == 200){
 							if(request.responseText == 200){
-								var timeoutFunction = function(){checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
+								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
 								setTimeout(timeoutFunction, 10000);
 								
 								console.log('Database Success');
@@ -209,7 +211,7 @@ if($validateFlag == 200){
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 							}
 							else if(request.responseText == 400){
-								var timeoutFunction = function(){checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
+								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
 								setTimeout(timeoutFunction, 10000);
 								
 								console.log('Database Bad Request');
@@ -217,7 +219,7 @@ if($validateFlag == 200){
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
 							else if(request.responseText == 404){
-								var timeoutFunction = function(){checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
+								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
 								setTimeout(timeoutFunction, 10000);
 								
 								console.log('Database Not Found');
@@ -225,7 +227,7 @@ if($validateFlag == 200){
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
 							else{
-								var timeoutFunction = function(){checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
+								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket);}
 								setTimeout(timeoutFunction, 10000);
 								
 								console.log('Database Connection Error');
