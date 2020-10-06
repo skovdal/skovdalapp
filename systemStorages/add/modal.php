@@ -90,7 +90,7 @@ if($validateFlag == 200){
 		</div>
 		
 		<div class="buttons">
-			<div class="pulseContainer"><div class="pulseCore success"></div><div class="pulse success"></div></div>
+			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systemlager">
 		</div>
 	</form>
