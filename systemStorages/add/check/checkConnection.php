@@ -53,26 +53,32 @@ else{
 
 if($validateFlag == 200){
 	$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
-	$stmtExternal = $conExternal->stmt_init();
-	if($stmtExternal->prepare("
-		SHOW DATABASES LIKE ?
-	")){
-		$stmtExternal->bind_param('s', $mysql_dbname);
-		$stmtExternal->execute();
-		$result = $stmt->get_result();
-		
-		if(mysqli_num_rows($result) > 0){
-			echo 200;
-		}
-		else{
-			echo 404;
-		}
-		$result->close();
-	}
-	else{
+	
+	if($conExternal -> connect_errno){
 		echo 400;
 	}
-	$conExternal->close();
+	else{
+		$stmtExternal = $conExternal->stmt_init();
+		if($stmtExternal->prepare("
+			SHOW DATABASES LIKE ?
+		")){
+			$stmtExternal->bind_param('s', $mysql_dbname);
+			$stmtExternal->execute();
+			$result = $stmt->get_result();
+			
+			if(mysqli_num_rows($result) > 0){
+				echo 200;
+			}
+			else{
+				echo 404;
+			}
+			$result->close();
+		}
+		else{
+			echo 400;
+		}
+		$conExternal->close();
+	}
 	
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';

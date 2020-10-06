@@ -194,17 +194,17 @@ if($validateFlag == 200){
 				}
 				
 				function checkConnection(silent, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId){
-					if(silent == 0){
-						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
-						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
-					}
-					
 					var mysql_host = mysql_hostId.value;
 					var mysql_username = mysql_usernameId.value;
 					var mysql_password = mysql_passwordId.value;
 					var mysql_dbname = mysql_dbnameId.value;
 					var mysql_port = mysql_portId.value;
 					var mysql_socket = mysql_socketId.value;
+					
+					if(silent == 0){
+						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
+						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
+					}
 					
 					var request = new XMLHttpRequest();
 					request.onreadystatechange = function(){
