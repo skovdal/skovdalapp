@@ -122,8 +122,8 @@ body div.pulse{
 	border-radius:50%;
 	height:14px;
 	left:50%;
-	margin-left:-8px;
-	margin-top:-8px;
+	margin-left:-7px;
+	margin-top:-7px;
 	opacity:0;
 	position:absolute;
 	top:50%;
@@ -146,8 +146,8 @@ body div.pulseCore{
 @keyframes pulseGrow{
 	0%{
 		height:14px;
-		margin-left:-8px;
-		margin-top:-8px;
+		margin-left:-7px;
+		margin-top:-7px;
 		left:50%;
 		opacity:0;
 		top:50%;
@@ -159,8 +159,8 @@ body div.pulseCore{
 	50%{
 		height:30px;
 		left:50%;
-		margin-left:-16px;
-		margin-top:-16px;
+		margin-left:-15px;
+		margin-top:-15px;
 		opacity:0;
 		top:50%;
 		width:30px;
