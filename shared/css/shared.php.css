@@ -120,15 +120,14 @@ body div.pulse{
 	animation-timing-function:ease-out;
 	border:2px solid var(--color-success);
 	border-radius:50%;
-	box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
-	height:4px;
+	height:14px;
 	left:50%;
-	margin-left:-2px;
-	margin-top:-2px;
+	margin-left:-7px;
+	margin-top:-7px;
 	opacity:0;
 	position:absolute;
 	top:50%;
-	width:4px;
+	width:14px;
 }
 
 body div.pulseCore{
@@ -146,13 +145,13 @@ body div.pulseCore{
 
 @keyframes pulseGrow{
 	0%{
-		height:4px;
-		margin-left:-2px;
-		margin-top:-2px;
+		height:14px;
+		margin-left:-7px;
+		margin-top:-7px;
 		left:50%;
 		opacity:0;
 		top:50%;
-		width:4px;
+		width:14px;
 	}
 	25%{
 		opacity:1;
