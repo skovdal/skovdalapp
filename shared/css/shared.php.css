@@ -114,8 +114,8 @@ body a:hover:after{
 }
 
 body div.pulse{
-	animation-delay:0.5s;
-	animation-duration:1.5s;
+	animation-delay:1s;
+	animation-duration:2s;
 	animation-fill-mode:forwards;
 	animation-name:pulseGrow;
 	animation-iteration-count:infinite;
