@@ -133,7 +133,7 @@ body div.pulse{
 body div.pulseCore{
 	background-color:var(--color-success);
 	border-radius:50%;
-	box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1), inset -5px -5px 5px 0 rgba(255,255,255,0.25);
+	box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
 	height:12px;
 	left:50%;
 	margin-left:-6px;
