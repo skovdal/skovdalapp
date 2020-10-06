@@ -113,41 +113,49 @@ body a:hover:after{
 	}
 }
 
-body div.pulse{
-	animation-duration:4s;
-	animation-name:pulseGrow;
-	animation-iteration-count:infinite;
-	animation-timing-function:ease-out;
-	border-radius:50%;
-	height:14px;
-	left:50%;
-	margin-left:-7px;
-	margin-top:-7px;
-	opacity:0;
-	position:absolute;
-	top:50%;
-	width:14px;
+body div.pulseContainer{
+	 height:100%;
+	 position:absolute;
+	 left:25px;
+	 top:0px;
+	 width:30px;
 }
-
-body div.pulseCore{
-	background-color:var(--color-success);
-	border-radius:50%;
-	height:12px;
-	left:50%;
-	margin-left:-6px;
-	margin-top:-6px;
-	position:absolute;
-	top:50%;
-	width:12px;
-}
-
-body div.pulse.success{
-	border:1px solid var(--color-success);
-}
-
-body div.pulseCore.success{
-	background-color:var(--color-success);
-}
+	
+	body div.pulseContainer > div.pulse{
+		animation-duration:4s;
+		animation-name:pulseGrow;
+		animation-iteration-count:infinite;
+		animation-timing-function:ease-out;
+		border-radius:50%;
+		height:14px;
+		left:50%;
+		margin-left:-7px;
+		margin-top:-7px;
+		opacity:0;
+		position:absolute;
+		top:50%;
+		width:14px;
+	}
+	
+	body div.pulseContainer > div.pulseCore{
+		background-color:var(--color-success);
+		border-radius:50%;
+		height:12px;
+		left:50%;
+		margin-left:-6px;
+		margin-top:-6px;
+		position:absolute;
+		top:50%;
+		width:12px;
+	}
+	
+	body div.pulseContainer > div.pulse.success{
+		border:1px solid var(--color-success);
+	}
+	
+	body div.pulseContainer > div.pulseCore.success{
+		background-color:var(--color-success);
+	}
 
 @keyframes pulseGrow{
 	0%{
