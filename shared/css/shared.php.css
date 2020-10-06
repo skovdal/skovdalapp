@@ -118,7 +118,6 @@ body div.pulse{
 	animation-name:pulseGrow;
 	animation-iteration-count:infinite;
 	animation-timing-function:ease-out;
-	border:1px solid var(--color-success);
 	border-radius:50%;
 	height:14px;
 	left:50%;
@@ -133,7 +132,6 @@ body div.pulse{
 body div.pulseCore{
 	background-color:var(--color-success);
 	border-radius:50%;
-	box-shadow:-1px -1px 1px 0 rgba(0,0,0,0.1);
 	height:12px;
 	left:50%;
 	margin-left:-6px;
@@ -141,6 +139,14 @@ body div.pulseCore{
 	position:absolute;
 	top:50%;
 	width:12px;
+}
+
+body div.pulse.success{
+	border:1px solid var(--color-success);
+}
+
+body div.pulseCore.success{
+	background-color:var(--color-success);
 }
 
 @keyframes pulseGrow{
