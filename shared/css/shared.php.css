@@ -122,7 +122,6 @@ body div.pulseContainer{
 }
 	
 	body div.pulseContainer > div.pulse{
-		animation-duration:4s;
 		animation-name:pulseGrow;
 		animation-iteration-count:infinite;
 		animation-timing-function:ease-out;
@@ -150,11 +149,30 @@ body div.pulseContainer{
 	}
 	
 	body div.pulseContainer > div.pulse.success{
+		animation-duration:4s;
 		border:1px solid var(--color-success);
 	}
 	
 	body div.pulseContainer > div.pulseCore.success{
 		background-color:var(--color-success);
+	}
+	
+	body div.pulseContainer > div.pulse.warning{
+		animation-duration:2s;
+		border:1px solid var(--color-warning);
+	}
+	
+	body div.pulseContainer > div.pulseCore.warning{
+		background-color:var(--color-warning);
+	}
+	
+	body div.pulseContainer > div.pulse.danger{
+		animation-duration:4s;
+		border:1px solid var(--color-danger);
+	}
+	
+	body div.pulseContainer > div.pulseCore.danger{
+		background-color:var(--color-danger);
 	}
 
 @keyframes pulseGrow{
