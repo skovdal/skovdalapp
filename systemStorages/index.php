@@ -201,6 +201,9 @@ if($validateFlag == 200){
 					request.onreadystatechange = function(){
 						if(request.readyState == 4 && request.status == 200){
 							if(request.responseText == 200){
+								var timeoutFunction = function(){checkConnection();}
+								setTimeout(timeoutFunction, 10000);
+								
 								console.log('Database Success');
 								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
