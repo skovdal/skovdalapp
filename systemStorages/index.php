@@ -195,7 +195,7 @@ if($validateFlag == 200){
 				
 				function checkConnection(pulseContainerId){
 					pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
-					pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulse warning';
+					pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
 /*
 					
 					var request = new XMLHttpRequest();
