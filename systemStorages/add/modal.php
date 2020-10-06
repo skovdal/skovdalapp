@@ -33,7 +33,7 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input id="inputName" name="name" onchange="checkConnection(this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('input[name="mysqlHost"]')[0].value, this.closest('form').querySelectorAll('input[name="mysqlUsername"]')[0].value, this.closest('form').querySelectorAll('input[name="mysqlPassword"]')[0].value, this.closest('form').querySelectorAll('input[name="mysqlDbName"]')[0].value, this.closest('form').querySelectorAll('input[name="mysqlPort"]')[0].value, this.closest('form').querySelectorAll('input[name="mysqlSocket"]')[0].value);" pattern=".{3,}" placeholder="Jens Nielsen" type="text" required autofocus><label for="inputName">Navn</label><br>
+			<input id="inputName" name="name" onchange="checkConnection(this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('#inputMySQLHost')[0].value, this.closest('form').querySelectorAll('#inputMySQLUsername')[0].value, this.closest('form').querySelectorAll('#inputMySQLPassword')[0].value, this.closest('form').querySelectorAll('#inputMySQLDbName')[0].value, this.closest('form').querySelectorAll('#inputMySQLPort')[0].value, this.closest('form').querySelectorAll('#inputMySQLSocket')[0].value);" pattern=".{3,}" placeholder="Jens Nielsen" type="text" required autofocus><label for="inputName">Navn</label><br>
 			<select id="inputType" name="type" onchange="" required>
 				<optgroup label="Database">
 <!-- 					<option value="MariaDB">MariaDB</option> -->
