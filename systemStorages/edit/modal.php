@@ -253,6 +253,7 @@ if($validateFlag == 200){
 		</div>
 		
 		<div class="buttons">
+			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 			<input class="delete" onclick="modal(0, 'basic', '/systemStorages/edit/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systemlager">
 		</div>
 	</form>
