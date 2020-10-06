@@ -241,8 +241,7 @@ if($validateFlag == 200){
 					request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 					request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
 					request.send(
-						'tableName=' + encodeURIComponent(tableName) +
-						'&mysql_host=' + encodeURIComponent(mysql_host) +
+						'mysql_host=' + encodeURIComponent(mysql_host) +
 						'&mysql_username=' + encodeURIComponent(mysql_username) +
 						'&mysql_password=' + encodeURIComponent(mysql_password) +
 						'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
