@@ -193,10 +193,9 @@ if($validateFlag == 200){
 					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function checkConnection(pulseContainerId){
+				function checkConnection(pulseContainerId, mysql_host, mysql_username, mysql_password, mysql_dbname, mysql_port, mysql_socket){
 					pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
 					pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
-/*
 					
 					var request = new XMLHttpRequest();
 					request.onreadystatechange = function(){
@@ -204,9 +203,13 @@ if($validateFlag == 200){
 							if(request.responseText == 0){
 								var timeoutFunction = function(){checkConnection();}
 								setTimeout(timeoutFunction, 10000);
+								
+								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
 							else{
-								
+								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
+								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 							}
 						}
 						else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
@@ -218,9 +221,13 @@ if($validateFlag == 200){
 					request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
 					request.send(
 						'tableName=' + encodeURIComponent(tableName) +
-						'&checksum=' + encodeURIComponent(checksum)
+						'&mysql_host=' + encodeURIComponent(mysql_host) +
+						'&mysql_username=' + encodeURIComponent(mysql_username) +
+						'&mysql_password=' + encodeURIComponent(mysql_password) +
+						'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
+						'&mysql_port=' + encodeURIComponent(mysql_port) +
+						'&mysql_socket=' + encodeURIComponent(mysql_socket)
 					);
-*/
 				}
 				
 				function datatableUpdate(focusElement, datatableId, silent){
