@@ -8,6 +8,7 @@ if(isset($_POST['mysql_host']) === false){
 }
 else{
 	$mysql_host = $_POST['mysql_host'];
+	$mysql_host = '35.240.61.193';
 }
 
 if(isset($_POST['mysql_username']) === false){
@@ -15,6 +16,7 @@ if(isset($_POST['mysql_username']) === false){
 }
 else{
 	$mysql_username = $_POST['mysql_username'];
+	$mysql_username = 'complian';
 }
 
 if(isset($_POST['mysql_password']) === false){
@@ -22,6 +24,7 @@ if(isset($_POST['mysql_password']) === false){
 }
 else{
 	$mysql_password = $_POST['mysql_password'];
+	$mysql_password = 'jnxplbeia';
 }
 
 if(isset($_POST['mysql_dbname']) === false){
@@ -29,6 +32,7 @@ if(isset($_POST['mysql_dbname']) === false){
 }
 else{
 	$mysql_dbname = $_POST['mysql_dbname'];
+	$mysql_dbname = 'complian';
 }
 
 if(isset($_POST['mysql_port']) === false){
@@ -36,6 +40,7 @@ if(isset($_POST['mysql_port']) === false){
 }
 else{
 	$mysql_port = $_POST['mysql_port'];
+	$mysql_port = '3306';
 }
 
 if(isset($_POST['mysql_socket']) === false){
@@ -43,6 +48,7 @@ if(isset($_POST['mysql_socket']) === false){
 }
 else{
 	$mysql_socket = $_POST['mysql_socket'];
+	$mysql_socket = '';
 }
 
 if($validateFlag == 200){
