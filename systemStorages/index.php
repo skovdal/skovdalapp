@@ -208,7 +208,7 @@ if($validateFlag == 200){
 								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 							}
-							else (request.responseText == 400){
+							else if(request.responseText == 400){
 								var timeoutFunction = function(){checkConnection();}
 								setTimeout(timeoutFunction, 10000);
 								
@@ -216,11 +216,19 @@ if($validateFlag == 200){
 								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
-							else (request.responseText == 404){
+							else if(request.responseText == 404){
 								var timeoutFunction = function(){checkConnection();}
 								setTimeout(timeoutFunction, 10000);
 								
 								console.log('Database Not Found');
+								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+							}
+							else{
+								var timeoutFunction = function(){checkConnection();}
+								setTimeout(timeoutFunction, 10000);
+								
+								console.log('Database Connection Error');
 								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 							}
