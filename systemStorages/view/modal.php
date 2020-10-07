@@ -82,7 +82,7 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<input class="modalScript" type="hidden" value="function(){alert('Test');}">
+	<input class="modalScript" type="hidden" value="(function(){alert('Test');})();">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
