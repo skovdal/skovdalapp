@@ -59,27 +59,6 @@ if($validateFlag == 200){
 	}
 	else{
 		echo 200;
-/*
-		$stmtExternal = $conExternal->stmt_init();
-		if($stmtExternal->prepare("
-			SHOW DATABASES LIKE ?
-		")){
-			$stmtExternal->bind_param('s', $mysql_dbname);
-			$stmtExternal->execute();
-			$result = $stmt->get_result();
-			
-			if(mysqli_num_rows($result) > 0){
-				echo 200;
-			}
-			else{
-				echo 404;
-			}
-			$result->close();
-		}
-		else{
-			echo 400;
-		}
-*/
 		$conExternal->close();
 	}
 	
