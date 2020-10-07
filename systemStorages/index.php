@@ -201,12 +201,15 @@ if($validateFlag == 200){
 					var mysql_port = mysql_portId.value;
 					var mysql_socket = mysql_socketId.value;
 					
-					if(silent == 0){
-						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
-						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
-					}
-					
 					if(mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != ''){
+						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
+						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
+						
+						if(silent == 0){
+							pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
+							pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
+						}
+						
 						var request = new XMLHttpRequest();
 						request.onreadystatechange = function(){
 							if(request.readyState == 4 && request.status == 200){
@@ -256,9 +259,8 @@ if($validateFlag == 200){
 						);
 					}
 					else{
-						console.log('Database Missing Connection Info');
-						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
-						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'none';
+						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'none';
 					}
 				}
 				

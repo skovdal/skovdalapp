@@ -126,6 +126,7 @@ body div.pulseContainer{
 		animation-iteration-count:infinite;
 		animation-timing-function:ease-out;
 		border-radius:50%;
+		display:none;
 		height:14px;
 		left:50%;
 		margin-left:-7px;
@@ -139,6 +140,7 @@ body div.pulseContainer{
 	body div.pulseContainer > div.pulseCore{
 		background-color:var(--color-success);
 		border-radius:50%;
+		display:none;
 		height:12px;
 		left:50%;
 		margin-left:-6px;
