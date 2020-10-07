@@ -32,14 +32,14 @@ else{
 }
 
 if(isset($_POST['mysql_port']) === false){
-	$validateFlag = 400;
+	$mysql_port = 3306;
 }
 else{
 	$mysql_port = $_POST['mysql_port'];
 }
 
 if(isset($_POST['mysql_socket']) === false){
-	$validateFlag = 400;
+	$mysql_socket = '';
 }
 else{
 	$mysql_socket = $_POST['mysql_socket'];
