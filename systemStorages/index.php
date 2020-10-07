@@ -226,6 +226,14 @@ if($validateFlag == 200){
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
+								else if(request.responseText == 401){
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									setTimeout(timeoutFunction, 10000);
+									
+									console.log('Database Unauthorized');
+									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+								}
 								else if(request.responseText == 404){
 									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
 									setTimeout(timeoutFunction, 10000);

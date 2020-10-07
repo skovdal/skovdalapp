@@ -55,7 +55,7 @@ if($validateFlag == 200){
 	$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
 	
 	if($conExternal -> connect_errno){
-		echo 400;
+		echo 401;
 	}
 	else{
 		$stmtExternal = $conExternal->stmt_init();
