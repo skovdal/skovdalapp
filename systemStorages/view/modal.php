@@ -82,11 +82,7 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<input class="modalScript" type="hidden" value="(function(){alert('Test1');})();">
-	<input class="modalScript" type="hidden" value="(function(){alert('Test2');})();">
-	<input class="modalScript" type="hidden" value="(function(){alert('Test3');})();">
-	<input class="modalScript" type="hidden" value="(function(){alert('Test4');})();">
-	<input class="modalScript" type="hidden" value="(function(){alert('Test5');})();">
+	<input class="modalScript" type="hidden" value="(function(){checkConnection(0, this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('#inputMySQLHost')[0], this.closest('form').querySelectorAll('#inputMySQLUsername')[0], this.closest('form').querySelectorAll('#inputMySQLPassword')[0], this.closest('form').querySelectorAll('#inputMySQLDbName')[0], this.closest('form').querySelectorAll('#inputMySQLPort')[0], this.closest('form').querySelectorAll('#inputMySQLSocket')[0]);})();">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
@@ -117,8 +113,8 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>MySQL-brugernavn</label><br>
-			<input type="password" value="<?php echo purify($systemStorages_mysql_password); ?>" readonly><label>MySQL-adgangskode</label><br>
+			<input id="inputMySQLUsername" type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>MySQL-brugernavn</label><br>
+			<input id="inputMySQLPassword" type="password" value="<?php echo purify($systemStorages_mysql_password); ?>" readonly><label>MySQL-adgangskode</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_login_username); ?>" readonly><label>FTP-brugernavn</label><br>
 			<input type="password" value="" readonly><label>FTP-adgangskode</label><br>
 		</div>
@@ -126,10 +122,10 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_dbname); ?>" readonly><label>MySQL-database</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_host); ?>" readonly><label>MySQL-værtsadresse</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_port); ?>" readonly><label>MySQL-port</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL-socket</label><br>
+			<input id="inputMySQLDbName" type="text" value="<?php echo purify($systemStorages_mysql_dbname); ?>" readonly><label>MySQL-database</label><br>
+			<input id="inputMySQLHost" type="text" value="<?php echo purify($systemStorages_mysql_host); ?>" readonly><label>MySQL-værtsadresse</label><br>
+			<input id="inputMySQLPort" type="text" value="<?php echo purify($systemStorages_mysql_port); ?>" readonly><label>MySQL-port</label><br>
+			<input id="inputMySQLSocket" type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL-socket</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" readonly><label>FTP-værtsadresse</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" readonly><label>FTP-port</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" readonly><label>FTP-timeout</label><br>
