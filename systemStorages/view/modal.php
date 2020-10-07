@@ -82,6 +82,7 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
+	<input class="modalScript" type="hidden" value="function(){alert('Test');}">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
@@ -113,9 +114,9 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<input type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>MySQL-brugernavn</label><br>
-			<input type="password" placeholder="Vises ikke" readonly><label>MySQL-adgangskode</label><br>
+			<input type="password" value="<?php echo purify($systemStorages_mysql_password); ?>" readonly><label>MySQL-adgangskode</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_ftp_login_username); ?>" readonly><label>FTP-brugernavn</label><br>
-			<input type="password" placeholder="Vises ikke" readonly><label>FTP-adgangskode</label><br>
+			<input type="password" value="" readonly><label>FTP-adgangskode</label><br>
 		</div>
 		
 		<div>
@@ -189,12 +190,12 @@ if($validateFlag == 200){
 					}
 				}
 				$result->close();
-							?>
+				?>
 			</div>
 		</div>
 		
 		<div class="buttons">
-			<div class="pulseContainer"><div class="pulseCore warning"></div><div class="pulse warning"></div></div>
+			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 			<input class="delete" onclick="modal(0, 'basic', '/systemStorages/view/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><input class="edit" onclick="modal(<?php echo purify($modalId); ?>, 'large', '/systemStorages/edit/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', false, 0)" type="button" value="Editer systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
 		</div>
 	</form>
