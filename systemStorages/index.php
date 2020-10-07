@@ -211,42 +211,18 @@ if($validateFlag == 200){
 						request.onreadystatechange = function(){
 							if(request.readyState == 4 && request.status == 200){
 								if(request.responseText == 200){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-									setTimeout(timeoutFunction, 10000);
-									
-									console.log('Database Success');
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 								}
 								else if(request.responseText == 400){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-									setTimeout(timeoutFunction, 10000);
-									
-									console.log('Database Bad Request');
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else if(request.responseText == 401){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-									setTimeout(timeoutFunction, 10000);
-									
-									console.log('Database Unauthorized');
-									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
-									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-								}
-								else if(request.responseText == 404){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-									setTimeout(timeoutFunction, 10000);
-									
-									console.log('Database Not Found');
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else{
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-									setTimeout(timeoutFunction, 10000);
-									
-									console.log('Database Connection Error');
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}

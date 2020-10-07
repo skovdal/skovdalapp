@@ -146,6 +146,8 @@ if($validateFlag == 200){
 	}
 }
 else{
+	echo 400;
+	
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
