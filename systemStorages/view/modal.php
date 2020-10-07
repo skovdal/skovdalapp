@@ -82,7 +82,6 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<input class="modalScript" type="hidden" value="(function(){checkConnection(0, this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('#inputMySQLHost')[0], this.closest('form').querySelectorAll('#inputMySQLUsername')[0], this.closest('form').querySelectorAll('#inputMySQLPassword')[0], this.closest('form').querySelectorAll('#inputMySQLDbName')[0], this.closest('form').querySelectorAll('#inputMySQLPort')[0], this.closest('form').querySelectorAll('#inputMySQLSocket')[0]);})();">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
@@ -102,6 +101,8 @@ if($validateFlag == 200){
 		</li>
 	</ul>
 	<form onsubmit="return false;">
+		<input class="modalScript" type="hidden" value="(function(){checkConnection(0, this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('#inputMySQLHost')[0], this.closest('form').querySelectorAll('#inputMySQLUsername')[0], this.closest('form').querySelectorAll('#inputMySQLPassword')[0], this.closest('form').querySelectorAll('#inputMySQLDbName')[0], this.closest('form').querySelectorAll('#inputMySQLPort')[0], this.closest('form').querySelectorAll('#inputMySQLSocket')[0]);})();">
+		
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
