@@ -246,7 +246,7 @@ if($validateFlag == 200){
 								// toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?3');
 							}
 						}
-						request.open('POST', '/systemStorages/add/check/checkConnection.php');
+						request.open('POST', '/systemStorages/check/checkConnection.php');
 						request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 						request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
 						request.send(
