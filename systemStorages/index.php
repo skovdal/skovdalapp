@@ -206,65 +206,72 @@ if($validateFlag == 200){
 						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
 					}
 					
-					var request = new XMLHttpRequest();
-					request.onreadystatechange = function(){
-						if(request.readyState == 4 && request.status == 200){
-							if(request.responseText == 200){
-								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-								setTimeout(timeoutFunction, 10000);
-								
-								console.log('Database Success');
-								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
-								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
+					if(mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != ''){
+						var request = new XMLHttpRequest();
+						request.onreadystatechange = function(){
+							if(request.readyState == 4 && request.status == 200){
+								if(request.responseText == 200){
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									setTimeout(timeoutFunction, 10000);
+									
+									console.log('Database Success');
+									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
+									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
+								}
+								else if(request.responseText == 400){
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									setTimeout(timeoutFunction, 10000);
+									
+									console.log('Database Bad Request');
+									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+								}
+								else if(request.responseText == 404){
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									setTimeout(timeoutFunction, 10000);
+									
+									console.log('Database Not Found');
+									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+								}
+								else{
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									setTimeout(timeoutFunction, 10000);
+									
+									console.log('Database Connection Error');
+									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+								}
 							}
-							else if(request.responseText == 400){
-								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-								setTimeout(timeoutFunction, 10000);
-								
-								console.log('Database Bad Request');
-								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
-								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-							}
-							else if(request.responseText == 404){
-								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-								setTimeout(timeoutFunction, 10000);
-								
-								console.log('Database Not Found');
-								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
-								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-							}
-							else{
-								var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
-								setTimeout(timeoutFunction, 10000);
-								
-								console.log('Database Connection Error');
-								pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
-								pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+							else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
+								// toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?3');
 							}
 						}
-						else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
-							// toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?3');
-						}
+						request.open('POST', '/systemStorages/add/check/checkConnection.php');
+						request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+						request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
+						console.log(
+							'mysql_host=' + encodeURIComponent(mysql_host) +
+							'&mysql_username=' + encodeURIComponent(mysql_username) +
+							'&mysql_password=' + encodeURIComponent(mysql_password) +
+							'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
+							'&mysql_port=' + encodeURIComponent(mysql_port) +
+							'&mysql_socket=' + encodeURIComponent(mysql_socket)
+						);
+						request.send(
+							'mysql_host=' + encodeURIComponent(mysql_host) +
+							'&mysql_username=' + encodeURIComponent(mysql_username) +
+							'&mysql_password=' + encodeURIComponent(mysql_password) +
+							'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
+							'&mysql_port=' + encodeURIComponent(mysql_port) +
+							'&mysql_socket=' + encodeURIComponent(mysql_socket)
+						);
 					}
-					request.open('POST', '/systemStorages/add/check/checkConnection.php');
-					request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-					request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
-					console.log(
-						'mysql_host=' + encodeURIComponent(mysql_host) +
-						'&mysql_username=' + encodeURIComponent(mysql_username) +
-						'&mysql_password=' + encodeURIComponent(mysql_password) +
-						'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
-						'&mysql_port=' + encodeURIComponent(mysql_port) +
-						'&mysql_socket=' + encodeURIComponent(mysql_socket)
-					);
-					request.send(
-						'mysql_host=' + encodeURIComponent(mysql_host) +
-						'&mysql_username=' + encodeURIComponent(mysql_username) +
-						'&mysql_password=' + encodeURIComponent(mysql_password) +
-						'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
-						'&mysql_port=' + encodeURIComponent(mysql_port) +
-						'&mysql_socket=' + encodeURIComponent(mysql_socket)
-					);
+					else{
+						console.log('Database Missing Connection Info');
+						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
+						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
+					}
 				}
 				
 				function datatableUpdate(focusElement, datatableId, silent){
