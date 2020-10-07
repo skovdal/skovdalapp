@@ -715,7 +715,7 @@ function modal(modalId, modalStyle, modalUrl, modalMethod, modalParameters, show
 						modalTab(modalId, tabId);
 						
 						for(var i = 0; i < document.querySelectorAll('#modal-' + modalId + ' .modalScript').length; i++){
-/* 							eval(document.querySelectorAll('#modal-' + modalId + ' .modalScript')[i].value); */
+							eval(document.querySelectorAll('#modal-' + modalId + ' .modalScript')[i].value);
 						}
 					}
 					else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
