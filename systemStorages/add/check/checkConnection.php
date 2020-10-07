@@ -44,15 +44,15 @@ else{
 }
 
 if(isset($_POST['mysql_socket']) === false){
-	$validateFlag = 400;
+// 	$validateFlag = 400;
+	$mysql_socket = '';
 }
 else{
 	$mysql_socket = $_POST['mysql_socket'];
-	$mysql_socket = false;
 }
 
 if($validateFlag == 200){
-	$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port);
+	$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
 	
 	if($conExternal -> connect_errno){
 		echo 400;
