@@ -58,6 +58,8 @@ if($validateFlag == 200){
 		echo 401;
 	}
 	else{
+		echo 200;
+/*
 		$stmtExternal = $conExternal->stmt_init();
 		if($stmtExternal->prepare("
 			SHOW DATABASES LIKE ?
@@ -77,6 +79,7 @@ if($validateFlag == 200){
 		else{
 			echo 400;
 		}
+*/
 		$conExternal->close();
 	}
 	
