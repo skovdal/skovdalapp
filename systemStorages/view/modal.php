@@ -82,7 +82,7 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<input class="modalScript" type="hidden" value="(function(){checkConnection(0, this.closest('form').querySelectorAll('div.pulseContainer')[0], this.closest('form').querySelectorAll('#inputMySQLHost')[0], this.closest('form').querySelectorAll('#inputMySQLUsername')[0], this.closest('form').querySelectorAll('#inputMySQLPassword')[0], this.closest('form').querySelectorAll('#inputMySQLDbName')[0], this.closest('form').querySelectorAll('#inputMySQLPort')[0], this.closest('form').querySelectorAll('#inputMySQLSocket')[0]);})();">
+	<input class="modalScript" type="hidden" value="(function(){checkConnection(0, document.querySelectorAll('#modal-' + modalId + ' form div.pulseContainer')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLHost')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLUsername')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLPassword')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLDbName')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLPort')[0], document.querySelectorAll('#modal-' + modalId + ' form #inputMySQLSocket')[0]);})();">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
