@@ -107,7 +107,7 @@ if($validateFlag == 200){
 			<br>
 			<input type="text" value="<?php echo purify($systemStorages_name); ?>" readonly><label>Navn</label><br>
 			<input type="text" value="<?php echo purify($systemStorages_type); ?>" readonly><label>Type</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_storageSize); ?>" readonly><label>Lagerstørrelse</label><br>
+			<input type="text" value="<?php echo purify(storageSize($systemStorages_storageSize)); ?>" readonly><label>Lagerstørrelse</label><br>
 		</div>
 		
 		<div>

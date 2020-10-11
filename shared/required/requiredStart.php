@@ -9,6 +9,7 @@ $systemEvents_addEvent_startTime = microtime(true);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/encryptEncode/encodeId.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/encryptEncode/decodeId.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/dbConnections/dbConnections.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/measurements/storageSize.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/systemConfigurations/getSystemConfiguration.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/systemEvents/add/systemSubmit.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/systemPreferences/getSystemPreference.php';
