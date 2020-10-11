@@ -208,7 +208,6 @@ if($validateFlag == 200){
 						if(silent == 0){
 							pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
 							pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
-							pulseContainerId.querySelectorAll('div.pulseCore')[0].title = 'Forsøger at oprette forbindelse til systemlageret...';
 						}
 						
 						var request = new XMLHttpRequest();
@@ -220,7 +219,6 @@ if($validateFlag == 200){
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
-									pulseContainerId.querySelectorAll('div.pulseCore')[0].title = 'Der er forbindelse til systemlageret';
 								}
 								else if(request.responseText == 400){
 									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
@@ -228,7 +226,6 @@ if($validateFlag == 200){
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-									pulseContainerId.querySelectorAll('div.pulseCore')[0].title = 'Det var ikke muligt at forbinde til systemlageret';
 								}
 								else if(request.responseText == 401){
 									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
@@ -236,7 +233,6 @@ if($validateFlag == 200){
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-									pulseContainerId.querySelectorAll('div.pulseCore')[0].title = 'Det var ikke muligt at forbinde til systemlageret';
 								}
 								else{
 									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
@@ -244,7 +240,6 @@ if($validateFlag == 200){
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
-									pulseContainerId.querySelectorAll('div.pulseCore')[0].title = 'Det var ikke muligt at forbinde til systemlageret';
 								}
 							}
 							else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){

@@ -54,15 +54,17 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<h1>Klargør systemlager som standarddatabase</h1>
-	<form action="/systemStorages/prepareDefaultDatabaseSingle/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
+	<h1>Anvend systemlager som systemdatabase</h1>
+	<form action="/systemStorages/useAsSystemDatabaseSingle/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="systemStorages_id" type="hidden" value="<?php echo encodeId($systemStorages_id); ?>">
 		<div>
-			Bekræft venligst at du ønsker at klargøre systemlageret <strong><?php echo purify($systemStorages_name); ?></strong> som standarddatabase for systemet.<br>
+			Bekræft venligst at du ønsker at anvende systemlageret <strong><?php echo purify($systemStorages_name); ?></strong> som systemdatabase.<br>
 			<br>
-			<strong>Alle data på systemlageret slettes i forbindelse med klargøringen.<br>
+			Alle data fra den nuværende systemdatabase migreres til systemlageret.<br>
+			<br>
+			<strong>Alle data på systemlageret slettes, inden data migreres.<br>
 			<br>
 			Handlingen kan ikke fortrydes.</strong>
 		</div>
