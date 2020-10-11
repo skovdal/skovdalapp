@@ -2,7 +2,10 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 function storageSize($size, $precision){
-	if($size == 0){
+	if($size == -1){
+		return 'Ubegrænset';
+	}
+	else if($size == 0){
 		$calculatedSize = number_format(round(0, $precision), 2, ',', '.');
 		$calculatedSizeUnit = 'kB';
 		return $calculatedSize . ' ' . $calculatedSizeUnit;
