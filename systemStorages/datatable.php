@@ -313,7 +313,7 @@ if($validateFlag == 200){
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
-					echo purify(storageSize($row['systemStorages_storageSize'], 2));
+					echo purify(storageSize($row['systemStorages_storageSize'], 0));
 					?>
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">

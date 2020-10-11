@@ -343,7 +343,7 @@ if($validateFlag == 200){
 				</td>
 				<td onclick="modal(0, 'large', '/files/view/modal.php', 'POST', '&files_id=<?php echo encodeId(purify($row['files_id'])); ?>', true, 1);" style="<?php if($preferences_columnsFiles_columnsSize == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
-					echo purify(storageSize($row['files_size'], 2));
+					echo purify(storageSize($row['files_size'], 0));
 					?>
 				</td>
 				<td onclick="modal(0, 'large', '/files/view/modal.php', 'POST', '&files_id=<?php echo encodeId(purify($row['files_id'])); ?>', true, 1);" style="<?php if($preferences_columnsFiles_columnsLastModified == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
