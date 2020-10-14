@@ -25,7 +25,7 @@ else{
 
 if($validateFlag == 200){
 ?>
-	<h1>Sikkerhedsindstillinger for systembrugere</h1>
+	<h1>Sikkerhedsindstillinger for systemlagre</h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
 			Kryptering
@@ -41,15 +41,15 @@ if($validateFlag == 200){
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<div>
-			Det er muligt at kryptere alle opbevarede data om systembrugere.<br>
+			Det er muligt at kryptere alle opbevarede data om systemlagre.<br>
 			<br>
 			Complian anbefaler kraftigt, at du inden en eventuel aktivering sætter dig ind i følgerne af at gøre brug af funktionen.<br>
 			<br>
 			<a href="https://www.complian.com.complian.dev/support/da-DK/" target="_blank">Klik her for yderligere information om funktionen</a><br>
 			<br>
 			<select id="inputEncryptionSystemStorages" name="encryptionSystemStorages" autofocus required>
-				<option value="1" <?php if($configuration_encryptionSystemStorages == 1){echo 'selected';} ?>>Krypter opbevarede data om systembrugere</option>
-				<option value="0" <?php if($configuration_encryptionSystemStorages == 0){echo 'selected';} ?>>Krypter ikke opbevarede data om systembrugere</option>
+				<option value="1" <?php if($configuration_encryptionSystemStorages == 1){echo 'selected';} ?>>Krypter opbevarede data om systemlagre</option>
+				<option value="0" <?php if($configuration_encryptionSystemStorages == 0){echo 'selected';} ?>>Krypter ikke opbevarede data om systemlagre</option>
 			</select><label for="inputEncryptionSystemStorages">Kryptering ved opbevaring</label><br>
 		</div>
 		
@@ -57,8 +57,8 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<select id="inputLogSystemStorages" name="logSystemStorages" autofocus required>
-				<option value="1" <?php if($configuration_logSystemStorages == 1){echo 'selected';} ?>>Log hændelser om systembrugere</option>
-				<option value="0" <?php if($configuration_logSystemStorages == 0){echo 'selected';} ?>>Log ikke hændelser om systembrugere</option>
+				<option value="1" <?php if($configuration_logSystemStorages == 1){echo 'selected';} ?>>Log hændelser om systemlagre</option>
+				<option value="0" <?php if($configuration_logSystemStorages == 0){echo 'selected';} ?>>Log ikke hændelser om systemlagre</option>
 			</select><label for="inputLogSystemStorages">Logning af hændelser</label><br>
 		</div>
 		
@@ -66,7 +66,7 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<select id="inputDeleteConfirmationSystemStorages" name="deleteConfirmationSystemStorages" autofocus required>
-				<option value="9" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'selected';} ?>>Benyt Complian-appen til bekræftelse fra en anden systembruger</option>
+				<option value="9" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'selected';} ?>>Benyt Complian-appen til bekræftelse fra en anden systemlagre</option>
 				<option value="2" <?php if($configuration_deleteConfirmationSystemStorages == 2){echo 'selected';} ?>>Benyt brugerens adgangskode til bekræftelse</option>
 				<option value="1" <?php if($configuration_deleteConfirmationSystemStorages == 1){echo 'selected';} ?>>Benyt tryk på knap til bekræftelse</option>
 				<option value="3" <?php if($configuration_deleteConfirmationSystemStorages == 3){echo 'selected';} ?>>Benyt en bekræftelseskode som findes på et fysisk nøglekort</option>

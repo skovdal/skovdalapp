@@ -108,7 +108,7 @@ if($validateFlag == 200){
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Sikkerhedsindstillinger for systembrugere', 'Sikkerhedsindstillingerne blev gemt.', 0, true, '');
+		parent.toastr('success', 'Sikkerhedsindstillinger for systemlagre', 'Sikkerhedsindstillingerne blev gemt.', 0, true, '');
 	</script>
 	<?php
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){

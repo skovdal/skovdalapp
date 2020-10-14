@@ -76,7 +76,7 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<h1>Ny systembruger</h1>
+	<h1>Nyt systemlager</h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
 			Identitet
@@ -228,7 +228,7 @@ if($validateFlag == 200){
 		</div>
 		
 		<div class="buttons">
-			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systembruger">
+			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systemlager">
 		</div>
 	</form>
 	<?php

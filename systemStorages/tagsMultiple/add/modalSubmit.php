@@ -179,7 +179,7 @@ if($validateFlag == 200){
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Tilføj mærke på markerede systembrugere', 'Mærket blev tilføjet på de markerede systembrugere.', 0, true, '');
+		parent.toastr('success', 'Tilføj mærke på markerede systemlagre', 'Mærket blev tilføjet på de markerede systemlagre.', 0, true, '');
 	</script>
 	<?php
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){

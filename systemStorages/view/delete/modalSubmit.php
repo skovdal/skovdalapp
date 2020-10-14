@@ -78,7 +78,7 @@ if($validateFlag == 200){
 		parent.datatableUpdate('', 'datatable1', 0);
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
 		parent.document.querySelectorAll('#modal-<?php echo purify($refererModalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Slet systembruger', 'Identiteten blev slettet.', 0, true, '');
+		parent.toastr('success', 'Slet systemlager', 'Systemlageret blev slettet.', 0, true, '');
 	</script>
 	<?php
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
@@ -168,7 +168,7 @@ else{
 ?>
 	<script>
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].disabled = false;
-		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet systembruger';
+		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> input.delete[type="submit"]')[0].value = 'Slet systemlager';
 		parent.toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
 	</script>
 	<?php

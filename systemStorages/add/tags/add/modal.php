@@ -25,7 +25,7 @@ if($validateFlag == 200){
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="refererModalId" type="hidden" value="<?php echo purify($refererModalId); ?>">
 		<div>
-			Tilføj nedenstående mærke på systembrugeren.<br>
+			Tilføj nedenstående mærke på systemlageret.<br>
 			<br>
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="Opfølgning" type="text" required autofocus><label for="inputName">Mærke</label><br>
 			<select class="colorPicker" id="inputBorderColor" name="borderColor" onchange="this.style.background = 'linear-gradient(90deg, transparent 90%, ' + this.options[this.selectedIndex].value + ' 10%)';" required>
