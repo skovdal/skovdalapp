@@ -44,7 +44,7 @@ if($validateFlag == 200){
 			OR
 			`s0`.`systemConfigurations`.`systemConfiguration` = 'deleteConfirmationSystemStorages'
 	");
-	$stmt->bind_param('i', $systemUsers_id);
+	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
 	setTableVersion('systemConfigurations');
 	

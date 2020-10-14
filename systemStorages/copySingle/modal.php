@@ -10,16 +10,16 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	if(decodeId($systemUsers_id) == -1){
+	$systemStorages_id = $_POST['systemStorages_id'];
+	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
 	}
 	else{
-		$systemUsers_id = decodeId($systemUsers_id);
+		$systemStorages_id = decodeId($systemStorages_id);
 	}
 }
 
@@ -27,27 +27,27 @@ if(isset($con) === false){$con = dbConnection();}
 $stmt = $con->stmt_init();
 $stmt->prepare("
 	SELECT
-		`c0`.`systemUsers`.`type` AS `systemUsers_type`,
-		`c0`.`systemUsers`.`name` AS `systemUsers_name`,
-		`c0`.`systemUsers`.`name2` AS `systemUsers_name2`,
-		`c0`.`systemUsers`.`cvrNumber` AS `systemUsers_cvrNumber`,
-		`c0`.`systemUsers`.`cprNumber` AS `systemUsers_cprNumber`,
-		`c0`.`systemUsers`.`address` AS `systemUsers_address`,
-		`c0`.`systemUsers`.`address2` AS `systemUsers_address2`,
-		`c0`.`systemUsers`.`zipCode` AS `systemUsers_zipCode`,
-		`c0`.`systemUsers`.`city` AS `systemUsers_city`,
-		`c0`.`systemUsers`.`country` AS `systemUsers_country`,
-		`c0`.`systemUsers`.`phone` AS `systemUsers_phone`,
-		`c0`.`systemUsers`.`phone2` AS `systemUsers_phone2`,
-		`c0`.`systemUsers`.`email` AS `systemUsers_email`,
-		`c0`.`systemUsers`.`email2` AS `systemUsers_email2`
+		`c0`.`systemStorages`.`type` AS `systemStorages_type`,
+		`c0`.`systemStorages`.`name` AS `systemStorages_name`,
+		`c0`.`systemStorages`.`name2` AS `systemStorages_name2`,
+		`c0`.`systemStorages`.`cvrNumber` AS `systemStorages_cvrNumber`,
+		`c0`.`systemStorages`.`cprNumber` AS `systemStorages_cprNumber`,
+		`c0`.`systemStorages`.`address` AS `systemStorages_address`,
+		`c0`.`systemStorages`.`address2` AS `systemStorages_address2`,
+		`c0`.`systemStorages`.`zipCode` AS `systemStorages_zipCode`,
+		`c0`.`systemStorages`.`city` AS `systemStorages_city`,
+		`c0`.`systemStorages`.`country` AS `systemStorages_country`,
+		`c0`.`systemStorages`.`phone` AS `systemStorages_phone`,
+		`c0`.`systemStorages`.`phone2` AS `systemStorages_phone2`,
+		`c0`.`systemStorages`.`email` AS `systemStorages_email`,
+		`c0`.`systemStorages`.`email2` AS `systemStorages_email2`
 	FROM
-		`c0`.`systemUsers`
+		`c0`.`systemStorages`
 	WHERE
-		`c0`.`systemUsers`.`id` = ?
+		`c0`.`systemStorages`.`id` = ?
 	LIMIT 1
 ");
-$stmt->bind_param('i', $systemUsers_id);
+$stmt->bind_param('i', $systemStorages_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -56,20 +56,20 @@ if(mysqli_num_rows($result) == 0){
 }
 else{
 	while($row = mysqli_fetch_assoc($result)){
-		$systemUsers_type = $row['systemUsers_type'];
-		$systemUsers_name = $row['systemUsers_name'];
-		$systemUsers_name2 = $row['systemUsers_name2'];
-		$systemUsers_cvrNumber = $row['systemUsers_cvrNumber'];
-		$systemUsers_cprNumber = $row['systemUsers_cprNumber'];
-		$systemUsers_address = $row['systemUsers_address'];
-		$systemUsers_address2 = $row['systemUsers_address2'];
-		$systemUsers_zipCode = $row['systemUsers_zipCode'];
-		$systemUsers_city = $row['systemUsers_city'];
-		$systemUsers_country = $row['systemUsers_country'];
-		$systemUsers_phone = $row['systemUsers_phone'];
-		$systemUsers_phone2 = $row['systemUsers_phone2'];
-		$systemUsers_email = $row['systemUsers_email'];
-		$systemUsers_email2 = $row['systemUsers_email2'];
+		$systemStorages_type = $row['systemStorages_type'];
+		$systemStorages_name = $row['systemStorages_name'];
+		$systemStorages_name2 = $row['systemStorages_name2'];
+		$systemStorages_cvrNumber = $row['systemStorages_cvrNumber'];
+		$systemStorages_cprNumber = $row['systemStorages_cprNumber'];
+		$systemStorages_address = $row['systemStorages_address'];
+		$systemStorages_address2 = $row['systemStorages_address2'];
+		$systemStorages_zipCode = $row['systemStorages_zipCode'];
+		$systemStorages_city = $row['systemStorages_city'];
+		$systemStorages_country = $row['systemStorages_country'];
+		$systemStorages_phone = $row['systemStorages_phone'];
+		$systemStorages_phone2 = $row['systemStorages_phone2'];
+		$systemStorages_email = $row['systemStorages_email'];
+		$systemStorages_email2 = $row['systemStorages_email2'];
 	}
 }
 $result->close();
@@ -91,21 +91,21 @@ if($validateFlag == 200){
 			Mærker
 		</li>
 	</ul>
-	<form action="/systemUsers/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
+	<form action="/systemStorages/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<select id="inputType" name="type" autofocus required>
-				<option value="Fysisk person" <?php if($systemUsers_type == 'Fysisk person'){echo 'selected';} ?>>Fysisk person</option>
-				<option value="Juridisk person" <?php if($systemUsers_type == 'Juridisk person'){echo 'selected';} ?>>Juridisk person</option>
-				<option value="Anden type" <?php if($systemUsers_type == 'Anden type'){echo 'selected';} ?>>Anden type</option>
+				<option value="Fysisk person" <?php if($systemStorages_type == 'Fysisk person'){echo 'selected';} ?>>Fysisk person</option>
+				<option value="Juridisk person" <?php if($systemStorages_type == 'Juridisk person'){echo 'selected';} ?>>Juridisk person</option>
+				<option value="Anden type" <?php if($systemStorages_type == 'Anden type'){echo 'selected';} ?>>Anden type</option>
 			</select><label for="inputType">Type</label><br>
-			<input id="inputName" name="name" pattern=".{3,}" placeholder="Jens Nielsen" type="text" value="<?php echo purify($systemUsers_name); ?>" required><label for="inputName">Navn</label><br>
-			<input id="inputName2"  name="name2" pattern=".{3,}" placeholder="Økonomiafdelingen" type="text" value="<?php echo purify($systemUsers_name2); ?>"><label for="inputName2">Supplerende adresseoplysninger</label><br>
-			<input id="inputCvrNumber"  name="cvrNumber" pattern="[0-9]{8}" placeholder="12345678" type="text" value="<?php echo purify($systemUsers_cvrNumber); ?>"><label for="inputCvrNumber">CVR-nummer</label><br>
-			<input id="inputCprNumber" name="cprNumber" pattern="[0-9]{2}[0,1][0-9][0-9]{2}-[0-9]{4}" placeholder="010203-1234" type="text" value="<?php echo purify($systemUsers_cprNumber); ?>"><label for="inputCprNumber">CPR-nummer</label><br>
+			<input id="inputName" name="name" pattern=".{3,}" placeholder="Jens Nielsen" type="text" value="<?php echo purify($systemStorages_name); ?>" required><label for="inputName">Navn</label><br>
+			<input id="inputName2"  name="name2" pattern=".{3,}" placeholder="Økonomiafdelingen" type="text" value="<?php echo purify($systemStorages_name2); ?>"><label for="inputName2">Supplerende adresseoplysninger</label><br>
+			<input id="inputCvrNumber"  name="cvrNumber" pattern="[0-9]{8}" placeholder="12345678" type="text" value="<?php echo purify($systemStorages_cvrNumber); ?>"><label for="inputCvrNumber">CVR-nummer</label><br>
+			<input id="inputCprNumber" name="cprNumber" pattern="[0-9]{2}[0,1][0-9][0-9]{2}-[0-9]{4}" placeholder="010203-1234" type="text" value="<?php echo purify($systemStorages_cprNumber); ?>"><label for="inputCprNumber">CPR-nummer</label><br>
 		</div>
 		
 		<div>
@@ -114,10 +114,10 @@ if($validateFlag == 200){
 			<input id="inputDawaAddress" list="dawaAddressList" name="dawaAddress" oninput="dawa(this, '#inputAddress', '#inputAddress2', '#inputZipCode', '#inputCity', '#inputCountry');" pattern=".{3,}" placeholder="Rødkælkevej 3, Hadbjerg, 8370 Hadsten" type="text" autofocus><label for="inputDawaAddress">DAWA-adresse</label>
 			<datalist id="dawaAddressList"></datalist>
 			<br>
-			<input id="inputAddress" name="address" pattern=".{3,}" placeholder="Rødkælkevej 3" type="text" value="<?php echo purify($systemUsers_address); ?>"><label for="inputAddress">Adresse</label><br>
-			<input id="inputAddress2" name="address2" pattern=".{3,}" placeholder="Hadbjerg" type="text" value="<?php echo purify($systemUsers_address2); ?>"><label for="inputAddress2">Supplerende adresseoplysninger</label><br>
-			<input id="inputZipCode" name="zipCode" pattern="[0-9]{4}" placeholder="8000" type="text" value="<?php echo purify($systemUsers_zipCode); ?>"><label for="inputZipCode">Postnummer</label><br>
-			<input id="inputCity" name="city" pattern=".{3,}" placeholder="Aarhus" type="text" value="<?php echo purify($systemUsers_city); ?>"><label for="inputCity">By</label><br>
+			<input id="inputAddress" name="address" pattern=".{3,}" placeholder="Rødkælkevej 3" type="text" value="<?php echo purify($systemStorages_address); ?>"><label for="inputAddress">Adresse</label><br>
+			<input id="inputAddress2" name="address2" pattern=".{3,}" placeholder="Hadbjerg" type="text" value="<?php echo purify($systemStorages_address2); ?>"><label for="inputAddress2">Supplerende adresseoplysninger</label><br>
+			<input id="inputZipCode" name="zipCode" pattern="[0-9]{4}" placeholder="8000" type="text" value="<?php echo purify($systemStorages_zipCode); ?>"><label for="inputZipCode">Postnummer</label><br>
+			<input id="inputCity" name="city" pattern=".{3,}" placeholder="Aarhus" type="text" value="<?php echo purify($systemStorages_city); ?>"><label for="inputCity">By</label><br>
 			
 			<select id="inputCountry" name="country">
 				<option value="DK">Danmark</option>
@@ -129,10 +129,10 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input id="inputPhone"  name="phone" pattern=".{3,}" placeholder="+45 12 34 56 78" type="text" value="<?php echo purify($systemUsers_phone); ?>" autofocus><label for="inputPhone">Telefon</label><br>
-			<input id="inputPhone2"  name="phone2" pattern=".{3,}" placeholder="+45 23 45 67 89" type="text" value="<?php echo purify($systemUsers_phone2); ?>"><label for="inputPhone2">Sekundær telefon</label><br>
-			<input id="inputEmail"  name="email" placeholder="navn@efternavn.dk" type="email" value="<?php echo purify($systemUsers_email); ?>"><label for="inputEmail">E-mail</label><br>
-			<input id="inputEmail2"  name="email2" placeholder="efternavn@navn.dk" type="email" value="<?php echo purify($systemUsers_email2); ?>"><label for="inputEmail2">Sekundær e-mail</label><br>
+			<input id="inputPhone"  name="phone" pattern=".{3,}" placeholder="+45 12 34 56 78" type="text" value="<?php echo purify($systemStorages_phone); ?>" autofocus><label for="inputPhone">Telefon</label><br>
+			<input id="inputPhone2"  name="phone2" pattern=".{3,}" placeholder="+45 23 45 67 89" type="text" value="<?php echo purify($systemStorages_phone2); ?>"><label for="inputPhone2">Sekundær telefon</label><br>
+			<input id="inputEmail"  name="email" placeholder="navn@efternavn.dk" type="email" value="<?php echo purify($systemStorages_email); ?>"><label for="inputEmail">E-mail</label><br>
+			<input id="inputEmail2"  name="email2" placeholder="efternavn@navn.dk" type="email" value="<?php echo purify($systemStorages_email2); ?>"><label for="inputEmail2">Sekundær e-mail</label><br>
 		</div>
 		
 		<div class="tagTab">
@@ -162,11 +162,11 @@ if($validateFlag == 200){
 						AND
 						`s0`.`tagsReferences`.`legacyFlag` IS NULL
 						AND
-						`s0`.`tagsReferences`.`systemUsers_id` = ?
+						`s0`.`tagsReferences`.`systemStorages_id` = ?
 					ORDER BY
 						`c0`.`tags`.`name` ASC
 				");
-				$stmt->bind_param('i', $systemUsers_id);
+				$stmt->bind_param('i', $systemStorages_id);
 				$stmt->execute();
 				$result = $stmt->get_result();
 				
@@ -180,7 +180,7 @@ if($validateFlag == 200){
 				$result->close();
 							?>
 			</div>
-			<input class="addTag" onclick="modal(0, 'basic', '/systemUsers/edit/tags/add/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemUsers_id=<?php echo encodeId(purify($systemUsers_id)); ?>', true, 1);" type="button" value="Tilføj mærke" autofocus>
+			<input class="addTag" onclick="modal(0, 'basic', '/systemStorages/edit/tags/add/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Tilføj mærke" autofocus>
 			
 			<?php
 			if(isset($con) === false){$con = dbConnection();}
@@ -205,11 +205,11 @@ if($validateFlag == 200){
 					AND
 					`s0`.`tagsReferences`.`legacyFlag` IS NULL
 					AND
-					`s0`.`tagsReferences`.`systemUsers_id` = ?
+					`s0`.`tagsReferences`.`systemStorages_id` = ?
 				ORDER BY
 					`c0`.`tags`.`name` ASC
 			");
-			$stmt->bind_param('i', $systemUsers_id);
+			$stmt->bind_param('i', $systemStorages_id);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			

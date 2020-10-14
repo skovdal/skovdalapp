@@ -15,30 +15,30 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	$systemUsers_id_array = explode(',', $systemUsers_id);
+	$systemStorages_id = $_POST['systemStorages_id'];
+	$systemStorages_id_array = explode(',', $systemStorages_id);
 	
-	foreach($systemUsers_id_array as $systemUsers_id){
-		if(decodeId($systemUsers_id) == -1){
+	foreach($systemStorages_id_array as $systemStorages_id){
+		if(decodeId($systemStorages_id) == -1){
 			$validateFlag = 400;
 		}
 		else{
-			$systemUsers_id = decodeId($systemUsers_id);
+			$systemStorages_id = decodeId($systemStorages_id);
 			
-			if(isset($systemUsers_ids) === false){
-				$systemUsers_ids = $systemUsers_id;
+			if(isset($systemStorages_ids) === false){
+				$systemStorages_ids = $systemStorages_id;
 			}
 			else{
-				$systemUsers_ids = $systemUsers_ids . ',' . $systemUsers_id;
+				$systemStorages_ids = $systemStorages_ids . ',' . $systemStorages_id;
 			}
 		}
 	}
-	$systemUsers_id = $systemUsers_ids;
-	$systemUsers_id_array = explode(',', $systemUsers_id);
+	$systemStorages_id = $systemStorages_ids;
+	$systemStorages_id_array = explode(',', $systemStorages_id);
 }
 
 if(isset($_POST['name']) === false){
@@ -139,7 +139,7 @@ if($validateFlag == 200){
 		setTableVersion('tags');
 	}
 
-	foreach($systemUsers_id_array as $systemUsers_id){
+	foreach($systemStorages_id_array as $systemStorages_id){
 		if(isset($con) === false){$con = dbConnection();}
 		$stmt = $con->stmt_init();
 		$stmt->prepare("
@@ -150,9 +150,9 @@ if($validateFlag == 200){
 			WHERE
 				`s0`.`tagsReferences`.`tags_id` = ?
 				AND
-				`s0`.`tagsReferences`.`systemUsers_id` = ?
+				`s0`.`tagsReferences`.`systemStorages_id` = ?
 		");
-		$stmt->bind_param('ii', $tags_id, $systemUsers_id);
+		$stmt->bind_param('ii', $tags_id, $systemStorages_id);
 		$stmt->execute();
 		setTableVersion('tagsReferences');
 			
@@ -163,7 +163,7 @@ if($validateFlag == 200){
 				`s0`.`tagsReferences`
 			(
 				`s0`.`tagsReferences`.`tags_id`,
-				`s0`.`tagsReferences`.`systemUsers_id`
+				`s0`.`tagsReferences`.`systemStorages_id`
 			)
 			VALUES
 			(
@@ -171,7 +171,7 @@ if($validateFlag == 200){
 				?
 			)
 		");
-		$stmt->bind_param('ii', $tags_id, $systemUsers_id);
+		$stmt->bind_param('ii', $tags_id, $systemStorages_id);
 		$stmt->execute();
 		setTableVersion('tagsReferences');
 	}

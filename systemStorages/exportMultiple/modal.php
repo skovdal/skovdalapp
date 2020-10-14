@@ -10,7 +10,7 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
