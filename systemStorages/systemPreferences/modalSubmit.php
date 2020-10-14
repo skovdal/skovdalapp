@@ -141,39 +141,39 @@ if($validateFlag == 200){
 			`s0`.`systemUsersSystemPreferences`.`systemUsers_id` = ?
 			AND
 			(
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemUsers_shortcutsNew'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemStorages_shortcutsNew'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemUsers_shortcutsUpdate'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemStorages_shortcutsUpdate'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemUsers_shortcutsExport'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemStorages_shortcutsExport'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemUsers_shortcutsTags'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemStorages_shortcutsTags'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemUsers_shortcutsDelete'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'shortcutsSystemStorages_shortcutsDelete'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsName'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsName'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsSecurityClearance'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsSecurityClearance'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsBlockSignIn'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsBlockSignIn'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsUserMustChangePasswordAtNextSignIn'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsForceUseOfMultifactorAuthentication'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsForceUseOfMultifactorAuthentication'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsEntityType'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsEntityType'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsEntityName'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsEntityName'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsEntityName2'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsEntityName2'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsEntityPhone'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsEntityPhone'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsEntityEmail'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsEntityEmail'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemUsers_columnsTags'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'columnsSystemStorages_columnsTags'
 			OR
-			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'orderBySystemUsers_orderBy'
+			`s0`.`systemUsersSystemPreferences`.`systemPreference` = 'orderBySystemStorages_orderBy'
 			)
 	");
 	$stmt->bind_param('i', $systemUsers_id);
@@ -194,13 +194,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'shortcutsSystemUsers_shortcutsNew'
+		'shortcutsSystemStorages_shortcutsNew'
 	)
 	");
 	$stmt->bind_param('ii', $shortcutsNew, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemUsers_shortcutsNew' . '_' . $systemUsers_id] = $shortcutsNew;
+	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemStorages_shortcutsNew' . '_' . $systemUsers_id] = $shortcutsNew;
 	
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -216,13 +216,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'shortcutsSystemUsers_shortcutsUpdate'
+		'shortcutsSystemStorages_shortcutsUpdate'
 	)
 	");
 	$stmt->bind_param('ii', $shortcutsUpdate, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemUsers_shortcutsUpdate' . '_' . $systemUsers_id] = $shortcutsUpdate;
+	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemStorages_shortcutsUpdate' . '_' . $systemUsers_id] = $shortcutsUpdate;
 			
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -238,13 +238,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'shortcutsSystemUsers_shortcutsExport'
+		'shortcutsSystemStorages_shortcutsExport'
 	)
 	");
 	$stmt->bind_param('ii', $shortcutsExport, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemUsers_shortcutsExport' . '_' . $systemUsers_id] = $shortcutsExport;
+	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemStorages_shortcutsExport' . '_' . $systemUsers_id] = $shortcutsExport;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -260,13 +260,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'shortcutsSystemUsers_shortcutsTags'
+		'shortcutsSystemStorages_shortcutsTags'
 	)
 	");
 	$stmt->bind_param('ii', $shortcutsTags, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemUsers_shortcutsTags' . '_' . $systemUsers_id] = $shortcutsTags;
+	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemStorages_shortcutsTags' . '_' . $systemUsers_id] = $shortcutsTags;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -282,13 +282,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'shortcutsSystemUsers_shortcutsDelete'
+		'shortcutsSystemStorages_shortcutsDelete'
 	)
 	");
 	$stmt->bind_param('ii', $shortcutsDelete, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemUsers_shortcutsDelete' . '_' . $systemUsers_id] = $shortcutsDelete;
+	$_SESSION['systemUsersSystemPreferences_' . 'shortcutsSystemStorages_shortcutsDelete' . '_' . $systemUsers_id] = $shortcutsDelete;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -304,13 +304,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsName'
+		'columnsSystemStorages_columnsName'
 	)
 	");
 	$stmt->bind_param('ii', $columnsName, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsName' . '_' . $systemUsers_id] = $columnsName;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsName' . '_' . $systemUsers_id] = $columnsName;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -326,13 +326,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsSecurityClearance'
+		'columnsSystemStorages_columnsSecurityClearance'
 	)
 	");
 	$stmt->bind_param('ii', $columnsSecurityClearance, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsSecurityClearance' . '_' . $systemUsers_id] = $columnsSecurityClearance;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsSecurityClearance' . '_' . $systemUsers_id] = $columnsSecurityClearance;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -348,13 +348,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsBlockSignIn'
+		'columnsSystemStorages_columnsBlockSignIn'
 	)
 	");
 	$stmt->bind_param('ii', $columnsBlockSignIn, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsBlockSignIn' . '_' . $systemUsers_id] = $columnsBlockSignIn;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsBlockSignIn' . '_' . $systemUsers_id] = $columnsBlockSignIn;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -370,13 +370,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsUserMustChangePasswordAtNextSignIn'
+		'columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn'
 	)
 	");
 	$stmt->bind_param('ii', $columnsUserMustChangePasswordAtNextSignIn, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsUserMustChangePasswordAtNextSignIn' . '_' . $systemUsers_id] = $columnsUserMustChangePasswordAtNextSignIn;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn' . '_' . $systemUsers_id] = $columnsUserMustChangePasswordAtNextSignIn;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -392,13 +392,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsForceUseOfMultifactorAuthentication'
+		'columnsSystemStorages_columnsForceUseOfMultifactorAuthentication'
 	)
 	");
 	$stmt->bind_param('ii', $columnsForceUseOfMultifactorAuthentication, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsForceUseOfMultifactorAuthentication' . '_' . $systemUsers_id] = $columnsForceUseOfMultifactorAuthentication;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsForceUseOfMultifactorAuthentication' . '_' . $systemUsers_id] = $columnsForceUseOfMultifactorAuthentication;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -414,13 +414,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsEntityType'
+		'columnsSystemStorages_columnsEntityType'
 	)
 	");
 	$stmt->bind_param('ii', $columnsEntityType, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityType' . '_' . $systemUsers_id] = $columnsEntityType;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityType' . '_' . $systemUsers_id] = $columnsEntityType;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -436,13 +436,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsEntityName'
+		'columnsSystemStorages_columnsEntityName'
 	)
 	");
 	$stmt->bind_param('ii', $columnsEntityName, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityName' . '_' . $systemUsers_id] = $columnsEntityName;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityName' . '_' . $systemUsers_id] = $columnsEntityName;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -458,13 +458,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsEntityName2'
+		'columnsSystemStorages_columnsEntityName2'
 	)
 	");
 	$stmt->bind_param('ii', $columnsEntityName2, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityName2' . '_' . $systemUsers_id] = $columnsEntityName2;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityName2' . '_' . $systemUsers_id] = $columnsEntityName2;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -480,13 +480,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsEntityPhone'
+		'columnsSystemStorages_columnsEntityPhone'
 	)
 	");
 	$stmt->bind_param('ii', $columnsEntityPhone, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityPhone' . '_' . $systemUsers_id] = $columnsEntityPhone;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityPhone' . '_' . $systemUsers_id] = $columnsEntityPhone;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -502,13 +502,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsEntityEmail'
+		'columnsSystemStorages_columnsEntityEmail'
 	)
 	");
 	$stmt->bind_param('ii', $columnsEntityEmail, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityEmail' . '_' . $systemUsers_id] = $columnsEntityEmail;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityEmail' . '_' . $systemUsers_id] = $columnsEntityEmail;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -524,13 +524,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'columnsSystemUsers_columnsTags'
+		'columnsSystemStorages_columnsTags'
 	)
 	");
 	$stmt->bind_param('ii', $columnsTags, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemUsers_columnsEntityTags' . '_' . $systemUsers_id] = $columnsTags;
+	$_SESSION['systemUsersSystemPreferences_' . 'columnsSystemStorages_columnsEntityTags' . '_' . $systemUsers_id] = $columnsTags;
 		
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -546,13 +546,13 @@ if($validateFlag == 200){
 	(
 		?,
 		?,
-		'orderBySystemUsers_orderBy'
+		'orderBySystemStorages_orderBy'
 	)
 	");
 	$stmt->bind_param('si', $orderBy, $systemUsers_id);
 	$stmt->execute();
 	setTableVersion('systemUsersSystemPreferences');
-	$_SESSION['systemUsersSystemPreferences_' . 'orderBySystemUsers_orderBy' . '_' . $systemUsers_id] = $orderBy;
+	$_SESSION['systemUsersSystemPreferences_' . 'orderBySystemStorages_orderBy' . '_' . $systemUsers_id] = $orderBy;
 	?>
 	<script>
 		parent.datatableUpdate('', 'datatable1', 0);
@@ -791,7 +791,7 @@ if($validateFlag == 200){
 		parent.toastr('success', 'Præferencer for systembrugere', 'Præferencerne blev gemt.', 0, true, '');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'edit';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -886,7 +886,7 @@ else{
 		parent.toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'edit';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];

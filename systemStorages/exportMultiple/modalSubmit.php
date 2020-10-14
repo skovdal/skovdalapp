@@ -1283,7 +1283,7 @@ if($validateFlag == 200){
 	echo (file_get_contents($tempName));
 	unlink($tempName);
 	
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'add';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -1392,7 +1392,7 @@ else{
 	$stmt->execute();
 	setTableVersion('exports');
 
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'add';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];

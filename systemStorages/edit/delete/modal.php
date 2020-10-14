@@ -3,9 +3,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
-$configuration_deleteConfirmationSystemUsers = getSystemConfigurations('deleteConfirmationSystemUsers');
-if($configuration_deleteConfirmationSystemUsers == -1){
-	$configuration_deleteConfirmationSystemUsers = 1;
+$configuration_deleteConfirmationSystemStorages = getSystemConfigurations('deleteConfirmationSystemStorages');
+if($configuration_deleteConfirmationSystemStorages == -1){
+	$configuration_deleteConfirmationSystemStorages = 1;
 }
 
 if(isset($_POST['modalId']) === false){
@@ -71,7 +71,7 @@ if($validateFlag == 200){
 		<div>
 			Bekræft venligst at du ønsker at slette systembrugeren <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
 			<?php
-			if($configuration_deleteConfirmationSystemUsers == 2){
+			if($configuration_deleteConfirmationSystemStorages == 2){
 			?>
 				<br>
 				Indtast din adgangskode for at bekræfte sletningen.<br>
@@ -79,7 +79,7 @@ if($validateFlag == 200){
 				<input id="inputPassword" name="password" placeholder="Din adgangskode" type="password" required autofocus><label for="inputPassword">Adgangskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 3){
+			else if($configuration_deleteConfirmationSystemStorages == 3){
 			?>
 				<br>
 				Indtast bekræftelseskoden til nøgle <strong>789</strong> på dit nøglekort for at bekræfte sletningen.<br>
@@ -87,7 +87,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 4){
+			else if($configuration_deleteConfirmationSystemStorages == 4){
 			?>
 				<br>
 				Indtast bekræftelseskoden som er sendt til dig via sms for at bekræfte sletningen.<br>
@@ -95,7 +95,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 5){
+			else if($configuration_deleteConfirmationSystemStorages == 5){
 			?>
 				<br>
 				Indtast bekræftelseskoden <strong>123456</strong> for at bekræfte sletningen.<br>
@@ -103,7 +103,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 6){
+			else if($configuration_deleteConfirmationSystemStorages == 6){
 			?>
 				<br>
 				Indtast den fælles bekræftelseskode for at bekræfte sletningen.<br>
@@ -111,7 +111,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 7){
+			else if($configuration_deleteConfirmationSystemStorages == 7){
 			?>
 				<br>
 				Indtast din personlige bekræftelseskode for at bekræfte sletningen.<br>
@@ -119,7 +119,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 8){
+			else if($configuration_deleteConfirmationSystemStorages == 8){
 			?>
 				<br>
 				Indtast bekræftelseskoden som er genereret af din authenticator-app for at bekræfte sletningen.<br>
@@ -127,7 +127,7 @@ if($validateFlag == 200){
 				<input id="inputConfirmationCode" name="confirmationCode" placeholder="123456" type="number" required autofocus><label for="inputConfirmationCode">Bekræftelseskode</label><br>
 			<?php
 			}
-			else if($configuration_deleteConfirmationSystemUsers == 9){
+			else if($configuration_deleteConfirmationSystemStorages == 9){
 			?>
 				<input id="inputConfirmationCode" name="confirmationCode" type="hidden" required>
 				<br>
@@ -140,11 +140,11 @@ if($validateFlag == 200){
 		</div>
 		<div class="buttons">
 			<input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
-			<input class="delete" type="submit" value="Slet systembruger" <?php if($configuration_deleteConfirmationSystemUsers == 9){echo 'disabled';}?>>
+			<input class="delete" type="submit" value="Slet systembruger" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'disabled';}?>>
 		</div>
 	</form>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -228,7 +228,7 @@ if($validateFlag == 200){
 	}
 }
 else{
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];

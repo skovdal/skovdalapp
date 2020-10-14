@@ -3,17 +3,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
-$configuration_encryptionSystemUsers = getSystemConfigurations('encryptionSystemUsers');
-if($configuration_encryptionSystemUsers == -1){
-	$configuration_encryptionSystemUsers = 0;
+$configuration_encryptionSystemStorages = getSystemConfigurations('encryptionSystemStorages');
+if($configuration_encryptionSystemStorages == -1){
+	$configuration_encryptionSystemStorages = 0;
 }
-$configuration_logSystemUsers = getSystemConfigurations('logSystemUsers');
-if($configuration_logSystemUsers == -1){
-	$configuration_logSystemUsers = 1;
+$configuration_logSystemStorages = getSystemConfigurations('logSystemStorages');
+if($configuration_logSystemStorages == -1){
+	$configuration_logSystemStorages = 1;
 }
-$configuration_deleteConfirmationSystemUsers = getSystemConfigurations('deleteConfirmationSystemUsers');
-if($configuration_deleteConfirmationSystemUsers == -1){
-	$configuration_deleteConfirmationSystemUsers = 1;
+$configuration_deleteConfirmationSystemStorages = getSystemConfigurations('deleteConfirmationSystemStorages');
+if($configuration_deleteConfirmationSystemStorages == -1){
+	$configuration_deleteConfirmationSystemStorages = 1;
 }
 
 if(isset($_POST['modalId']) === false){
@@ -47,35 +47,35 @@ if($validateFlag == 200){
 			<br>
 			<a href="https://www.complian.com.complian.dev/support/da-DK/" target="_blank">Klik her for yderligere information om funktionen</a><br>
 			<br>
-			<select id="inputEncryptionSystemUsers" name="encryptionSystemUsers" autofocus required>
-				<option value="1" <?php if($configuration_encryptionSystemUsers == 1){echo 'selected';} ?>>Krypter opbevarede data om systembrugere</option>
-				<option value="0" <?php if($configuration_encryptionSystemUsers == 0){echo 'selected';} ?>>Krypter ikke opbevarede data om systembrugere</option>
-			</select><label for="inputEncryptionSystemUsers">Kryptering ved opbevaring</label><br>
+			<select id="inputEncryptionSystemStorages" name="encryptionSystemStorages" autofocus required>
+				<option value="1" <?php if($configuration_encryptionSystemStorages == 1){echo 'selected';} ?>>Krypter opbevarede data om systembrugere</option>
+				<option value="0" <?php if($configuration_encryptionSystemStorages == 0){echo 'selected';} ?>>Krypter ikke opbevarede data om systembrugere</option>
+			</select><label for="inputEncryptionSystemStorages">Kryptering ved opbevaring</label><br>
 		</div>
 		
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<select id="inputLogSystemUsers" name="logSystemUsers" autofocus required>
-				<option value="1" <?php if($configuration_logSystemUsers == 1){echo 'selected';} ?>>Log hændelser om systembrugere</option>
-				<option value="0" <?php if($configuration_logSystemUsers == 0){echo 'selected';} ?>>Log ikke hændelser om systembrugere</option>
-			</select><label for="inputLogSystemUsers">Logning af hændelser</label><br>
+			<select id="inputLogSystemStorages" name="logSystemStorages" autofocus required>
+				<option value="1" <?php if($configuration_logSystemStorages == 1){echo 'selected';} ?>>Log hændelser om systembrugere</option>
+				<option value="0" <?php if($configuration_logSystemStorages == 0){echo 'selected';} ?>>Log ikke hændelser om systembrugere</option>
+			</select><label for="inputLogSystemStorages">Logning af hændelser</label><br>
 		</div>
 		
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<select id="inputDeleteConfirmationSystemUsers" name="deleteConfirmationSystemUsers" autofocus required>
-				<option value="9" <?php if($configuration_deleteConfirmationSystemUsers == 9){echo 'selected';} ?>>Benyt Complian-appen til bekræftelse fra en anden systembruger</option>
-				<option value="2" <?php if($configuration_deleteConfirmationSystemUsers == 2){echo 'selected';} ?>>Benyt brugerens adgangskode til bekræftelse</option>
-				<option value="1" <?php if($configuration_deleteConfirmationSystemUsers == 1){echo 'selected';} ?>>Benyt tryk på knap til bekræftelse</option>
-				<option value="3" <?php if($configuration_deleteConfirmationSystemUsers == 3){echo 'selected';} ?>>Benyt en bekræftelseskode som findes på et fysisk nøglekort</option>
-				<option value="8" <?php if($configuration_deleteConfirmationSystemUsers == 8){echo 'selected';} ?>>Benyt en bekræftelseskode som genereres af en authenticator-app</option>
-				<option value="4" <?php if($configuration_deleteConfirmationSystemUsers == 4){echo 'selected';} ?>>Benyt en bekræftelseskode som sendes til brugeren via sms</option>
-				<option value="5" <?php if($configuration_deleteConfirmationSystemUsers == 5){echo 'selected';} ?>>Benyt en bekræftelseskode som vises på skærmen</option>
-				<option value="6" <?php if($configuration_deleteConfirmationSystemUsers == 6){echo 'selected';} ?>>Benyt en fælles bekræftelseskode for alle brugere</option>
-				<option value="7" <?php if($configuration_deleteConfirmationSystemUsers == 7){echo 'selected';} ?>>Benyt en personlig bekræftelseskode for den enkelte bruger</option>
-			</select><label for="inputDeleteConfirmationSystemUsers">Bekræftelse ved sletning</label><br>
+			<select id="inputDeleteConfirmationSystemStorages" name="deleteConfirmationSystemStorages" autofocus required>
+				<option value="9" <?php if($configuration_deleteConfirmationSystemStorages == 9){echo 'selected';} ?>>Benyt Complian-appen til bekræftelse fra en anden systembruger</option>
+				<option value="2" <?php if($configuration_deleteConfirmationSystemStorages == 2){echo 'selected';} ?>>Benyt brugerens adgangskode til bekræftelse</option>
+				<option value="1" <?php if($configuration_deleteConfirmationSystemStorages == 1){echo 'selected';} ?>>Benyt tryk på knap til bekræftelse</option>
+				<option value="3" <?php if($configuration_deleteConfirmationSystemStorages == 3){echo 'selected';} ?>>Benyt en bekræftelseskode som findes på et fysisk nøglekort</option>
+				<option value="8" <?php if($configuration_deleteConfirmationSystemStorages == 8){echo 'selected';} ?>>Benyt en bekræftelseskode som genereres af en authenticator-app</option>
+				<option value="4" <?php if($configuration_deleteConfirmationSystemStorages == 4){echo 'selected';} ?>>Benyt en bekræftelseskode som sendes til brugeren via sms</option>
+				<option value="5" <?php if($configuration_deleteConfirmationSystemStorages == 5){echo 'selected';} ?>>Benyt en bekræftelseskode som vises på skærmen</option>
+				<option value="6" <?php if($configuration_deleteConfirmationSystemStorages == 6){echo 'selected';} ?>>Benyt en fælles bekræftelseskode for alle brugere</option>
+				<option value="7" <?php if($configuration_deleteConfirmationSystemStorages == 7){echo 'selected';} ?>>Benyt en personlig bekræftelseskode for den enkelte bruger</option>
+			</select><label for="inputDeleteConfirmationSystemStorages">Bekræftelse ved sletning</label><br>
 			<input class="example" onclick="" type="button" value="Se eksempel">
 		</div>
 		
@@ -84,7 +84,7 @@ if($validateFlag == 200){
 		</div>
 	</form>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -168,7 +168,7 @@ if($validateFlag == 200){
 	}
 }
 else{
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];

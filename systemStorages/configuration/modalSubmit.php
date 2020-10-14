@@ -10,25 +10,25 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['encryptionSystemUsers']) === false){
+if(isset($_POST['encryptionSystemStorages']) === false){
 	$validateFlag = 400;
 }
 else{
-	$encryptionSystemUsers = $_POST['encryptionSystemUsers'];
+	$encryptionSystemStorages = $_POST['encryptionSystemStorages'];
 }
 
-if(isset($_POST['logSystemUsers']) === false){
+if(isset($_POST['logSystemStorages']) === false){
 	$validateFlag = 400;
 }
 else{
-	$logSystemUsers = $_POST['logSystemUsers'];
+	$logSystemStorages = $_POST['logSystemStorages'];
 }
 
-if(isset($_POST['deleteConfirmationSystemUsers']) === false){
+if(isset($_POST['deleteConfirmationSystemStorages']) === false){
 	$validateFlag = 400;
 }
 else{
-	$deleteConfirmationSystemUsers = $_POST['deleteConfirmationSystemUsers'];
+	$deleteConfirmationSystemStorages = $_POST['deleteConfirmationSystemStorages'];
 }
 
 if($validateFlag == 200){
@@ -38,11 +38,11 @@ if($validateFlag == 200){
 		DELETE FROM
 			`s0`.`systemConfigurations`
 		WHERE
-			`s0`.`systemConfigurations`.`systemConfiguration` = 'encryptionSystemUsers'
+			`s0`.`systemConfigurations`.`systemConfiguration` = 'encryptionSystemStorages'
 			OR
-			`s0`.`systemConfigurations`.`systemConfiguration` = 'logSystemUsers'
+			`s0`.`systemConfigurations`.`systemConfiguration` = 'logSystemStorages'
 			OR
-			`s0`.`systemConfigurations`.`systemConfiguration` = 'deleteConfirmationSystemUsers'
+			`s0`.`systemConfigurations`.`systemConfiguration` = 'deleteConfirmationSystemStorages'
 	");
 	$stmt->bind_param('i', $systemUsers_id);
 	$stmt->execute();
@@ -60,10 +60,10 @@ if($validateFlag == 200){
 	VALUES
 	(
 		?,
-		'encryptionSystemUsers'
+		'encryptionSystemStorages'
 	)
 	");
-	$stmt->bind_param('i', $encryptionSystemUsers);
+	$stmt->bind_param('i', $encryptionSystemStorages);
 	$stmt->execute();
 	setTableVersion('systemConfigurations');
 	
@@ -79,10 +79,10 @@ if($validateFlag == 200){
 	VALUES
 	(
 		?,
-		'logSystemUsers'
+		'logSystemStorages'
 	)
 	");
-	$stmt->bind_param('i', $logSystemUsers);
+	$stmt->bind_param('i', $logSystemStorages);
 	$stmt->execute();
 	setTableVersion('systemConfigurations');
 	
@@ -98,10 +98,10 @@ if($validateFlag == 200){
 	VALUES
 	(
 		?,
-		'deleteConfirmationSystemUsers'
+		'deleteConfirmationSystemStorages'
 	)
 	");
-	$stmt->bind_param('i', $deleteConfirmationSystemUsers);
+	$stmt->bind_param('i', $deleteConfirmationSystemStorages);
 	$stmt->execute();
 	setTableVersion('systemConfigurations');
 	?>
@@ -111,7 +111,7 @@ if($validateFlag == 200){
 		parent.toastr('success', 'Sikkerhedsindstillinger for systembrugere', 'Sikkerhedsindstillingerne blev gemt.', 0, true, '');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'edit';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
@@ -206,7 +206,7 @@ else{
 		parent.toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
 	</script>
 	<?php
-	if(getSystemConfigurations('logSystemUsers') == 1 || getSystemConfigurations('logSystemUsers') == -1){
+	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'edit';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
 		$ipAddress = $_SERVER['REMOTE_ADDR'];
