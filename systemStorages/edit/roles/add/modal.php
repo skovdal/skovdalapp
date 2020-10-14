@@ -63,7 +63,7 @@ if($validateFlag == 200){
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="refererModalId" type="hidden" value="<?php echo purify($refererModalId); ?>">
 		<div class="contentTab">
-			Tilføj nedenstående roller på systembrugeren <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
+			Tilføj nedenstående roller på systemlageret <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
 			<br>
 			<div class="contentContainer">
 				<div class="noContent" style="background-image:url('/images/svgImage.php?id=%2Fimages%2Ffontawesome-pro-5.9.0-web%2Fsvgs%2Flight%2Fusers-crown.svg&fill=rgba%28135%2C140%2C145%2C1%29');">

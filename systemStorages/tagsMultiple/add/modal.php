@@ -19,13 +19,13 @@ else{
 
 if($validateFlag == 200){
 ?>
-	<h1>Tilføj mærke på markerede systembrugere</h1>
+	<h1>Tilføj mærke på markerede systemlagre</h1>
 	<form action="/systemStorages/tagsMultiple/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="systemStorages_id" type="hidden" value="<?php echo purify($systemStorages_id); ?>">
 		<div>
-			Tilføj nedenstående mærke på <?php echo substr_count(purify($systemStorages_id),',') +1; ?> <?php if(substr_count(purify($systemStorages_id),',') == 0){echo 'systembruger';}else{echo 'systembrugere';} ?>.<br>
+			Tilføj nedenstående mærke på <?php echo substr_count(purify($systemStorages_id),',') +1; ?> <?php if(substr_count(purify($systemStorages_id),',') == 0){echo 'systemlager';}else{echo 'systemlagre';} ?>.<br>
 			<br>
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="Opfølgning" type="text" required autofocus><label for="inputName">Mærke</label><br>
 			<select class="colorPicker" id="inputBorderColor" name="borderColor" onchange="this.style.background = 'linear-gradient(90deg, transparent 90%, ' + this.options[this.selectedIndex].value + ' 10%)';" required>

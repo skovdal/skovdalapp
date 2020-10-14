@@ -788,7 +788,7 @@ if($validateFlag == 200){
 		?>
 		
 		parent.document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();
-		parent.toastr('success', 'Præferencer for systembrugere', 'Præferencerne blev gemt.', 0, true, '');
+		parent.toastr('success', 'Præferencer for systemlagre', 'Præferencerne blev gemt.', 0, true, '');
 	</script>
 	<?php
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){

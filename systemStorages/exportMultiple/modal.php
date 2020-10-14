@@ -19,7 +19,7 @@ else{
 
 if($validateFlag == 200){
 ?>
-	<h1>Eksporter markerede systembrugere</h1>
+	<h1>Eksporter markerede systemlagre</h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
 			Generelt
@@ -41,9 +41,9 @@ if($validateFlag == 200){
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="systemUsers_id" type="hidden" value="<?php echo purify($systemUsers_id); ?>">
 		<div>
-			Eksporter <?php echo substr_count(purify($systemUsers_id),',') +1; ?> <?php if(substr_count(purify($systemUsers_id),',') == 0){echo 'systembruger';}else{echo 'systembrugere';} ?>.<br>
+			Eksporter <?php echo substr_count(purify($systemUsers_id),',') +1; ?> <?php if(substr_count(purify($systemUsers_id),',') == 0){echo 'systemlager';}else{echo 'systemlagre';} ?>.<br>
 			<br>
-			<input id="inputName" name="name" pattern=".{3,}" placeholder="systembrugere" type="text" value="systembrugere" required autofocus><label for="inputName">Filnavn</label><br>
+			<input id="inputName" name="name" pattern=".{3,}" placeholder="systemlagre" type="text" value="systemlagre" required autofocus><label for="inputName">Filnavn</label><br>
 			<select id="inputFileFormat" name="fileFormat" required>
 				<option value="TXT">Brugerdefineret feltskilletegn (.txt)</option>
 				<option value="HTML">HTML-tabel (.htm)</option>

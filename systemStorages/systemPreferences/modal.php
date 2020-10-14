@@ -97,7 +97,7 @@ else{
 
 if($validateFlag == 200){
 ?>
-	<h1>Præferencer for systembrugere</h1>
+	<h1>Præferencer for systemlagre</h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
 			Genveje
@@ -119,11 +119,11 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<div style="column-count:1;">
-				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsNew == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsNew" name="shortcutsNew" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsNew == 1){echo 'checked';} ?>><label for="inputShortcutsNew">Ny systembruger</label></div><br>
-				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsUpdate" name="shortcutsUpdate" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){echo 'checked';} ?>><label for="inputShortcutsUpdate">Opdater systembrugere</label></div><br>
-				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsExport == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsExport" name="shortcutsExport" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsExport == 1){echo 'checked';} ?>><label for="inputShortcutsExport">Eksporter markerede systembrugere</label></div><br>
-				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsTags == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsTags" name="shortcutsTags" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsTags == 1){echo 'checked';} ?>><label for="inputShortcutsTags">Tilføj mærke på markerede systembrugere</label></div><br>
-				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsDelete == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsDelete" name="shortcutsDelete" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsDelete == 1){echo 'checked';} ?>><label for="inputShortcutsDelete">Slet markerede systembrugere</label></div><br>
+				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsNew == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsNew" name="shortcutsNew" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsNew == 1){echo 'checked';} ?>><label for="inputShortcutsNew">Nyt systemlager</label></div><br>
+				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsUpdate" name="shortcutsUpdate" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsUpdate == 1){echo 'checked';} ?>><label for="inputShortcutsUpdate">Opdater systemlagre</label></div><br>
+				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsExport == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsExport" name="shortcutsExport" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsExport == 1){echo 'checked';} ?>><label for="inputShortcutsExport">Eksporter markerede systemlagre</label></div><br>
+				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsTags == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsTags" name="shortcutsTags" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsTags == 1){echo 'checked';} ?>><label for="inputShortcutsTags">Tilføj mærke på markerede systemlagre</label></div><br>
+				<div class="checkbox <?php if($preferences_shortcutsSystemStorages_shortcutsDelete == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputShortcutsDelete" name="shortcutsDelete" type="checkbox" value="1" <?php if($preferences_shortcutsSystemStorages_shortcutsDelete == 1){echo 'checked';} ?>><label for="inputShortcutsDelete">Slet markerede systemlagre</label></div><br>
 			</div>
 		</div>
 		

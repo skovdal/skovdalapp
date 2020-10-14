@@ -50,13 +50,13 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<h1>Tilføj mærke på systembruger</h1>
+	<h1>Tilføj mærke på systemlager</h1>
 	<form action="/systemUsers/tagsSingle/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
 		<input name="systemUsers_id" type="hidden" value="<?php echo encodeId(purify($systemUsers_id)); ?>">
 		<div>
-			Tilføj nedenstående mærke på systembrugeren <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
+			Tilføj nedenstående mærke på systemlageret <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
 			<br>
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="Opfølgning" type="text" required autofocus><label for="inputName">Mærke</label><br>
 			<select class="colorPicker" id="inputBorderColor" name="borderColor" onchange="this.style.background = 'linear-gradient(90deg, transparent 90%, ' + this.options[this.selectedIndex].value + ' 10%)';" required>
