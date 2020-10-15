@@ -15,16 +15,16 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	if(decodeId($systemUsers_id) == -1){
+	$systemStorages_id = $_POST['systemStorages_id'];
+	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
 	}
 	else{
-		$systemUsers_id = decodeId($systemUsers_id);
+		$systemStorages_id = decodeId($systemStorages_id);
 	}
 }
 
@@ -136,9 +136,9 @@ if($validateFlag == 200){
 		WHERE
 			`s0`.`tagsReferences`.`tags_id` = ?
 			AND
-			`s0`.`tagsReferences`.`systemUsers_id` = ?
+			`s0`.`tagsReferences`.`systemStorages_id` = ?
 	");
-	$stmt->bind_param('ii', $tags_id, $systemUsers_id);
+	$stmt->bind_param('ii', $tags_id, $systemStorages_id);
 	$stmt->execute();
 	setTableVersion('tagsReferences');
 	
@@ -149,7 +149,7 @@ if($validateFlag == 200){
 			`s0`.`tagsReferences`
 		(
 			`s0`.`tagsReferences`.`tags_id`,
-			`s0`.`tagsReferences`.`systemUsers_id`
+			`s0`.`tagsReferences`.`systemStorages_id`
 		)
 		VALUES
 		(
@@ -157,7 +157,7 @@ if($validateFlag == 200){
 			?
 		)
 	");
-	$stmt->bind_param('ii', $tags_id, $systemUsers_id);
+	$stmt->bind_param('ii', $tags_id, $systemStorages_id);
 	$stmt->execute();
 	setTableVersion('tagsReferences');
 	?>

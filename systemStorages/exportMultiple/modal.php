@@ -14,7 +14,7 @@ if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
+	$systemStorages_id = $_POST['systemStorages_id'];
 }
 
 if($validateFlag == 200){
@@ -35,13 +35,13 @@ if($validateFlag == 200){
 		</li>
 	</ul>
 	
-	<form action="/systemUsers/exportMultiple/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
+	<form action="/systemStorages/exportMultiple/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
-		<input name="systemUsers_id" type="hidden" value="<?php echo purify($systemUsers_id); ?>">
+		<input name="systemStorages_id" type="hidden" value="<?php echo purify($systemStorages_id); ?>">
 		<div>
-			Eksporter <?php echo substr_count(purify($systemUsers_id),',') +1; ?> <?php if(substr_count(purify($systemUsers_id),',') == 0){echo 'systemlager';}else{echo 'systemlagre';} ?>.<br>
+			Eksporter <?php echo substr_count(purify($systemStorages_id),',') +1; ?> <?php if(substr_count(purify($systemStorages_id),',') == 0){echo 'systemlager';}else{echo 'systemlagre';} ?>.<br>
 			<br>
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="systemlagre" type="text" value="systemlagre" required autofocus><label for="inputName">Filnavn</label><br>
 			<select id="inputFileFormat" name="fileFormat" required>

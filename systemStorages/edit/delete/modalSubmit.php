@@ -31,16 +31,16 @@ else{
 	$password = $_POST['password'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	if(decodeId($systemUsers_id) == -1){
+	$systemStorages_id = $_POST['systemStorages_id'];
+	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
 	}
 	else{
-		$systemUsers_id = decodeId($systemUsers_id);
+		$systemStorages_id = decodeId($systemStorages_id);
 	}
 }
 
@@ -49,16 +49,16 @@ if($validateFlag == 200){
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
 		UPDATE
-			`c0`.`systemUsers`
+			`c0`.`systemStorages`
 		SET
-			`c0`.`systemUsers`.`deleteFlag` = 1
+			`c0`.`systemStorages`.`deleteFlag` = 1
 		WHERE
-			`c0`.`systemUsers`.`id` = ?
+			`c0`.`systemStorages`.`id` = ?
 		LIMIT 1
 	");
-	$stmt->bind_param('i', $systemUsers_id);
+	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
-	setTableVersion('systemUsers');
+	setTableVersion('systemStorages');
 	
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
@@ -68,9 +68,9 @@ if($validateFlag == 200){
 		SET
 			`s0`.`tagsReferences`.`deleteFlag` = 1
 		WHERE
-			`s0`.`tagsReferences`.`systemUsers_id` = ?
+			`s0`.`tagsReferences`.`systemStorages_id` = ?
 	");
-	$stmt->bind_param('i', $systemUsers_id);
+	$stmt->bind_param('i', $systemStorages_id);
 	$stmt->execute();
 	setTableVersion('tagsReferences');
 	?>

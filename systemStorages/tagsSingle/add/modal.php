@@ -10,16 +10,16 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	if(decodeId($systemUsers_id) == -1){
+	$systemStorages_id = $_POST['systemStorages_id'];
+	if(decodeId($systemStorages_id) == -1){
 		$validateFlag = 400;
 	}
 	else{
-		$systemUsers_id = decodeId($systemUsers_id);
+		$systemStorages_id = decodeId($systemStorages_id);
 	}
 }
 
@@ -27,14 +27,14 @@ if(isset($con) === false){$con = dbConnection();}
 $stmt = $con->stmt_init();
 $stmt->prepare("
 	SELECT
-		`c0`.`systemUsers`.`name` AS `systemUsers_name`
+		`c0`.`systemStorages`.`name` AS `systemStorages_name`
 	FROM
-		`c0`.`systemUsers`
+		`c0`.`systemStorages`
 	WHERE
-		`c0`.`systemUsers`.`id` = ?
+		`c0`.`systemStorages`.`id` = ?
 	LIMIT 1
 ");
-$stmt->bind_param('i', $systemUsers_id);
+$stmt->bind_param('i', $systemStorages_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -43,7 +43,7 @@ if(mysqli_num_rows($result) == 0){
 }
 else{
 	while($row = mysqli_fetch_assoc($result)){
-		$systemUsers_name = $row['systemUsers_name'];
+		$systemStorages_name = $row['systemStorages_name'];
 	}
 }
 $result->close();
@@ -51,12 +51,12 @@ $result->close();
 if($validateFlag == 200){
 ?>
 	<h1>Tilføj mærke på systemlager</h1>
-	<form action="/systemUsers/tagsSingle/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
+	<form action="/systemStorages/tagsSingle/add/modalSubmit.php" enctype="application/x-www-form-urlencoded" method="post" onsubmit="submitForm(this);" target="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>">
 		<iframe name="<?php echo md5($_SERVER['SCRIPT_FILENAME']) . purify($modalId); ?>" src="about:blank"></iframe>
 		<input name="modalId" type="hidden" value="<?php echo purify($modalId); ?>">
-		<input name="systemUsers_id" type="hidden" value="<?php echo encodeId(purify($systemUsers_id)); ?>">
+		<input name="systemStorages_id" type="hidden" value="<?php echo encodeId(purify($systemStorages_id)); ?>">
 		<div>
-			Tilføj nedenstående mærke på systemlageret <strong><?php echo purify($systemUsers_name); ?></strong>.<br>
+			Tilføj nedenstående mærke på systemlageret <strong><?php echo purify($systemStorages_name); ?></strong>.<br>
 			<br>
 			<input id="inputName" name="name" pattern=".{3,}" placeholder="Opfølgning" type="text" required autofocus><label for="inputName">Mærke</label><br>
 			<select class="colorPicker" id="inputBorderColor" name="borderColor" onchange="this.style.background = 'linear-gradient(90deg, transparent 90%, ' + this.options[this.selectedIndex].value + ' 10%)';" required>

@@ -10,12 +10,12 @@ else{
 	$modalId = $_POST['modalId'];
 }
 
-if(isset($_POST['systemUsers_id']) === false){
+if(isset($_POST['systemStorages_id']) === false){
 	$validateFlag = 400;
 }
 else{
-	$systemUsers_id = $_POST['systemUsers_id'];
-	$systemUsers_id_array = explode(',', $systemUsers_id);
+	$systemStorages_id = $_POST['systemStorages_id'];
+	$systemStorages_id_array = explode(',', $systemStorages_id);
 }
 
 if(isset($_POST['name']) === false){
@@ -278,32 +278,32 @@ if($validateFlag == 200){
 	$stmt = $con->stmt_init();
 	$stmt->prepare("
 		SELECT
-			`c0`.`systemUsers`.`type` AS `systemUsers_type`,
-			`c0`.`systemUsers`.`name` AS `systemUsers_name`,
-			`c0`.`systemUsers`.`name2` AS `systemUsers_name2`,
-			`c0`.`systemUsers`.`cvrNumber` AS `systemUsers_cvrNumber`,
-			`c0`.`systemUsers`.`cprNumber` AS `systemUsers_cprNumber`,
-			`c0`.`systemUsers`.`address` AS `systemUsers_address`,
-			`c0`.`systemUsers`.`address2` AS `systemUsers_address2`,
-			`c0`.`systemUsers`.`zipCode` AS `systemUsers_zipCode`,
-			`c0`.`systemUsers`.`city` AS `systemUsers_city`,
-			`c0`.`systemUsers`.`country` AS `systemUsers_country`,
-			`c0`.`systemUsers`.`phone` AS `systemUsers_phone`,
-			`c0`.`systemUsers`.`phone2` AS `systemUsers_phone2`,
-			`c0`.`systemUsers`.`email` AS `systemUsers_email`,
-			`c0`.`systemUsers`.`email2` AS `systemUsers_email2`
+			`c0`.`systemStorages`.`type` AS `systemStorages_type`,
+			`c0`.`systemStorages`.`name` AS `systemStorages_name`,
+			`c0`.`systemStorages`.`name2` AS `systemStorages_name2`,
+			`c0`.`systemStorages`.`cvrNumber` AS `systemStorages_cvrNumber`,
+			`c0`.`systemStorages`.`cprNumber` AS `systemStorages_cprNumber`,
+			`c0`.`systemStorages`.`address` AS `systemStorages_address`,
+			`c0`.`systemStorages`.`address2` AS `systemStorages_address2`,
+			`c0`.`systemStorages`.`zipCode` AS `systemStorages_zipCode`,
+			`c0`.`systemStorages`.`city` AS `systemStorages_city`,
+			`c0`.`systemStorages`.`country` AS `systemStorages_country`,
+			`c0`.`systemStorages`.`phone` AS `systemStorages_phone`,
+			`c0`.`systemStorages`.`phone2` AS `systemStorages_phone2`,
+			`c0`.`systemStorages`.`email` AS `systemStorages_email`,
+			`c0`.`systemStorages`.`email2` AS `systemStorages_email2`
 		FROM
-			`c0`.`systemUsers`
+			`c0`.`systemStorages`
 		WHERE
-			`c0`.`systemUsers`.`id` IN (" . implode(',', array_map('intval', $systemUsers_id_array)) . ")
+			`c0`.`systemStorages`.`id` IN (" . implode(',', array_map('intval', $systemStorages_id_array)) . ")
 			AND
-			`c0`.`systemUsers`.`deleteFlag` IS NULL
+			`c0`.`systemStorages`.`deleteFlag` IS NULL
 			AND
-			`c0`.`systemUsers`.`tempFlag` IS NULL
+			`c0`.`systemStorages`.`tempFlag` IS NULL
 			AND
-			`c0`.`systemUsers`.`legacyFlag` IS NULL
+			`c0`.`systemStorages`.`legacyFlag` IS NULL
 		ORDER BY
-			`c0`.`systemUsers`.`name` ASC
+			`c0`.`systemStorages`.`name` ASC
 	");
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -844,59 +844,59 @@ if($validateFlag == 200){
 				}
 				
 				if($dataType == 1){
-					$content = $content . $textQualifier . $row['systemUsers_type'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_type'] . $textQualifier . ',';
 				}
 				
 				if($dataName == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_name'] . $textQualifier . ',';
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name2'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_name2'] . $textQualifier . ',';
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cvrNumber'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_cvrNumber'] . $textQualifier . ',';
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cprNumber'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_cprNumber'] . $textQualifier . ',';
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_address'] . $textQualifier . ',';
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address2'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_address2'] . $textQualifier . ',';
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . $textQualifier . $row['systemUsers_zipCode'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_zipCode'] . $textQualifier . ',';
 				}
 				
 				if($dataCity == 1){
-					$content = $content . $textQualifier . $row['systemUsers_city'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_city'] . $textQualifier . ',';
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . $textQualifier . $row['systemUsers_country'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_country'] . $textQualifier . ',';
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_phone'] . $textQualifier . ',';
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone2'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_phone2'] . $textQualifier . ',';
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_email'] . $textQualifier . ',';
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email2'] . $textQualifier . ',';
+					$content = $content . $textQualifier . $row['systemStorages_email2'] . $textQualifier . ',';
 				}
 				
 				if($dataTags == 1){
@@ -909,59 +909,59 @@ if($validateFlag == 200){
 				$content = $content . '<tr>';
 				
 				if($dataType == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_type'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_type'] . $textQualifier . '</td>';
 				}
 				
 				if($dataName == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_name'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_name'] . $textQualifier . '</td>';
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_name2'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_name2'] . $textQualifier . '</td>';
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_cvrNumber'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_cvrNumber'] . $textQualifier . '</td>';
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_cprNumber'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_cprNumber'] . $textQualifier . '</td>';
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_address'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_address'] . $textQualifier . '</td>';
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_address2'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_address2'] . $textQualifier . '</td>';
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_zipCode'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_zipCode'] . $textQualifier . '</td>';
 				}
 				
 				if($dataCity == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_city'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_city'] . $textQualifier . '</td>';
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_country'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_country'] . $textQualifier . '</td>';
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_phone'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_phone'] . $textQualifier . '</td>';
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_phone2'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_phone2'] . $textQualifier . '</td>';
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_email'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_email'] . $textQualifier . '</td>';
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . '<td>' . $textQualifier . $row['systemUsers_email2'] . $textQualifier . '</td>';
+					$content = $content . '<td>' . $textQualifier . $row['systemStorages_email2'] . $textQualifier . '</td>';
 				}
 				
 				if($dataTags == 1){
@@ -979,59 +979,59 @@ if($validateFlag == 200){
 				}
 				
 				if($dataType == 1){
-					$content = $content . '"Type":"' . $row['systemUsers_type'] . '",';
+					$content = $content . '"Type":"' . $row['systemStorages_type'] . '",';
 				}
 				
 				if($dataName == 1){
-					$content = $content . '"Navn":"' . $row['systemUsers_name'] . '",';
+					$content = $content . '"Navn":"' . $row['systemStorages_name'] . '",';
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . '"Supplerende navn":"' . $row['systemUsers_name2'] . '",';
+					$content = $content . '"Supplerende navn":"' . $row['systemStorages_name2'] . '",';
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . '"CVR-nummer":"' . $row['systemUsers_cvrNumber'] . '",';
+					$content = $content . '"CVR-nummer":"' . $row['systemStorages_cvrNumber'] . '",';
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . '"CPR-nummer":"' . $row['systemUsers_cprNumber'] . '",';
+					$content = $content . '"CPR-nummer":"' . $row['systemStorages_cprNumber'] . '",';
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . '"Adresse":"' . $row['systemUsers_address'] . '",';
+					$content = $content . '"Adresse":"' . $row['systemStorages_address'] . '",';
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . '"Supplerende adresse":"' . $row['systemUsers_address2'] . '",';
+					$content = $content . '"Supplerende adresse":"' . $row['systemStorages_address2'] . '",';
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . '"Postnummer":"' . $row['systemUsers_zipCode'] . '",';
+					$content = $content . '"Postnummer":"' . $row['systemStorages_zipCode'] . '",';
 				}
 				
 				if($dataCity == 1){
-					$content = $content . '"By":"' . $row['systemUsers_city'] . '",';
+					$content = $content . '"By":"' . $row['systemStorages_city'] . '",';
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . '"Land":"' . $row['systemUsers_country'] . '",';
+					$content = $content . '"Land":"' . $row['systemStorages_country'] . '",';
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . '"Telefon":"' . $row['systemUsers_phone'] . '",';
+					$content = $content . '"Telefon":"' . $row['systemStorages_phone'] . '",';
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . '"Sekundær telefon":"' . $row['systemUsers_phone2'] . '",';
+					$content = $content . '"Sekundær telefon":"' . $row['systemStorages_phone2'] . '",';
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . '"E-mail":"' . $row['systemUsers_email'] . '",';
+					$content = $content . '"E-mail":"' . $row['systemStorages_email'] . '",';
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . '"Sekundær e-mail":"' . $row['systemUsers_email2'] . '",';
+					$content = $content . '"Sekundær e-mail":"' . $row['systemStorages_email2'] . '",';
 				}
 				
 				if($dataTags == 1){
@@ -1049,59 +1049,59 @@ if($validateFlag == 200){
 				}
 				
 				if($dataType == 1){
-					$content = $content . $textQualifier . $row['systemUsers_type'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_type'] . $textQualifier . "\t";
 				}
 				
 				if($dataName == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_name'] . $textQualifier . "\t";
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name2'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_name2'] . $textQualifier . "\t";
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cvrNumber'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_cvrNumber'] . $textQualifier . "\t";
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cprNumber'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_cprNumber'] . $textQualifier . "\t";
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_address'] . $textQualifier . "\t";
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address2'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_address2'] . $textQualifier . "\t";
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . $textQualifier . $row['systemUsers_zipCode'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_zipCode'] . $textQualifier . "\t";
 				}
 				
 				if($dataCity == 1){
-					$content = $content . $textQualifier . $row['systemUsers_city'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_city'] . $textQualifier . "\t";
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . $textQualifier . $row['systemUsers_country'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_country'] . $textQualifier . "\t";
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_phone'] . $textQualifier . "\t";
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone2'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_phone2'] . $textQualifier . "\t";
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_email'] . $textQualifier . "\t";
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email2'] . $textQualifier . "\t";
+					$content = $content . $textQualifier . $row['systemStorages_email2'] . $textQualifier . "\t";
 				}
 				
 				if($dataTags == 1){
@@ -1119,59 +1119,59 @@ if($validateFlag == 200){
 				}
 				
 				if($dataType == 1){
-					$content = $content . $textQualifier . $row['systemUsers_type'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_type'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataName == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_name'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_name2'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_name2'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cvrNumber'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_cvrNumber'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . $textQualifier . $row['systemUsers_cprNumber'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_cprNumber'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_address'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_address2'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_address2'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . $textQualifier . $row['systemUsers_zipCode'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_zipCode'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataCity == 1){
-					$content = $content . $textQualifier . $row['systemUsers_city'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_city'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . $textQualifier . $row['systemUsers_country'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_country'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_phone'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_phone2'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_phone2'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_email'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . $textQualifier . $row['systemUsers_email2'] . $textQualifier . $fieldDelimiter;
+					$content = $content . $textQualifier . $row['systemStorages_email2'] . $textQualifier . $fieldDelimiter;
 				}
 				
 				if($dataTags == 1){
@@ -1184,59 +1184,59 @@ if($validateFlag == 200){
 				$content = $content . '<ENTITET>';
 				
 				if($dataType == 1){
-					$content = $content . '<Type>' . $row['systemUsers_type'] . '</Type>';
+					$content = $content . '<Type>' . $row['systemStorages_type'] . '</Type>';
 				}
 				
 				if($dataName == 1){
-					$content = $content . '<Navn>' . $row['systemUsers_name'] . '</Navn>';
+					$content = $content . '<Navn>' . $row['systemStorages_name'] . '</Navn>';
 				}
 				
 				if($dataName2 == 1){
-					$content = $content . '<Supplerende navn>' . $row['systemUsers_name2'] . '</Supplerende navn>';
+					$content = $content . '<Supplerende navn>' . $row['systemStorages_name2'] . '</Supplerende navn>';
 				}
 				
 				if($dataCvrNumber == 1){
-					$content = $content . '<CVR-nummer>' . $row['systemUsers_cvrNumber'] . '</CVR-nummer>';
+					$content = $content . '<CVR-nummer>' . $row['systemStorages_cvrNumber'] . '</CVR-nummer>';
 				}
 				
 				if($dataCprNumber == 1){
-					$content = $content . '<CPR-nummer>' . $row['systemUsers_cprNumber'] . '</CPR-nummer>';
+					$content = $content . '<CPR-nummer>' . $row['systemStorages_cprNumber'] . '</CPR-nummer>';
 				}
 				
 				if($dataAddress == 1){
-					$content = $content . '<Adresse>' . $row['systemUsers_address'] . '</Adresse>';
+					$content = $content . '<Adresse>' . $row['systemStorages_address'] . '</Adresse>';
 				}
 				
 				if($dataAddress2 == 1){
-					$content = $content . '<Supplerende adresse>' . $row['systemUsers_address2'] . '/Supplerende adresse>';
+					$content = $content . '<Supplerende adresse>' . $row['systemStorages_address2'] . '/Supplerende adresse>';
 				}
 				
 				if($dataZipCode == 1){
-					$content = $content . '<Postnummer>' . $row['systemUsers_zipCode'] . '</Postnummer>';
+					$content = $content . '<Postnummer>' . $row['systemStorages_zipCode'] . '</Postnummer>';
 				}
 				
 				if($dataCity == 1){
-					$content = $content . '<By>' . $row['systemUsers_city'] . '</By>';
+					$content = $content . '<By>' . $row['systemStorages_city'] . '</By>';
 				}
 				
 				if($dataCountry == 1){
-					$content = $content . '<Land>' . $row['systemUsers_country'] . '</Land>';
+					$content = $content . '<Land>' . $row['systemStorages_country'] . '</Land>';
 				}
 				
 				if($dataPhone == 1){
-					$content = $content . '<Telefon>' . $row['systemUsers_phone'] . '</Telefon>';
+					$content = $content . '<Telefon>' . $row['systemStorages_phone'] . '</Telefon>';
 				}
 				
 				if($dataPhone2 == 1){
-					$content = $content . '<Sekundær telefon>' . $row['systemUsers_phone2'] . '</Sekundær telefon>';
+					$content = $content . '<Sekundær telefon>' . $row['systemStorages_phone2'] . '</Sekundær telefon>';
 				}
 				
 				if($dataEmail == 1){
-					$content = $content . '<E-mail>' . $row['systemUsers_email'] . '</E-mail>';
+					$content = $content . '<E-mail>' . $row['systemStorages_email'] . '</E-mail>';
 				}
 				
 				if($dataEmail2 == 1){
-					$content = $content . '<Sekundær e-mail>' . $row['systemUsers_email2'] . '</Sekundær e-mail>';
+					$content = $content . '<Sekundær e-mail>' . $row['systemStorages_email2'] . '</Sekundær e-mail>';
 				}
 				
 				if($dataTags == 1){
@@ -1274,7 +1274,7 @@ if($validateFlag == 200){
 	}
 	
 	$tempDir = sys_get_temp_dir();
-	$tempName = tempnam($tempDir, 'systemUsers');
+	$tempName = tempnam($tempDir, 'systemStorages');
 	file_put_contents($tempName, $content);
 	
 	header('Content-Disposition: attachment; filename="' . rawurlencode($name . $timestamp . $fileFormatExtension) . '"');
