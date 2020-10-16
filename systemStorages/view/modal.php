@@ -126,14 +126,13 @@ if($validateFlag == 200){
 			<input id="inputMySQLHost" type="text" value="<?php echo purify($systemStorages_mysql_host); ?>" readonly><label>MySQL-værtsadresse</label><br>
 			<input id="inputMySQLPort" type="text" value="<?php echo purify($systemStorages_mysql_port); ?>" readonly><label>MySQL-port</label><br>
 			<input id="inputMySQLSocket" type="text" value="<?php echo purify($systemStorages_mysql_socket); ?>" readonly><label>MySQL-socket</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" readonly><label>FTP-værtsadresse</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" readonly><label>FTP-port</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" readonly><label>FTP-timeout</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" readonly><label>FTP-SSL-port</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" readonly><label>FTP-SSL-timeout</label><br>
-			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label></div><br>
-			<input type="text" value="<?php echo purify($systemStorages_timeout); ?>" readonly><label>FTP-timeout</label><br>
+			<input id="inputFTPHost" type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" readonly><label>FTP-værtsadresse</label><br>
+			<input id="inputFTPPort" type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" readonly><label>FTP-port</label><br>
+			<input id="inputFTPTimeout" type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" readonly><label>FTP-timeout</label><br>
+			<input id="inputFTPRemotePath" type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
+			<input id="inputFTPSSLPort" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" readonly><label>FTP-SSL-port</label><br>
+			<input id="inputFTPSSLTimeout" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" readonly><label>FTP-SSL-timeout</label><br>
+			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input id="inputFTPPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label></div><br>
 		</div>
 		
 		<div class="contentTab">
