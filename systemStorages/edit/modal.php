@@ -148,12 +148,12 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input id="inputFTPHost" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" required><label for="inputFTPHost">FTP-værtsadresse</label><br>
-			<input id="inputFTPPort" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" required><label for="inputFTPPort">FTP-port</label><br>
-			<input id="inputFTPTimeout" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" required><label for="inputFTPTimeout">FTP-timeout</label><br>
-			<input id="inputFTPRemotePath" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" required><label for="inputFTPRemotePath">FTP remote path</label><br>
-			<input id="inputFTPSSLPort" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" required><label for="inputFTPSSLPort">FTP-SSL-port</label><br>
-			<input id="inputFTPSSLTimeout" name="timeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" required><label for="inputFTPSSLTimeout">FTP-SSL-timeout</label><br>
+			<input id="inputFTPHost" name="ftpHost" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_host); ?>" required><label for="inputFTPHost">FTP-værtsadresse</label><br>
+			<input id="inputFTPPort" name="ftpPort" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_port); ?>" required><label for="inputFTPPort">FTP-port</label><br>
+			<input id="inputFTPTimeout" name="ftpTimeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_connect_timeout); ?>" required><label for="inputFTPTimeout">FTP-timeout</label><br>
+			<input id="inputFTPRemotePath" name="ftpRemotePath" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" required><label for="inputFTPRemotePath">FTP remote path</label><br>
+			<input id="inputFTPSSLPort" name="ftpSSLPort" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" required><label for="inputFTPSSLPort">FTP-SSL-port</label><br>
+			<input id="inputFTPSSLTimeout" name="FTPSSLTimeout" onchange="" pattern=".{3,}" placeholder="10s" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" required><label for="inputFTPSSLTimeout">FTP-SSL-timeout</label><br>
 			<div class="checkbox unchecked" onclick="modalCheckbox(this);" onchange=""><input id="inputFTPPassiveMode" name="ftpPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftp_ssl_connect_port == 1){echo 'checked';}?>><label for="inputFTPPassiveMode">Passiv</label></div><br>
 		</div>
 		
