@@ -79,8 +79,10 @@ else if($type == 'MySQL 8.0'){
 
 if($validateFlag == 200){
 	if($type == 'FTP'){
+		echo 200;
 	}
 	else if($type == 'FTPS'){
+		echo 200;
 	}
 	else if($type == 'MySQL 8.0'){
 		$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
