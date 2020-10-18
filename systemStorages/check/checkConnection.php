@@ -3,57 +3,95 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
-if(isset($_POST['mysql_host']) === false){
+if(isset($_POST['name']) === false){
 	$validateFlag = 400;
 }
 else{
-	$mysql_host = $_POST['mysql_host'];
+	$name = $_POST['name'];
 }
 
-if(isset($_POST['mysql_username']) === false){
+if(isset($_POST['type']) === false){
 	$validateFlag = 400;
 }
 else{
-	$mysql_username = $_POST['mysql_username'];
+	$type = $_POST['type'];
 }
 
-if(isset($_POST['mysql_password']) === false){
-	$validateFlag = 400;
+if($type == 'FTP'){
+	if(isset($_POST['ftp_host']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$ftp_host = $_POST['ftp_host'];
+	}
 }
-else{
-	$mysql_password = $_POST['mysql_password'];
+else if($type == 'FTPS'){
+	if(isset($_POST['ftp_host']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$ftp_host = $_POST['ftp_host'];
+	}
 }
-
-if(isset($_POST['mysql_dbname']) === false){
-	$validateFlag = 400;
-}
-else{
-	$mysql_dbname = $_POST['mysql_dbname'];
-}
-
-if(isset($_POST['mysql_port']) === false){
-	$mysql_port = 3306;
-}
-else{
-	$mysql_port = $_POST['mysql_port'];
-}
-
-if(isset($_POST['mysql_socket']) === false){
-	$mysql_socket = '';
-}
-else{
-	$mysql_socket = $_POST['mysql_socket'];
+else if($type == 'MySQL 8.0'){
+	if(isset($_POST['mysql_host']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$mysql_host = $_POST['mysql_host'];
+	}
+	
+	if(isset($_POST['mysql_username']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$mysql_username = $_POST['mysql_username'];
+	}
+	
+	if(isset($_POST['mysql_password']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$mysql_password = $_POST['mysql_password'];
+	}
+	
+	if(isset($_POST['mysql_dbname']) === false){
+		$validateFlag = 400;
+	}
+	else{
+		$mysql_dbname = $_POST['mysql_dbname'];
+	}
+	
+	if(isset($_POST['mysql_port']) === false){
+		$mysql_port = 3306;
+	}
+	else{
+		$mysql_port = $_POST['mysql_port'];
+	}
+	
+	if(isset($_POST['mysql_socket']) === false){
+		$mysql_socket = '';
+	}
+	else{
+		$mysql_socket = $_POST['mysql_socket'];
+	}
 }
 
 if($validateFlag == 200){
-	$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
-	
-	if($conExternal -> connect_errno){
-		echo 401;
+	if($type == 'FTP'){
 	}
-	else{
-		echo 200;
-		$conExternal->close();
+	else if($type == 'FTPS'){
+	}
+	else if($type == 'MySQL 8.0'){
+		$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
+		
+		if($conExternal -> connect_errno){
+			echo 401;
+		}
+		else{
+			echo 200;
+			$conExternal->close();
+		}
 	}
 	
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){

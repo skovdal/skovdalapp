@@ -193,13 +193,24 @@ if($validateFlag == 200){
 					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function checkConnection(silent, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId){
+				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId){
+					var type = typeId.value;
+					var name = nameId.value;
+					
 					var mysql_host = mysql_hostId.value;
 					var mysql_username = mysql_usernameId.value;
 					var mysql_password = mysql_passwordId.value;
 					var mysql_dbname = mysql_dbnameId.value;
 					var mysql_port = mysql_portId.value;
 					var mysql_socket = mysql_socketId.value;
+					
+					var ftp_host = ftp_hostId.value;
+					var ftp_port = ftp_portId.value;
+					var ftp_timeout = ftp_timeoutId.value;
+					var ftp_remotePath = ftp_remotePathId.value;
+					var ftp_sslPort = ftp_sslPortId.value;
+					var ftp_sslTimeout = ftp_sslTimeoutId.value;
+					var ftp_passiveMode = ftp_passiveModeId.value;
 					
 					if(mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != ''){
 						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
@@ -214,28 +225,28 @@ if($validateFlag == 200){
 						request.onreadystatechange = function(){
 							if(request.readyState == 4 && request.status == 200){
 								if(request.responseText == 200){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
 									setTimeout(timeoutFunction, 10000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 								}
 								else if(request.responseText == 400){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
 									setTimeout(timeoutFunction, 10000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else if(request.responseText == 401){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
 									setTimeout(timeoutFunction, 10000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else{
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
+									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId);}
 									setTimeout(timeoutFunction, 10000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
