@@ -193,7 +193,7 @@ if($validateFlag == 200){
 					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId){
+				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId){
 					if(typeId.tagName == 'INPUT'){
 						var type = typeId.value;
 					}
@@ -211,6 +211,8 @@ if($validateFlag == 200){
 					var mysql_socket = mysql_socketId.value;
 					
 					var ftp_host = ftp_hostId.value;
+					var ftp_username = ftp_usernameId.value;
+					var ftp_password = ftp_passwordId.value;
 					var ftp_port = ftp_portId.value;
 					var ftp_timeout = ftp_timeoutId.value;
 					var ftp_remotePath = ftp_remotePathId.value;
@@ -218,7 +220,7 @@ if($validateFlag == 200){
 					var ftp_sslTimeout = ftp_sslTimeoutId.value;
 					var ftp_passiveMode = ftp_passiveModeId.value;
 					
-					if(type == 'FTP' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_remotePath || type == 'MySQL 8.0' && (mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != '')){
+					if(type == 'FTP' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'FTPS' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_sslPort != '' && ftp_sslTimeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'MySQL 8.0' && (mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != '')){
 						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
 						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
 						
