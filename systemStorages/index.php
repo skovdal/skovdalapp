@@ -194,7 +194,13 @@ if($validateFlag == 200){
 				}
 				
 				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId){
-					var type = typeId.options[typeId.selectedIndex].value;
+					if(typeId.tagName == 'INPUT'){
+						var type = typeId.value;
+					}
+					else if(typeId.tagName == 'SELECT'){
+						var type = typeId.options[typeId.selectedIndex].value;
+					}
+					
 					var name = nameId.value;
 					
 					var mysql_host = mysql_hostId.value;
