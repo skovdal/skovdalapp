@@ -105,9 +105,9 @@ if($validateFlag == 200){
 		<div>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
-			<input type="text" value="<?php echo purify($systemStorages_name); ?>" readonly><label>Navn</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_type); ?>" readonly><label>Type</label><br>
-			<input type="text" value="<?php echo purify(storageSize($systemStorages_storageSize, 0)); ?>" readonly><label>Lagerstørrelse</label><br>
+			<input id="inputName" type="text" value="<?php echo purify($systemStorages_name); ?>" readonly><label>Navn</label><br>
+			<input id="inputType" type="text" value="<?php echo purify($systemStorages_type); ?>" readonly><label>Type</label><br>
+			<input id="inputStorageSize" type="text" value="<?php echo purify(storageSize($systemStorages_storageSize, 0)); ?>" readonly><label>Lagerstørrelse</label><br>
 		</div>
 		
 		<div>
@@ -115,8 +115,8 @@ if($validateFlag == 200){
 			<br>
 			<input id="inputMySQLUsername" type="text" value="<?php echo purify($systemStorages_mysql_username); ?>" readonly><label>MySQL-brugernavn</label><br>
 			<input id="inputMySQLPassword" type="password" value="<?php echo purify($systemStorages_mysql_password); ?>" readonly><label>MySQL-adgangskode</label><br>
-			<input type="text" value="<?php echo purify($systemStorages_ftp_login_username); ?>" readonly><label>FTP-brugernavn</label><br>
-			<input type="password" value="" readonly><label>FTP-adgangskode</label><br>
+			<input id="inputFTPUsername" type="text" value="<?php echo purify($systemStorages_ftp_login_username); ?>" readonly><label>FTP-brugernavn</label><br>
+			<input id="inputFTPPassword" type="password" value="" readonly><label>FTP-adgangskode</label><br>
 		</div>
 		
 		<div>
