@@ -218,7 +218,7 @@ if($validateFlag == 200){
 					var ftp_sslTimeout = ftp_sslTimeoutId.value;
 					var ftp_passiveMode = ftp_passiveModeId.value;
 					
-					if(mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != ''){
+					if(type == 'FTP' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_remotePath || type == 'MySQL 8.0' && (mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != '')){
 						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
 						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
 						
@@ -266,23 +266,6 @@ if($validateFlag == 200){
 						request.open('POST', '/systemStorages/check/checkConnection.php');
 						request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 						request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
-						console.log(
-							'type=' + encodeURIComponent(type) +
-							'&name=' + encodeURIComponent(name) +
-							'&mysql_host=' + encodeURIComponent(mysql_host) +
-							'&mysql_username=' + encodeURIComponent(mysql_username) +
-							'&mysql_password=' + encodeURIComponent(mysql_password) +
-							'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
-							'&mysql_port=' + encodeURIComponent(mysql_port) +
-							'&mysql_socket=' + encodeURIComponent(mysql_socket) +
-							'&ftp_host=' + encodeURIComponent(ftp_host) +
-							'&ftp_port=' + encodeURIComponent(ftp_port) +
-							'&ftp_timeout=' + encodeURIComponent(ftp_timeout) +
-							'&ftp_remotePath=' + encodeURIComponent(ftp_remotePath) +
-							'&ftp_sslPort=' + encodeURIComponent(ftp_sslPort) +
-							'&ftp_sslTimeout=' + encodeURIComponent(ftp_sslTimeout) +
-							'&ftp_passiveMode=' + encodeURIComponent(ftp_passiveMode)
-						);
 						request.send(
 							'type=' + encodeURIComponent(type) +
 							'&name=' + encodeURIComponent(name) +
