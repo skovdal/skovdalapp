@@ -150,8 +150,8 @@ if($validateFlag == 200){
 			<br>
 			<div class="tagContainer">
 				<?php
-									if(isset($con) === false){$con = dbConnection();}
-		$stmt = $con->stmt_init();
+				if(isset($con) === false){$con = dbConnection();}
+				$stmt = $con->stmt_init();
 				$stmt->prepare("
 					SELECT
 						`s0`.`tagsReferences`.`id` AS `tagsReferences_id`,

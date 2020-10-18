@@ -194,7 +194,7 @@ if($validateFlag == 200){
 				}
 				
 				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId){
-					var type = typeId.value;
+					var type = typeId.options[typeId.selectedIndex].value;
 					var name = nameId.value;
 					
 					var mysql_host = mysql_hostId.value;
@@ -260,13 +260,39 @@ if($validateFlag == 200){
 						request.open('POST', '/systemStorages/check/checkConnection.php');
 						request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 						request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
-						request.send(
-							'mysql_host=' + encodeURIComponent(mysql_host) +
+						console.log(
+							'type=' + encodeURIComponent(type) +
+							'&name=' + encodeURIComponent(name) +
+							'&mysql_host=' + encodeURIComponent(mysql_host) +
 							'&mysql_username=' + encodeURIComponent(mysql_username) +
 							'&mysql_password=' + encodeURIComponent(mysql_password) +
 							'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
 							'&mysql_port=' + encodeURIComponent(mysql_port) +
-							'&mysql_socket=' + encodeURIComponent(mysql_socket)
+							'&mysql_socket=' + encodeURIComponent(mysql_socket) +
+							'&ftp_host=' + encodeURIComponent(ftp_host) +
+							'&ftp_port=' + encodeURIComponent(ftp_port) +
+							'&ftp_timeout=' + encodeURIComponent(ftp_timeout) +
+							'&ftp_remotePath=' + encodeURIComponent(ftp_remotePath) +
+							'&ftp_sslPort=' + encodeURIComponent(ftp_sslPort) +
+							'&ftp_sslTimeout=' + encodeURIComponent(ftp_sslTimeout) +
+							'&ftp_passiveMode=' + encodeURIComponent(ftp_passiveMode)
+						);
+						request.send(
+							'type=' + encodeURIComponent(type) +
+							'&name=' + encodeURIComponent(name) +
+							'&mysql_host=' + encodeURIComponent(mysql_host) +
+							'&mysql_username=' + encodeURIComponent(mysql_username) +
+							'&mysql_password=' + encodeURIComponent(mysql_password) +
+							'&mysql_dbname=' + encodeURIComponent(mysql_dbname) +
+							'&mysql_port=' + encodeURIComponent(mysql_port) +
+							'&mysql_socket=' + encodeURIComponent(mysql_socket) +
+							'&ftp_host=' + encodeURIComponent(ftp_host) +
+							'&ftp_port=' + encodeURIComponent(ftp_port) +
+							'&ftp_timeout=' + encodeURIComponent(ftp_timeout) +
+							'&ftp_remotePath=' + encodeURIComponent(ftp_remotePath) +
+							'&ftp_sslPort=' + encodeURIComponent(ftp_sslPort) +
+							'&ftp_sslTimeout=' + encodeURIComponent(ftp_sslTimeout) +
+							'&ftp_passiveMode=' + encodeURIComponent(ftp_passiveMode)
 						);
 					}
 					else{
