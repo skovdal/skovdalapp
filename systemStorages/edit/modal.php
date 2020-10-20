@@ -82,7 +82,31 @@ $result->close();
 
 if($validateFlag == 200){
 ?>
-	<input class="modalScript" type="hidden" value="(function(){checkConnection(0, document.querySelectorAll('#modal-<?php echo $modalId; ?> form div.pulseContainer')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputName')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0], document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0]);})();">
+	<input class="modalScript" type="hidden" value="
+		(function(){
+			checkConnection(
+				0,
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div.pulseContainer')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputName')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0],
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0]
+			);
+		})();
+	">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
