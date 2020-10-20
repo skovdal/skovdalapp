@@ -107,7 +107,64 @@ if($validateFlag == 200){
 			);
 		})();
 	">
-	<input class="modalScript" type="hidden" value="(function(){})();">
+	<input class="modalScript" type="hidden" value="
+		(function(){
+			if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].options[document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].selectedIndex].value == 'FTP'){
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0].style.display = 'inline';
+				
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'inline';
+			}
+			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].options[document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].selectedIndex].value == 'FTPS'){
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0].style.display = 'inline';
+				
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'inline';
+			}
+			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].options[document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].selectedIndex].value == 'MySQL 8.0'){
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0].style.display = 'none';
+				
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'none';
+			}
+		})();
+	">
 	<h1><?php echo purify($systemStorages_name); ?></h1>
 	<ul>
 		<li class="active" onclick="modalTab('<?php echo purify($modalId); ?>', 1);">
