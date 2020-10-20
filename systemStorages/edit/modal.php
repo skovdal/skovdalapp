@@ -191,7 +191,7 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<input id="inputName" name="name" onchange="eval(document.querySelectorAll('#modal-<?php echo $modalId; ?> .modalScript')[0].value);" pattern=".{3,}" placeholder="Jens Nielsen" type="text" value="<?php echo purify($systemStorages_name); ?>" required autofocus><label for="inputName">Navn</label><br>
-			<select id="inputType" name="type" onchange="eval(document.querySelectorAll('#modal-<?php echo $modalId; ?> .modalScript')[0].value);" required>
+			<select id="inputType" name="type" onchange="eval(document.querySelectorAll('#modal-<?php echo $modalId; ?> .modalScript')[0].value); eval(document.querySelectorAll('#modal-<?php echo $modalId; ?> .modalScript')[1].value);" required>
 				<optgroup label="Database">
 <!-- 					<option value="MariaDB" <?php if($systemStorages_type == 'MariaDB'){echo 'selected';}?>>MariaDB</option> -->
 <!-- 					<option value="MySQL 5.6" <?php if($systemStorages_type == 'MySQL 5.6'){echo 'selected';}?>>MySQL 5.6</option> -->
