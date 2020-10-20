@@ -151,7 +151,7 @@ body div.pulseContainer{
 	}
 	
 	body div.pulseContainer > div.pulse.success{
-		animation-duration:4s;
+		animation-duration:5s;
 		border:1px solid var(--color-success);
 	}
 	
@@ -160,7 +160,7 @@ body div.pulseContainer{
 	}
 	
 	body div.pulseContainer > div.pulse.warning{
-		animation-duration:2s;
+		animation-duration:3s;
 		border:1px solid var(--color-warning);
 	}
 	
@@ -169,7 +169,7 @@ body div.pulseContainer{
 	}
 	
 	body div.pulseContainer > div.pulse.danger{
-		animation-duration:1s;
+		animation-duration:3s;
 		border:1px solid var(--color-danger);
 	}
 	
