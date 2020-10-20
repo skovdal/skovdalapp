@@ -154,7 +154,7 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
 			}
 			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].value == 'FTPS'){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'none';
@@ -201,7 +201,7 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
 			}
 			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].value == 'MySQL 8.0'){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'inline';
@@ -248,7 +248,7 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'none';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'none';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'none';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div #inputFTPPassiveMode + label + br')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'none';
 			}
 		})();
 	">
@@ -301,7 +301,7 @@ if($validateFlag == 200){
 			<input id="inputFTPRemotePath" type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
 			<input id="inputFTPSSLPort" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" readonly><label>FTP-SSL-port</label><br>
 			<input id="inputFTPSSLTimeout" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" readonly><label>FTP-SSL-timeout</label><br>
-			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input id="inputFTPPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label></div><br>
+			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input id="inputFTPPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label><br></div>
 		</div>
 		
 		<div class="contentTab">
