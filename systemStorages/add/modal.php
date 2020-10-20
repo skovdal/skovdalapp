@@ -83,9 +83,8 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + div + br')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
 			}
 			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].options[document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].selectedIndex].value == 'FTPS'){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'none';
@@ -131,9 +130,8 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'inline';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'inline';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + div + br')[0].style.display = 'inline';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'inline';
 			}
 			else if(document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].options[document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0].selectedIndex].value == 'MySQL 8.0'){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0].style.display = 'inline';
@@ -179,9 +177,8 @@ if($validateFlag == 200){
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0].style.display = 'none';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label')[0].style.display = 'none';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout + label + br')[0].style.display = 'none';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0].style.display = 'none';
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label')[0].style.display = 'none';
-				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + div + br')[0].style.display = 'none';
+				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode + label + br')[0].style.display = 'none';
 			}
 		})();
 	">
