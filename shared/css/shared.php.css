@@ -783,6 +783,7 @@ body div.modal > h1 ~ ul::-webkit-scrollbar{
 		padding:0 0 0 0;
 	}
 	
+	
 	body div.modal input[type="file"] + label{
 		cursor:pointer;
 		color:var(--color-primary);
