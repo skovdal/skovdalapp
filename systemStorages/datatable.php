@@ -335,7 +335,7 @@ if($validateFlag == 200){
 				<td class="checkbox unchecked" onclick="datatableCheckbox(this);">
 					<input name="systemStorages_id" type="checkbox" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
 				</td>
-				<td style="position:relative;">
+				<td>
 					<div class="pulseContainer" id="pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 					
 					<input id="inputType<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_type']); ?>">
@@ -379,6 +379,7 @@ if($validateFlag == 200){
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPUsername<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPassword<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0]
 							);
+							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.position = 'relative';
 						})();
 					">
 				</td>
