@@ -391,8 +391,8 @@ if($validateFlag == 200){
 							
 							checkTableVersion(datatableId);
 							
-							for(var i = 0; i < document.querySelectorAll('#' + datatableId + ' form .datatableScript').length; i++){
-								eval(document.querySelectorAll('#' + datatableId + ' form .datatableScript')[i].value);
+							for(var i = 0; i < document.querySelectorAll('#' + datatableId + ' .datatableScript').length; i++){
+								eval(document.querySelectorAll('#' + datatableId + ' .datatableScript')[i].value);
 							}
 						}
 						else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
