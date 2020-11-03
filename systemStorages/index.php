@@ -473,6 +473,9 @@ if($validateFlag == 200){
 									<td>
 										
 									</td>
+									<td>
+										
+									</td>
 									<td style="<?php if($preferences_columnsSystemStorages_columnsName == 1){}else{echo 'display:none;';} ?>">
 										<input name="searchName" type="search" value="<?php echo purify($searchName); ?>">
 									</td>
