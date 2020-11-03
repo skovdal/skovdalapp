@@ -205,10 +205,24 @@ if($validateFlag == 200){
 	if($searchNameSql == '%%' && $searchStorageSizeSql == '%%' && $searchTypeSql == '%%' && $searchTagsSql == '%%'){
 		$stmt->prepare("
 			SELECT
-				`c0`.`systemStorages`.`id` AS `systemStorages_id`,
 				`c0`.`systemStorages`.`name` AS `systemStorages_name`,
+				`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 				`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
-				`c0`.`systemStorages`.`type` AS `systemStorages_type`
+				`c0`.`systemStorages`.`ftp_connect_host` AS `systemStorages_ftp_connect_host`,
+				`c0`.`systemStorages`.`ftp_connect_port` AS `systemStorages_ftp_connect_port`,
+				`c0`.`systemStorages`.`ftp_connect_timeout` AS `systemStorages_ftp_connect_timeout`,
+				`c0`.`systemStorages`.`ftp_login_username` AS `systemStorages_ftp_login_username`,
+				`c0`.`systemStorages`.`ftp_login_password` AS `systemStorages_ftp_login_password`,
+				`c0`.`systemStorages`.`ftp_pasv` AS `systemStorages_ftp_pasv`,
+				`c0`.`systemStorages`.`ftp_ssl_connect_timeout` AS `systemStorages_ftp_ssl_connect_timeout`,
+				`c0`.`systemStorages`.`ftp_ssl_connect_port` AS `systemStorages_ftp_ssl_connect_port`,
+				`c0`.`systemStorages`.`ftp_put_remote_path` AS `systemStorages_ftp_put_remote_path`,
+				`c0`.`systemStorages`.`mysql_host` AS `systemStorages_mysql_host`,
+				`c0`.`systemStorages`.`mysql_username` AS `systemStorages_mysql_username`,
+				`c0`.`systemStorages`.`mysql_password` AS `systemStorages_mysql_password`,
+				`c0`.`systemStorages`.`mysql_dbname` AS `systemStorages_mysql_dbname`,
+				`c0`.`systemStorages`.`mysql_port` AS `systemStorages_mysql_port`,
+				`c0`.`systemStorages`.`mysql_socket` AS `systemStorages_mysql_socket`
 			FROM
 				`c0`.`systemStorages`
 			WHERE
@@ -233,8 +247,9 @@ if($validateFlag == 200){
 					`c0`.`systemStorages`.`ftp_connect_timeout` AS `systemStorages_ftp_connect_timeout`,
 					`c0`.`systemStorages`.`ftp_login_username` AS `systemStorages_ftp_login_username`,
 					`c0`.`systemStorages`.`ftp_login_password` AS `systemStorages_ftp_login_password`,
-					`c0`.`systemStorages`.`ftp_pasv` AS `systemStorages_ftp_ssl_connect_port`,
+					`c0`.`systemStorages`.`ftp_pasv` AS `systemStorages_ftp_pasv`,
 					`c0`.`systemStorages`.`ftp_ssl_connect_timeout` AS `systemStorages_ftp_ssl_connect_timeout`,
+					`c0`.`systemStorages`.`ftp_ssl_connect_port` AS `systemStorages_ftp_ssl_connect_port`,
 					`c0`.`systemStorages`.`ftp_put_remote_path` AS `systemStorages_ftp_put_remote_path`,
 					`c0`.`systemStorages`.`mysql_host` AS `systemStorages_mysql_host`,
 					`c0`.`systemStorages`.`mysql_username` AS `systemStorages_mysql_username`,
