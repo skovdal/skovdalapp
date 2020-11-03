@@ -114,11 +114,12 @@ body a:hover:after{
 }
 
 body div.pulseContainer{
-	 height:100%;
-	 position:absolute;
-	 left:25px;
-	 top:0px;
-	 width:30px;
+	border:1px solid red;
+	height:100%;
+	position:absolute;
+	left:25px;
+	top:0px;
+	width:30px;
 }
 	
 	body div.pulseContainer > div.pulse{
