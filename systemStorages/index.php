@@ -496,6 +496,9 @@ if($validateFlag == 200){
 									<th class="checkbox unchecked" onclick="datatableCheckbox(this);">
 										<input type="checkbox">
 									</th>
+									<th>
+										
+									</th>
 									<?php
 									if('Name' == orderBy('orderBy', $preferences_orderBySystemStorages_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderBySystemStorages_orderBy) == 'ASC'){

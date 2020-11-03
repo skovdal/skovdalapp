@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 ?><nav>
 	<div class="nav">
 		<ul>
-			<li><a href="/systemUsers/index.php">Idea Management System (IMS)</a></li>
+			<li><a href="/systemUsers/index.php">Idea Management System (IMS) (LEGO Ideas)</a></li>
 			<li><a href="/systemUsers/index.php">Systembrugere</a></li>
 			<li><a href="/systemConfiguration/index.php">Systemkonfiguration</a></li>
 			<li><a href="/systemStorages/index.php">Systemlagre</a></li>

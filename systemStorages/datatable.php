@@ -301,6 +301,9 @@ if($validateFlag == 200){
 				<td class="checkbox unchecked" onclick="datatableCheckbox(this);">
 					<input name="systemStorages_id" type="checkbox" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
 				</td>
+				<td>
+					<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
+				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
 					echo purify($row['systemStorages_name']);
