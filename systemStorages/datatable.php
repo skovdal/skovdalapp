@@ -309,48 +309,48 @@ if($validateFlag == 200){
 					<input name="systemStorages_id" type="checkbox" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
 				</td>
 				<td>
-					<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
+					<div class="pulseContainer" id="pulseContainer-<?php echo encodeId(purify($row['systemStorages_id'])); ?>"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 					
-					<input id="inputType-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputName-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLHost-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLUsername-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLPassword-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLDbName-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLPort-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputMySQLSocket-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPHost-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPPort-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPTimeout-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPRemotePath-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPSSLPort-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPSSLTimeout-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPPassiveMode-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPUsername-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
-					<input id="inputFTPPassword-<?php echo echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="">
+					<input id="inputType-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputName-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLHost-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLUsername-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLPassword-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLDbName-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputMySQLSocket-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPHost-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPTimeout-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPRemotePath-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPSSLPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPSSLTimeout-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPPassiveMode-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPUsername-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
+					<input id="inputFTPPassword-<?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
 					
 					<input class="datatableScript" type="hidden" value="
 						(function(){
 							checkConnection(
 								0,
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form div.pulseContainer')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputName')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLHost')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLUsername')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPassword')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLDbName')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLPort')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputMySQLSocket')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPHost')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPort')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPTimeout')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPRemotePath')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLPort')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPSSLTimeout')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassiveMode')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPUsername')[0],
-								document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputFTPPassword')[0]
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputType-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputName-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLHost-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLUsername-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLPassword-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLDbName-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputMySQLSocket-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPHost-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPTimeout-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPRemotePath-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPSSLPort-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPSSLTimeout-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPassiveMode-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPUsername-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
+								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPassword-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0]
 							);
 						})();
 					">
