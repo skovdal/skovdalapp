@@ -35,7 +35,8 @@ $stmt->prepare("
 		`c0`.`systemStorages`.`ftp_connect_timeout` AS `systemStorages_ftp_connect_timeout`,
 		`c0`.`systemStorages`.`ftp_login_username` AS `systemStorages_ftp_login_username`,
 		`c0`.`systemStorages`.`ftp_login_password` AS `systemStorages_ftp_login_password`,
-		`c0`.`systemStorages`.`ftp_pasv_pasv` AS `systemStorages_ftp_ssl_connect_port`,
+		`c0`.`systemStorages`.`ftp_pasv` AS `systemStorages_ftp_pasv`,
+		`c0`.`systemStorages`.`ftp_ssl_connect_port` AS `systemStorages_ftp_ssl_connect_port`,
 		`c0`.`systemStorages`.`ftp_ssl_connect_timeout` AS `systemStorages_ftp_ssl_connect_timeout`,
 		`c0`.`systemStorages`.`ftp_put_remote_path` AS `systemStorages_ftp_put_remote_path`,
 		`c0`.`systemStorages`.`mysql_host` AS `systemStorages_mysql_host`,
@@ -69,6 +70,7 @@ else{
 		$systemStorages_ftp_login_password = $row['systemStorages_ftp_login_password'];
 		$systemStorages_ftp_ssl_connect_port = $row['systemStorages_ftp_ssl_connect_port'];
 		$systemStorages_ftp_ssl_connect_timeout = $row['systemStorages_ftp_ssl_connect_timeout'];
+		$systemStorages_ftp_pasv = $row['systemStorages_ftp_pasv'];
 		$systemStorages_ftp_put_remote_path = $row['systemStorages_ftp_put_remote_path'];
 		$systemStorages_mysql_host = $row['systemStorages_mysql_host'];
 		$systemStorages_mysql_username = $row['systemStorages_mysql_username'];
@@ -298,7 +300,7 @@ if($validateFlag == 200){
 			<input id="inputFTPRemotePath" type="text" value="<?php echo purify($systemStorages_ftp_put_remote_path); ?>" readonly><label>FTP remote path</label><br>
 			<input id="inputFTPSSLPort" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_port); ?>" readonly><label>FTP-SSL-port</label><br>
 			<input id="inputFTPSSLTimeout" type="text" value="<?php echo purify($systemStorages_ftp_ssl_connect_timeout); ?>" readonly><label>FTP-SSL-timeout</label><br>
-			<div class="checkbox <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input id="inputFTPPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftpPassiveMode == 1){echo 'checked';} ?>><label>Passiv</label><br></div>
+			<div class="checkbox <?php if($systemStorages_ftp_pasv == 1){echo 'checked';}else{echo 'unchecked';} ?>"><input id="inputFTPPassiveMode" type="checkbox" value="1" <?php if($systemStorages_ftp_pasv == 1){echo 'checked';} ?>><label>Passiv</label><br></div>
 		</div>
 		
 		<div class="contentTab">

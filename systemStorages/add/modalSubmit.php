@@ -96,7 +96,7 @@ if($validateFlag == 200){
 			`c0`.`systemStorages`.`ftp_connect_timeout`,
 			`c0`.`systemStorages`.`ftp_login_username`,
 			`c0`.`systemStorages`.`ftp_login_password`,
-			`c0`.`systemStorages`.`ftp_pasv_pasv`,
+			`c0`.`systemStorages`.`ftp_pasv`,
 			`c0`.`systemStorages`.`ftp_ssl_connect_port`,
 			`c0`.`systemStorages`.`ftp_ssl_connect_timeout`,
 			`c0`.`systemStorages`.`ftp_put_remote_path`,
@@ -129,7 +129,7 @@ if($validateFlag == 200){
 			?
 		)
 	");
-	$stmt->bind_param('ssisiissiiisssssis', $name, $type, $storageSize, $ftp_connect_host, $ftp_connect_port, $ftp_connect_timeout, $ftp_login_username, $ftp_login_password, $ftp_pasv_pasv, $ftp_ssl_connect_port, $ftp_ssl_connect_timeout, $ftp_put_remote_path, $mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
+	$stmt->bind_param('ssisiissiiisssssis', $name, $type, $storageSize, $ftp_connect_host, $ftp_connect_port, $ftp_connect_timeout, $ftp_login_username, $ftp_login_password, $ftp_pasv, $ftp_ssl_connect_port, $ftp_ssl_connect_timeout, $ftp_put_remote_path, $mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
 	$stmt->execute();
 	$systemStorages_id = mysqli_insert_id($con);
 	setTableVersion('systemStorages');
