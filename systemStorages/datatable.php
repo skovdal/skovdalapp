@@ -340,7 +340,7 @@ if($validateFlag == 200){
 					
 					<input id="inputType<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_type']); ?>">
 					<input id="inputName<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_name']); ?>">
-					<input id="inputMySQLHost<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_host']); ?>">
+					<input id="inputMySQLHost<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="abcd">
 					<input id="inputMySQLUsername<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_username']); ?>">
 					<input id="inputMySQLPassword<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_password']); ?>">
 					<input id="inputMySQLDbName<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_dbname']); ?>">
