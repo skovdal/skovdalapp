@@ -220,6 +220,8 @@ if($validateFlag == 200){
 					var ftp_sslTimeout = ftp_sslTimeoutId.value;
 					var ftp_passiveMode = ftp_passiveModeId.value;
 					
+					console.log('checkConnection called');
+					
 					if(type == 'FTP' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'FTPS' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_sslPort != '' && ftp_sslTimeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'MySQL 8.0' && (mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != '')){
 						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
 						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';

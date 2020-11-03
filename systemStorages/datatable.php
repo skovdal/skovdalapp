@@ -358,7 +358,6 @@ if($validateFlag == 200){
 					
 					<input class="datatableScript" type="hidden" value="
 						(function(){
-							alert('test');
 							checkConnection(
 								0,
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer-<?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
