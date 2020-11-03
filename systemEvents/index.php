@@ -323,7 +323,8 @@ if($validateFlag == 200){
 				function datatableUpdate(focusElement, datatableId, silent){
 					var requestStart = new Date().getTime();
 					var openUrl = '/systemEvents/datatable.php';
-					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
+					var sendParameters = 'datatableId=' + encodeURIComponent(datatableId) +
+						'&orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
 						'&orderBySort=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBySort]')[0].value) +
 						'&searchType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchType]')[0].value) +
 						'&searchIpAddress=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchIpAddress]')[0].value) +

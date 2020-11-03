@@ -4,6 +4,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/measurements/storageSize.php';
 
 $validateFlag = 200;
 
+if(isset($_POST['datatableId']) === false){
+	$validateFlag = 400;
+}
+else{
+	$datatableId = $_POST['datatableId'];
+}
+
 $preferences_columnsFiles_columnsType = getSystemPreferences('columnsFiles_columnsType');
 if($preferences_columnsFiles_columnsType == -1){
 	$preferences_columnsFiles_columnsType = 1;

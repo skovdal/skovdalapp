@@ -3,6 +3,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
+if(isset($_POST['datatableId']) === false){
+	$validateFlag = 400;
+}
+else{
+	$datatableId = $_POST['datatableId'];
+}
+
 $preferences_columnsProcessingActivities_columnsName = getSystemPreferences('columnsProcessingActivities_columnsName');
 if($preferences_columnsProcessingActivities_columnsName == -1){
 	$preferences_columnsProcessingActivities_columnsName = 1;

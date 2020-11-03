@@ -3,6 +3,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
+if(isset($_POST['datatableId']) === false){
+	$validateFlag = 400;
+}
+else{
+	$datatableId = $_POST['datatableId'];
+}
+
 $preferences_columnsSystemUsers_columnsName = getSystemPreferences('columnsSystemUsers_columnsName');
 if($preferences_columnsSystemUsers_columnsName == -1){
 	$preferences_columnsSystemUsers_columnsName = 1;
@@ -409,7 +416,6 @@ if($validateFlag == 200){
 				<input value="<?php echo mysqli_num_rows($result); ?>">
 				<input value="<?php echo getTableVersion('systemUsers') . getTableVersion('identities'); ?>">
 				<input value="systemUsers,identities">
-				<input class="datatableScript" type="hidden" value="alert('test1');">
 			</td>
 		</tr>
 	<?php
@@ -421,7 +427,6 @@ if($validateFlag == 200){
 				<input value="<?php echo mysqli_num_rows($result); ?>">
 				<input value="<?php echo getTableVersion('systemUsers') . getTableVersion('identities'); ?>">
 				<input value="systemUsers,identities">
-				<input class="datatableScript" type="hidden" value="alert('test2');">
 			</td>
 		</tr>
 		<?php

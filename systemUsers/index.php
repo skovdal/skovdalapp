@@ -252,7 +252,8 @@ if($validateFlag == 200){
 				function datatableUpdate(focusElement, datatableId, silent){
 					var requestStart = new Date().getTime();
 					var openUrl = '/systemUsers/datatable.php';
-					var sendParameters = 'orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
+					var sendParameters = 'datatableId=' + encodeURIComponent(datatableId) +
+						'&orderBy=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBy]')[0].value) +
 						'&orderBySort=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=orderBySort]')[0].value) +
 						'&searchName=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchName]')[0].value) +
 						'&searchEntityType=' + encodeURIComponent(document.querySelectorAll('#' + datatableId + ' form input[name=searchEntityType]')[0].value) +
