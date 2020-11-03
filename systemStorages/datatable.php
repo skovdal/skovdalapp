@@ -380,7 +380,7 @@ if($validateFlag == 200){
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPassword<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0]
 							);
 							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.position = 'relative';
-							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.width = '30px';
+							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.position = 'relative';
 							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.left = '0px';
 						})();
 					">
