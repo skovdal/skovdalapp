@@ -205,6 +205,7 @@ if($validateFlag == 200){
 	if($searchNameSql == '%%' && $searchStorageSizeSql == '%%' && $searchTypeSql == '%%' && $searchTagsSql == '%%'){
 		$stmt->prepare("
 			SELECT
+				`c0`.`systemStorages`.`id` AS `systemStorages_id`,
 				`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 				`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 				`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -239,6 +240,7 @@ if($validateFlag == 200){
 		if(count($systemStoragesWithTagsArray) > 0){
 			$stmt->prepare("
 				SELECT
+					`c0`.`systemStorages`.`id` AS `systemStorages_id`,
 					`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 					`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 					`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -281,6 +283,7 @@ if($validateFlag == 200){
 		else{
 			$stmt->prepare("
 				SELECT
+					`c0`.`systemStorages`.`id` AS `systemStorages_id`,
 					`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 					`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 					`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -351,7 +354,7 @@ if($validateFlag == 200){
 					<input name="systemStorages_id" type="checkbox" value="<?php echo encodeId(purify($row['systemStorages_id'])); ?>">
 				</td>
 				<td>
-<!-- 					<div class="pulseContainer" id="pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>"><div class="pulseCore danger"></div><div class="pulse danger"></div></div> -->
+					<div class="pulseContainer" id="pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 					
 					<input id="inputType<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_type']); ?>">
 					<input id="inputName<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_name']); ?>">
@@ -394,7 +397,14 @@ if($validateFlag == 200){
 								document.querySelectorAll('#<?php echo purify($datatableId); ?> form #inputFTPUsername<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
 								document.querySelectorAll('#<?php echo purify($datatableId); ?> form #inputFTPPassword<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0]
 							);
-
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.position = 'relative';
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.width = '45px';
+							
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.left = '0px';
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.width = '100%';
+							
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?> .pulseCore')[0].style.display = 'block';
+							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?> .pulse')[0].style.display = 'block';
 						})();
 					">
 				</td>
