@@ -349,6 +349,12 @@ if($validateFlag == 200){
 							document.querySelectorAll('#' + datatableId + ' tr th')[0].className = 'checkbox unchecked';
 							document.querySelectorAll('#' + datatableId + ' tr th')[0].style.animationName = 'checkboxHeadUnchecked';
 							document.querySelectorAll('#' + datatableId + ' tr th input[type="checkbox"]')[0].checked = false;
+							
+							checkTableVersion(datatableId);
+							
+							for(var i = 0; i < document.querySelectorAll('#' + datatableId + ' form .datatableScript').length; i++){
+								eval(document.querySelectorAll('#' + datatableId + ' form .datatableScript')[i].value);
+							}
 						}
 						else if(request.readyState == 4 && (request.status == 400 || request.status == 401 || request.status == 404 || request.status == 500)){
 							toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?1234-ABCD-5678-EFGH');
