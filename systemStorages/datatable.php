@@ -338,11 +338,9 @@ if($validateFlag == 200){
 				<td>
 					<div class="pulseContainer" id="pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
 					
-					<?php $systemStorages_mysql_host = $row['systemStorages_mysql_host']; ?>
-					
 					<input id="inputType<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_type']); ?>">
 					<input id="inputName<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_name']); ?>">
-					<input id="inputMySQLHost<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo $systemStorages_mysql_host; ?>">
+					<input id="inputMySQLHost<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_host']); ?>">
 					<input id="inputMySQLUsername<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_username']); ?>">
 					<input id="inputMySQLPassword<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_password']); ?>">
 					<input id="inputMySQLDbName<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>" type="hidden" value="<?php echo purify($row['systemStorages_mysql_dbname']); ?>">
