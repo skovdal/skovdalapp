@@ -379,8 +379,8 @@ if($validateFlag == 200){
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPUsername<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
 								document.querySelectorAll('#<?php echo $datatableId; ?> form #inputFTPPassword<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0]
 							);
-							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parent.style.position = 'relative';
-							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parent.style.width = '100px';
+							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.position = 'relative';
+							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].parentElement.style.width = '100px';
 							document.querySelectorAll('#<?php echo $datatableId; ?> form #pulseContainer<?php echo $datatableId; ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.left = '0px';
 						})();
 					">
