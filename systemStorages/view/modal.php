@@ -29,6 +29,7 @@ $stmt->prepare("
 	SELECT
 		`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 		`c0`.`systemStorages`.`type` AS `systemStorages_type`,
+		`c0`.`systemStorages`.`indelible` AS `systemStorages_indelible`,
 		`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
 		`c0`.`systemStorages`.`ftp_connect_host` AS `systemStorages_ftp_connect_host`,
 		`c0`.`systemStorages`.`ftp_connect_port` AS `systemStorages_ftp_connect_port`,
@@ -364,7 +365,7 @@ if($validateFlag == 200){
 		
 		<div class="buttons">
 			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
-			<input class="delete" onclick="modal(0, 'basic', '/systemStorages/view/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><input class="edit" onclick="modal(<?php echo purify($modalId); ?>, 'large', '/systemStorages/edit/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', false, 0)" type="button" value="Editer systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
+			<?php if($row['systemStorages_indelible'] === null){?><input class="delete" onclick="modal(0, 'basic', '/systemStorages/view/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><?php } ?><input class="edit" onclick="modal(<?php echo purify($modalId); ?>, 'large', '/systemStorages/edit/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', false, 0)" type="button" value="Editer systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
 		</div>
 	</form>
 	<?php
