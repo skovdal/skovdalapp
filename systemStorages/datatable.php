@@ -430,7 +430,15 @@ if($validateFlag == 200){
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsType == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
 					<?php
-					echo purify($row['systemStorages_type']);
+					if($row['systemStorages_systemDatabase'] == 1){
+						echo purify($row['systemStorages_type']) . ' (systemdatabase)';
+					}
+					else if($row['systemStorages_systemFileStorage'] == 1){
+						echo purify($row['systemStorages_type']) . ' (systemfillager)';
+					}
+					else{
+						echo purify($row['systemStorages_type']);
+					}
 					?>
 				</td>
 				<td onclick="modal(0, 'large', '/systemStorages/view/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="<?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'display:table-cell;';}else{echo 'display:none;';} ?>">
