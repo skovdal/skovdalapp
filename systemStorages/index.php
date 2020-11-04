@@ -233,28 +233,28 @@ if($validateFlag == 200){
 						request.onreadystatechange = function(){
 							if(request.readyState == 4 && request.status == 200){
 								if(request.responseText == 200){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
+									var timeoutFunction = function(){checkConnection(systemStorages_id, 1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
 									setTimeout(timeoutFunction, 5000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse success';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore success';
 								}
 								else if(request.responseText == 400){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
+									var timeoutFunction = function(){checkConnection(systemStorages_id, 1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
 									setTimeout(timeoutFunction, 3000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else if(request.responseText == 401){
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
+									var timeoutFunction = function(){checkConnection(systemStorages_id, 1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
 									setTimeout(timeoutFunction, 3000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
 									pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore danger';
 								}
 								else{
-									var timeoutFunction = function(){checkConnection(1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
+									var timeoutFunction = function(){checkConnection(systemStorages_id, 1, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId);}
 									setTimeout(timeoutFunction, 3000);
 									
 									pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse danger';
