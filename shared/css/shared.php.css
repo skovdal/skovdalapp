@@ -1485,7 +1485,7 @@ main{
 					main > div.main div.datatable table tr th{
 						background-position:calc(100% - 10px) center;
 						background-repeat:no-repeat;
-						background-size:16px;
+						background-size:15px;
 						border-top:1px solid rgba(240,245,250,1);
 						border-left:1px solid rgba(240,245,250,1);
 						border-right:1px solid rgba(240,245,250,1);
