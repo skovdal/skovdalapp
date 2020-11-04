@@ -10,6 +10,11 @@ else{
 	$datatableId = $_POST['datatableId'];
 }
 
+$preferences_columnsSystemStorages_columnsConnectionStatus = getSystemPreferences('columnsSystemStorages_columnsConnectionStatus');
+if($preferences_columnsSystemStorages_columnsConnectionStatus == -1){
+	$$preferences_columnsSystemStorages_columnsConnectionStatus = 1;
+}
+
 $preferences_columnsSystemStorages_columnsName = getSystemPreferences('columnsSystemStorages_columnsName');
 if($preferences_columnsSystemStorages_columnsName == -1){
 	$preferences_columnsSystemStorages_columnsName = 1;

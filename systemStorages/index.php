@@ -524,7 +524,7 @@ if($validateFlag == 200){
 									<?php
 									}
 									?>
-										!
+										<img height="15" src="/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/heart-rate.svg'); ?>&fill=<?php echo urlencode('rgba(235,240,245,1)'); ?>">
 									</th>
 									<?php
 									if('Name' == orderBy('orderBy', $preferences_orderBySystemStorages_orderBy)){
