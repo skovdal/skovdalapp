@@ -44,6 +44,28 @@ else{
 	}
 }
 
+if(isset($con) === false){$con = dbConnection();}
+$stmt = $con->stmt_init();
+$stmt->prepare("
+	SELECT
+		`c0`.`systemStorages`.`id` AS `systemStorages_id`
+	FROM
+		`c0`.`systemStorages`
+	WHERE
+		`c0`.`systemStorages`.`id` = ?
+		AND
+		`c0`.`systemStorages`.`indelible` IS NULL
+	LIMIT 1
+");
+$stmt->bind_param('i', $systemStorages_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if(mysqli_num_rows($result) == 0){
+	$validateFlag = 403;
+}
+$result->close();
+
 if($validateFlag == 200){
 	if(isset($con) === false){$con = dbConnection();}
 	$stmt = $con->stmt_init();
