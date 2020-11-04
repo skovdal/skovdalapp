@@ -194,6 +194,9 @@ if($validateFlag == 200){
 				}
 				
 				function checkConnection(systemStorages_id, silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId){
+					pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
+					pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
+					
 					if(typeId.tagName == 'INPUT'){
 						var type = typeId.value;
 					}
@@ -220,15 +223,12 @@ if($validateFlag == 200){
 					var ftp_sslTimeout = ftp_sslTimeoutId.value;
 					var ftp_passiveMode = ftp_passiveModeId.value;
 					
-					pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
-					pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
-					
-					if(silent == 0){
-						pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
-						pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
-					}
-					
 					if(type == 'FTP' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'FTPS' && ftp_host != '' && ftp_port != '' && ftp_timeout != '' && ftp_sslPort != '' && ftp_sslTimeout != '' && ftp_remotePath && ftp_username && ftp_password || type == 'MySQL 8.0' && (mysql_host != '' && mysql_username != '' && mysql_password != '' && mysql_dbname != '' && mysql_port != '')){
+						if(silent == 0){
+							pulseContainerId.querySelectorAll('div.pulse')[0].className = 'pulse warning';
+							pulseContainerId.querySelectorAll('div.pulseCore')[0].className = 'pulseCore warning';
+						}
+						
 						var request = new XMLHttpRequest();
 						request.onreadystatechange = function(){
 							if(request.readyState == 4 && request.status == 200){
