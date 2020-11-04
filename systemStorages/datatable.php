@@ -214,6 +214,8 @@ if($validateFlag == 200){
 				`c0`.`systemStorages`.`indelible` AS `systemStorages_indelible`,
 				`c0`.`systemStorages`.`systemDatabase` AS `systemStorages_systemDatabase`,
 				`c0`.`systemStorages`.`systemFileStorage` AS `systemStorages_systemFileStorage`,
+				`c0`.`systemStorages`.`database` AS `systemStorages_database`,
+				`c0`.`systemStorages`.`fileStorage` AS `systemStorages_fileStorage`,
 				`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 				`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 				`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -252,6 +254,8 @@ if($validateFlag == 200){
 					`c0`.`systemStorages`.`indelible` AS `systemStorages_indelible`,
 					`c0`.`systemStorages`.`systemDatabase` AS `systemStorages_systemDatabase`,
 					`c0`.`systemStorages`.`systemFileStorage` AS `systemStorages_systemFileStorage`,
+					`c0`.`systemStorages`.`database` AS `systemStorages_database`,
+					`c0`.`systemStorages`.`fileStorage` AS `systemStorages_fileStorage`,
 					`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 					`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 					`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -298,6 +302,8 @@ if($validateFlag == 200){
 					`c0`.`systemStorages`.`indelible` AS `systemStorages_indelible`,
 					`c0`.`systemStorages`.`systemDatabase` AS `systemStorages_systemDatabase`,
 					`c0`.`systemStorages`.`systemFileStorage` AS `systemStorages_systemFileStorage`,
+					`c0`.`systemStorages`.`database` AS `systemStorages_database`,
+					`c0`.`systemStorages`.`fileStorage` AS `systemStorages_fileStorage`,
 					`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 					`c0`.`systemStorages`.`type` AS `systemStorages_type`,
 					`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
@@ -442,7 +448,7 @@ if($validateFlag == 200){
 						<div class="dropdown up right">
 							<ul>
 								<?php
-								if($row['systemStorages_systemDatabase'] === null){
+								if($row['systemStorages_database'] == 1 && $row['systemStorages_systemDatabase'] === null){
 								?>
 									<li onclick="modal(0, 'basic', '/systemStorages/useAsSystemDatabaseSingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/database.svg&fill=rgba(135,140,145,1)');">Anvend systemlager som systemdatabase</li>
 								<?php
@@ -450,7 +456,7 @@ if($validateFlag == 200){
 								?>
 								
 								<?php
-								if($row['systemStorages_systemFileStorage'] === null){
+								if($row['systemStorages_fileStorage'] == 1 && $row['systemStorages_systemFileStorage'] === null){
 								?>
 									<li onclick="modal(0, 'basic', '/systemStorages/useAsSystemFileStorageSingle/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($row['systemStorages_id'])); ?>', true, 1);" style="background-image:url('/images/svgImage.php?id=/images/fontawesome-pro-5.9.0-web/svgs/solid/folders.svg&fill=rgba(135,140,145,1)');">Anvend systemlager som systemfillager</li>
 								<?php
