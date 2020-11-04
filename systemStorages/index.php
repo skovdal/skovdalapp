@@ -586,7 +586,7 @@ if($validateFlag == 200){
 									<?php
 									}
 									?>
-										Størrelse
+										Lagerstørrelse
 									</th>
 									<th style="cursor:default; <?php if($preferences_columnsSystemStorages_columnsTags == 1){}else{echo 'display:none;';} ?>">
 										Mærker

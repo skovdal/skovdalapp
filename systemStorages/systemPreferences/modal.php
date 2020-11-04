@@ -28,54 +28,24 @@ if($preferences_shortcutsSystemStorages_shortcutsDelete == -1){
 	$preferences_shortcutsSystemStorages_shortcutsDelete = 0;
 }
 
+$preferences_columnsSystemStorages_columnsConnectionStatus = getSystemPreferences('columnsSystemStorages_columnsConnectionStatus');
+if($preferences_columnsSystemStorages_columnsConnectionStatus == -1){
+	$preferences_columnsSystemStorages_columnsConnectionStatus = 1;
+}
+
 $preferences_columnsSystemStorages_columnsName = getSystemPreferences('columnsSystemStorages_columnsName');
 if($preferences_columnsSystemStorages_columnsName == -1){
 	$preferences_columnsSystemStorages_columnsName = 1;
 }
 
-$preferences_columnsSystemStorages_columnsSecurityClearance = getSystemPreferences('columnsSystemStorages_columnsSecurityClearance');
-if($preferences_columnsSystemStorages_columnsSecurityClearance == -1){
-	$preferences_columnsSystemStorages_columnsSecurityClearance = 0;
+$preferences_columnsSystemStorages_columnsType = getSystemPreferences('columnsSystemStorages_columnsType');
+if($preferences_columnsSystemStorages_columnsType == -1){
+	$preferences_columnsSystemStorages_columnsType = 1;
 }
 
-$preferences_columnsSystemStorages_columnsBlockSignIn = getSystemPreferences('columnsSystemStorages_columnsBlockSignIn');
-if($preferences_columnsSystemStorages_columnsBlockSignIn == -1){
-	$preferences_columnsSystemStorages_columnsBlockSignIn = 1;
-}
-
-$preferences_columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn = getSystemPreferences('columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn');
-if($preferences_columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn == -1){
-	$preferences_columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn = 0;
-}
-
-$preferences_columnsSystemStorages_columnsForceUseOfMultifactorAuthentication = getSystemPreferences('columnsSystemStorages_columnsForceUseOfMultifactorAuthentication');
-if($preferences_columnsSystemStorages_columnsForceUseOfMultifactorAuthentication == -1){
-	$preferences_columnsSystemStorages_columnsForceUseOfMultifactorAuthentication = 0;
-}
-
-$preferences_columnsSystemStorages_columnsEntityType = getSystemPreferences('columnsSystemStorages_columnsEntityType');
-if($preferences_columnsSystemStorages_columnsEntityType == -1){
-	$preferences_columnsSystemStorages_columnsEntityType = 0;
-}
-
-$preferences_columnsSystemStorages_columnsEntityName = getSystemPreferences('columnsSystemStorages_columnsEntityName');
-if($preferences_columnsSystemStorages_columnsEntityName == -1){
-	$preferences_columnsSystemStorages_columnsEntityName = 1;
-}
-
-$preferences_columnsSystemStorages_columnsEntityName2 = getSystemPreferences('columnsSystemStorages_columnsEntityName2');
-if($preferences_columnsSystemStorages_columnsEntityName2 == -1){
-	$preferences_columnsSystemStorages_columnsEntityName2 = 0;
-}
-
-$preferences_columnsSystemStorages_columnsEntityPhone = getSystemPreferences('columnsSystemStorages_columnsEntityPhone');
-if($preferences_columnsSystemStorages_columnsEntityPhone == -1){
-	$preferences_columnsSystemStorages_columnsEntityPhone = 0;
-}
-
-$preferences_columnsSystemStorages_columnsEntityEmail = getSystemPreferences('columnsSystemStorages_columnsEntityEmail');
-if($preferences_columnsSystemStorages_columnsEntityEmail == -1){
-	$preferences_columnsSystemStorages_columnsEntityEmail = 0;
+$preferences_columnsSystemStorages_columnsStorageSize = getSystemPreferences('columnsSystemStorages_columnsStorageSize');
+if($preferences_columnsSystemStorages_columnsStorageSize == -1){
+	$preferences_columnsSystemStorages_columnsStorageSize = 1;
 }
 
 $preferences_columnsSystemStorages_columnsTags = getSystemPreferences('columnsSystemStorages_columnsTags');
@@ -108,7 +78,7 @@ if($validateFlag == 200){
 		<li onclick="modalTab('<?php echo purify($modalId); ?>', 3);">
 			Sikkerhedskopiering
 		</li>
-		<li onclick="modalTab('<?php echo purify($modalId); ?>', 3);">
+		<li onclick="modalTab('<?php echo purify($modalId); ?>', 4);">
 			Sortering
 		</li>
 	</ul>
@@ -131,17 +101,10 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<div style="column-count:3;">
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsName" name="columnsName" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'checked';} ?>><label for="inputcolumnsName">Navn</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsSecurityClearance == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsSecurityClearance" name="columnsSecurityClearance" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsSecurityClearance == 1){echo 'checked';} ?>><label for="inputcolumnsSecurityClearance">Sikkerhedsgodkendelse</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsBlockSignIn == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsBlockSignIn" name="columnsBlockSignIn" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsBlockSignIn == 1){echo 'checked';} ?>><label for="inputcolumnsBlockSignIn">Bloker log ind</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsUserMustChangePasswordAtNextSignIn" name="columnsUserMustChangePasswordAtNextSignIn" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsUserMustChangePasswordAtNextSignIn == 1){echo 'checked';} ?>><label for="inputcolumnsUserMustChangePasswordAtNextSignIn">Brugeren skal ændre adgangskode ved næste log ind</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsForceUseOfMultifactorAuthentication == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsForceUseOfMultifactorAuthentication" name="columnsForceUseOfMultifactorAuthentication" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsForceUseOfMultifactorAuthentication == 1){echo 'checked';} ?>><label for="inputcolumnsForceUseOfMultifactorAuthentication">Gennemtving brug af flerfaktorautentificering</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsEntityType == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsEntityType" name="columnsEntityType" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsEntityType == 1){echo 'checked';} ?>><label for="inputcolumnsEntityType">Identitetstype</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsEntityName == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsEntityName" name="columnsEntityName" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsEntity == 1){echo 'checked';} ?>><label for="inputcolumnsEntity">Identitetsnavn</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsEntityName2 == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsEntityName2" name="columnsEntityName2" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsEntityEntityName2 == 1){echo 'checked';} ?>><label for="inputcolumnsEntityName2">Supplerende identitetsnavn</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsEntityPhone == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsEntityPhone" name="columnsEntityPhone" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsEntityEntityPhone == 1){echo 'checked';} ?>><label for="inputcolumnsEntityPhone">Identitetstelefon</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsEntityEmail == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsEntityEmail" name="columnsEntityEmail" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsEntityEntityEmail == 1){echo 'checked';} ?>><label for="inputcolumnsEntityEmail">Identitets-e-mail</label></div><br>
-				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputcolumnsTags" name="columnsTags" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';} ?>><label for="inputcolumnsTags">Mærker</label></div><br>
+				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsName" name="columnsName" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsName == 1){echo 'checked';} ?>><label for="inputColumnsName">Navn</label></div><br>
+				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsType == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsType" name="columnsType" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsType == 1){echo 'checked';} ?>><label for="inputColumnsType">Type</label></div><br>
+				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsStorageSize" name="columnsStorageSize" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'checked';} ?>><label for="inputColumnsStorageSize">Lagerstørrelse</label></div><br>
+				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsTags" name="columnsTags" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';} ?>><label for="inputColumnsTags">Mærker</label></div><br>
 			</div>
 		</div>
 		
@@ -216,16 +179,10 @@ if($validateFlag == 200){
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
 			<br>
 			<select id="inputOrderBy" name="orderBy" autofocus required>
+				<option value="ConnectionStatus" <?php if($preferences_orderBySystemStorages_orderBy == 'ConnectionStatus'){echo 'selected';} ?>>Forbindelsesstatus</option>
 				<option value="Name" <?php if($preferences_orderBySystemStorages_orderBy == 'Name'){echo 'selected';} ?>>Navn</option>
-				<option value="SecurityClearance" <?php if($preferences_orderBySystemStorages_orderBy == 'SecurityClearance'){echo 'selected';} ?>>Sikkerhedsgodkendelse</option>
-				<option value="BlockSignIn" <?php if($preferences_orderBySystemStorages_orderBy == 'BlockSignIn'){echo 'selected';} ?>>Bloker log ind</option>
-				<option value="UserMustChangePasswordAtNextSignIn" <?php if($preferences_orderBySystemStorages_orderBy == 'UserMustChangePasswordAtNextSignIn'){echo 'selected';} ?>>Brugeren skal ændre adgangskode ved næste log ind</option>
-				<option value="ForceUseOfMultifactorAuthentication" <?php if($preferences_orderBySystemStorages_orderBy == 'ForceUseOfMultifactorAuthentication'){echo 'selected';} ?>>Gennemtving brug af flerfaktorautentificering</option>
-				<option value="Identities_type" <?php if($preferences_orderBySystemStorages_orderBy == 'Identities_type'){echo 'selected';} ?>>Identitetstype</option>
-				<option value="Identities_name" <?php if($preferences_orderBySystemStorages_orderBy == 'Identities_name'){echo 'selected';} ?>>Identitetsnavn</option>
-				<option value="Identities_name2" <?php if($preferences_orderBySystemStorages_orderBy == 'Identities_name2'){echo 'selected';} ?>>Supplerende identitetsnavn</option>
-				<option value="Identities_phone" <?php if($preferences_orderBySystemStorages_orderBy == 'Identities_phone'){echo 'selected';} ?>>Identitetstelefon</option>
-				<option value="Identities_email" <?php if($preferences_orderBySystemStorages_orderBy == 'Identities_email'){echo 'selected';} ?>>Identitets-e-mail</option>
+				<option value="Type" <?php if($preferences_orderBySystemStorages_orderBy == 'Type'){echo 'selected';} ?>>Type</option>
+				<option value="StorageSize" <?php if($preferences_orderBySystemStorages_orderBy == 'StorageSize'){echo 'selected';} ?>>Lagerstørrelse</option>
 			</select><label for="inputOrderBy">Standardsortering</label><br>
 		</div>
 		
