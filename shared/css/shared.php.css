@@ -1500,6 +1500,10 @@ main{
 						white-space:nowrap;
 					}
 					
+					main > div.main div.datatable table tr th.pulse{
+						width:45px;
+					}
+					
 					main > div.main div.datatable table tr th.checkbox{
 						animation-duration:0.25s;
 						animation-fill-mode:forwards;
@@ -1599,6 +1603,11 @@ main{
 							position:absolute;
 							width:32px;
 						}
+						
+					main > div.main div.datatable table tr td.pulse{
+						position:relative;
+						width:45px;
+					}
 						
 					main > div.main div.datatable table tr td.checkbox{
 						animation-duration:0.25s;

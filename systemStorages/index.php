@@ -479,7 +479,7 @@ if($validateFlag == 200){
 									<td>
 										
 									</td>
-									<td style="width:45px;">
+									<td class="pulse">
 										
 									</td>
 									<td style="<?php if($preferences_columnsSystemStorages_columnsName == 1){}else{echo 'display:none;';} ?>">
@@ -509,18 +509,18 @@ if($validateFlag == 200){
 									if('ConnectionStatus' == orderBy('orderBy', $preferences_orderBySystemStorages_orderBy)){
 										if(orderBy('orderBySort', $preferences_orderBySystemStorages_orderBy) == 'ASC'){
 										?>
-											<th onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); background-position:center center; padding:20px 36px 20px 10px; width:45px; <?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
+											<th class="pulse" onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-up.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); background-position:center center; padding:20px 36px 20px 10px; <?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 										else{
 										?>
-											<th onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); background-position:center center; padding:20px 36px 20px 10px; width:45px; <?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
+											<th class="pulse" onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="background-image:url('/images/svgImage.php?id=<?php echo urlencode('/images/fontawesome-pro-5.9.0-web/svgs/light/sort-amount-down.svg'); ?>&fill=<?php echo urlencode('rgba(135,140,145,1)'); ?>'); background-position:center center; padding:20px 36px 20px 10px; <?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
 										<?php
 										}
 									}
 									else{
 									?>
-										<th onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="width:45px; <?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
+										<th class="pulse" onclick="datatableOrderBy('connectionStatus', this, this.closest('div.datatable').id);" style="<?php if($preferences_columnsSystemStorages_columnsConnectionStatus == 1){}else{echo 'display:none;';} ?>">
 									<?php
 									}
 									?>
