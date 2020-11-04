@@ -87,6 +87,7 @@ if($validateFlag == 200){
 	<input class="modalScript" type="hidden" value="
 		(function(){
 			checkConnection(
+				<?php echo encodeId(purify($systemStorages_id)); ?>,
 				0,
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div.pulseContainer')[0],
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0],

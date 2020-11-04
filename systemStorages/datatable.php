@@ -377,6 +377,7 @@ if($validateFlag == 200){
 					<input class="datatableScript" type="hidden" value="
 						(function(){
 							checkConnection(
+								<?php echo encodeId(purify($row['systemStorages_id'])); ?>,
 								0,
 								document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],
 								document.querySelectorAll('#<?php echo purify($datatableId); ?> form #inputType<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0],

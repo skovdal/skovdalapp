@@ -193,7 +193,7 @@ if($validateFlag == 200){
 					datatableUpdate('', 'datatable1', 0);
 				}
 				
-				function checkConnection(silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId){
+				function checkConnection(systemStorages_id, silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId){
 					if(typeId.tagName == 'INPUT'){
 						var type = typeId.value;
 					}
@@ -269,7 +269,8 @@ if($validateFlag == 200){
 						request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 						request.ontimeout = function(){toastr('danger', 'Der er opstået en fejl!', 'Der er desværre opstået en fejl i systemet, hvilket vi beklager.<br><br>Fejlen er rapporteret og vil blive adresseret i løbet af kort tid.<br><br>Klik her for at følge status...', 0, true, 'https://errors.complian.app.complian.dev?4');}
 						request.send(
-							'type=' + encodeURIComponent(type) +
+							'systemStorages_id=' ? encodeURIComponent(systemStorages_id) +
+							'&type=' + encodeURIComponent(type) +
 							'&name=' + encodeURIComponent(name) +
 							'&mysql_host=' + encodeURIComponent(mysql_host) +
 							'&mysql_username=' + encodeURIComponent(mysql_username) +

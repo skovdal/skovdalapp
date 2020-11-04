@@ -3,6 +3,25 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredStart.php';
 
 $validateFlag = 200;
 
+if(isset($_POST['systemStorages_id']) === false){
+	$validateFlag = 400;
+}
+else{
+	$systemStorages_id = $_POST['systemStorages_id'];
+	
+	if($systemStorages_id > 0){
+		if(decodeId($systemStorages_id) == -1){
+			$validateFlag = 400;
+		}
+		else{
+			$systemStorages_id = decodeId($systemStorages_id);
+		}
+	}
+	else{
+		$systemStorages_id = 0;
+	}
+}
+
 if(isset($_POST['name']) === false){
 	$validateFlag = 400;
 }
@@ -79,20 +98,85 @@ else if($type == 'MySQL 8.0'){
 
 if($validateFlag == 200){
 	if($type == 'FTP'){
+		if($systemStorages_id > 0){
+			if(isset($con) === false){$con = dbConnection();}
+			$stmt = $con->stmt_init();
+			$stmt->prepare("
+				UPDATE
+					`c0`.`systemStorages`
+				SET
+					`c0`.`systemStorages`.`connectionStatus` = 1
+				WHERE
+					`c0`.`systemStorages`.`id` = ?
+			");
+			$stmt->bind_param('i', $systemStorages_id);
+			$stmt->execute();
+			setTableVersion('systemStorages');
+		}
+		
 		echo 200;
 	}
 	else if($type == 'FTPS'){
+		if($systemStorages_id > 0){
+			if(isset($con) === false){$con = dbConnection();}
+			$stmt = $con->stmt_init();
+			$stmt->prepare("
+				UPDATE
+					`c0`.`systemStorages`
+				SET
+					`c0`.`systemStorages`.`connectionStatus` = 1
+				WHERE
+					`c0`.`systemStorages`.`id` = ?
+			");
+			$stmt->bind_param('i', $systemStorages_id);
+			$stmt->execute();
+			setTableVersion('systemStorages');
+		}
+		
 		echo 200;
 	}
 	else if($type == 'MySQL 8.0'){
 		$conExternal = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_dbname, $mysql_port, $mysql_socket);
 		
 		if($conExternal -> connect_errno){
+			if($systemStorages_id > 0){
+				if(isset($con) === false){$con = dbConnection();}
+				$stmt = $con->stmt_init();
+				$stmt->prepare("
+					UPDATE
+						`c0`.`systemStorages`
+					SET
+						`c0`.`systemStorages`.`connectionStatus` = 0
+					WHERE
+						`c0`.`systemStorages`.`id` = ?
+				");
+				$stmt->bind_param('i', $systemStorages_id);
+				$stmt->execute();
+				setTableVersion('systemStorages');
+			}
+			
 			echo 401;
 		}
 		else{
-			echo 200;
 			$conExternal->close();
+			
+			if($systemStorages_id > 0){
+				if(isset($con) === false){$con = dbConnection();}
+				$stmt = $con->stmt_init();
+				$stmt->prepare("
+					UPDATE
+						`c0`.`systemStorages`
+					SET
+						`c0`.`systemStorages`.`connectionStatus` = 1
+					WHERE
+						`c0`.`systemStorages`.`id` = ?
+				");
+				$stmt->bind_param('i', $systemStorages_id);
+				$stmt->execute();
+				setTableVersion('systemStorages');
+			}
+			
+			echo 200;
 		}
 	}
 	

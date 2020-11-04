@@ -16,6 +16,7 @@ if($validateFlag == 200){
 		(function(){
 			checkConnection(
 				0,
+				0,
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form div.pulseContainer')[0],
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputType')[0],
 				document.querySelectorAll('#modal-<?php echo $modalId; ?> form #inputName')[0],
