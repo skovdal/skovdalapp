@@ -29,6 +29,7 @@ $stmt->prepare("
 	SELECT
 		`c0`.`systemStorages`.`name` AS `systemStorages_name`,
 		`c0`.`systemStorages`.`type` AS `systemStorages_type`,
+		`c0`.`systemStorages`.`indelible` AS `systemStorages_indelible`,
 		`c0`.`systemStorages`.`storageSize` AS `systemStorages_storageSize`,
 		`c0`.`systemStorages`.`ftp_connect_host` AS `systemStorages_ftp_connect_host`,
 		`c0`.`systemStorages`.`ftp_connect_port` AS `systemStorages_ftp_connect_port`,
@@ -62,6 +63,7 @@ else{
 	while($row = mysqli_fetch_assoc($result)){
 		$systemStorages_name = $row['systemStorages_name'];
 		$systemStorages_type = $row['systemStorages_type'];
+		$systemStorages_indelible = $row['systemStorages_indelible'];
 		$systemStorages_storageSize = $row['systemStorages_storageSize'];
 		$systemStorages_ftp_connect_host = $row['systemStorages_ftp_connect_host'];
 		$systemStorages_ftp_connect_port = $row['systemStorages_ftp_connect_port'];
@@ -436,7 +438,7 @@ if($validateFlag == 200){
 		
 		<div class="buttons">
 			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
-			<input class="delete" onclick="modal(0, 'basic', '/systemStorages/edit/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systemlager">
+			<?php if($systemStorages_indelible === null){ ?><input class="delete" onclick="modal(0, 'basic', '/systemStorages/edit/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><?php } ?><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk"><input type="submit" value="Gem systemlager">
 		</div>
 	</form>
 	<?php

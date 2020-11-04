@@ -63,6 +63,7 @@ else{
 	while($row = mysqli_fetch_assoc($result)){
 		$systemStorages_name = $row['systemStorages_name'];
 		$systemStorages_type = $row['systemStorages_type'];
+		$systemStorages_indelible = $row['systemStorages_indelible'];
 		$systemStorages_storageSize = $row['systemStorages_storageSize'];
 		$systemStorages_ftp_connect_host = $row['systemStorages_ftp_connect_host'];
 		$systemStorages_ftp_connect_port = $row['systemStorages_ftp_connect_port'];
@@ -365,7 +366,7 @@ if($validateFlag == 200){
 		
 		<div class="buttons">
 			<div class="pulseContainer"><div class="pulseCore danger"></div><div class="pulse danger"></div></div>
-			<?php if($row['systemStorages_indelible'] === null){?><input class="delete" onclick="modal(0, 'basic', '/systemStorages/view/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><?php } ?><input class="edit" onclick="modal(<?php echo purify($modalId); ?>, 'large', '/systemStorages/edit/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', false, 0)" type="button" value="Editer systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
+			<?php if($systemStorages_indelible === null){ ?><input class="delete" onclick="modal(0, 'basic', '/systemStorages/view/delete/modal.php', 'POST', '&refererModalId=<?php echo purify($modalId); ?>&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', true, 1);" type="button" value="Slet systemlager"><?php } ?><input class="edit" onclick="modal(<?php echo purify($modalId); ?>, 'large', '/systemStorages/edit/modal.php', 'POST', '&systemStorages_id=<?php echo encodeId(purify($systemStorages_id)); ?>', false, 0)" type="button" value="Editer systemlager"><input class="close" onclick="document.querySelectorAll('#modal-<?php echo purify($modalId); ?> div.close')[0].click();" type="button" value="Luk">
 		</div>
 	</form>
 	<?php
