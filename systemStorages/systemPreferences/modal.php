@@ -76,9 +76,6 @@ if($validateFlag == 200){
 			Kolonner
 		</li>
 		<li onclick="modalTab('<?php echo purify($modalId); ?>', 3);">
-			Sikkerhedskopiering
-		</li>
-		<li onclick="modalTab('<?php echo purify($modalId); ?>', 4);">
 			Sortering
 		</li>
 	</ul>
@@ -106,73 +103,6 @@ if($validateFlag == 200){
 				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsStorageSize" name="columnsStorageSize" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsStorageSize == 1){echo 'checked';} ?>><label for="inputColumnsStorageSize">Lagerstørrelse</label></div><br>
 				<div class="checkbox <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';}else{echo 'unchecked';} ?>" onclick="modalCheckbox(this);"><input id="inputColumnsTags" name="columnsTags" type="checkbox" value="1" <?php if($preferences_columnsSystemStorages_columnsTags == 1){echo 'checked';} ?>><label for="inputColumnsTags">Mærker</label></div><br>
 			</div>
-		</div>
-		
-		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br>
-			<br>
-			<select id="inputSystemStorages_id" name="systemStorages_id">
-				<?php
-				if(isset($con) === false){$con = dbConnection();}
-				$stmt = $con->stmt_init();
-				$stmt->prepare("
-					SELECT
-						`c0`.`systemStorages`.`id` AS `systemStorages_id`,
-						`c0`.`systemStorages`.`name` AS `systemStorages_name`
-					FROM
-						`c0`.`systemStorages`
-					WHERE
-						`c0`.`systemStorages`.`deleteFlag` IS NULL
-					AND
-						`c0`.`systemStorages`.`tempFlag` IS NULL
-					AND
-						`c0`.`systemStorages`.`legacyFlag` IS NULL
-					ORDER BY
-						`c0`.`systemStorages`.`name` ASC
-				");
-				$stmt->execute();
-				$result = $stmt->get_result();
-				
-				if(mysqli_num_rows($result) == 0){
-				}
-				else{
-					while($row = mysqli_fetch_assoc($result)){
-					?>
-						<option value="<?php echo $row['systemStorages_id']; ?>"><?php echo $row['systemStorages_name']; ?></option>
-					<?php
-					}
-				}
-				$result->close();
-				?>
-			</select><label for="inputSystemStorages_id">Lager</label><br>
-			<select id="inputSystemStorages_id" name="systemStorages_id">
-				<option value="5m">5 minutter</option>
-				<option value="10m">10 minutter</option>
-				<option value="15m">15 minutter</option>
-				<option value="30m">30 minutter</option>
-				<option value="1h">1 time</option>
-				<option value="2h">2 timer</option>
-				<option value="3h">3 timer</option>
-				<option value="6h">6 timer</option>
-				<option value="8h">8 timer</option>
-				<option value="12h">12 timer</option>
-				<option value="1d">1 dag</option>
-				<option value="2d">2 dage</option>
-				<option value="3d">3 dage</option>
-				<option value="4d">4 dage</option>
-				<option value="5d">5 dage</option>
-				<option value="6d">6 dage</option>
-				<option value="1w">1 uge</option>
-				<option value="2w">2 uger</option>
-				<option value="3w">3 uger</option>
-				<option value="1m">1 måned</option>
-				<option value="2m">2 måneder</option>
-				<option value="3m">3 måneder</option>
-				<option value="4m">4 måneder</option>
-				<option value="5m">5 måneder</option>
-				<option value="6m">6 måneder</option>
-				<option value="1y">1 år</option>
-			</select><label for="inputSystemStorages_id">Frekvens</label><br>
 		</div>
 		
 		<div>
