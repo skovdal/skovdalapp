@@ -403,9 +403,6 @@ if($validateFlag == 200){
 							
 							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.left = '0px';
 							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?>')[0].style.width = '100%';
-							
-							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?> .pulseCore')[0].style.display = 'block';
-							document.querySelectorAll('#<?php echo purify($datatableId); ?> form #pulseContainer<?php echo purify($datatableId); ?><?php echo encodeId(purify($row['systemStorages_id'])); ?> .pulse')[0].style.display = 'block';
 						})();
 					">
 				</td>

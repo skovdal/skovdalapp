@@ -194,9 +194,6 @@ if($validateFlag == 200){
 				}
 				
 				function checkConnection(systemStorages_id, silent, pulseContainerId, typeId, nameId, mysql_hostId, mysql_usernameId, mysql_passwordId, mysql_dbnameId, mysql_portId, mysql_socketId, ftp_hostId, ftp_portId, ftp_timeoutId, ftp_remotePathId, ftp_sslPortId, ftp_sslTimeoutId, ftp_passiveModeId, ftp_usernameId, ftp_passwordId){
-					pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'block';
-					pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'block';
-					
 					if(typeId.tagName == 'INPUT'){
 						var type = typeId.value;
 					}
@@ -286,10 +283,6 @@ if($validateFlag == 200){
 							'&ftp_sslTimeout=' + encodeURIComponent(ftp_sslTimeout) +
 							'&ftp_passiveMode=' + encodeURIComponent(ftp_passiveMode)
 						);
-					}
-					else{
-						pulseContainerId.querySelectorAll('div.pulse')[0].style.display = 'none';
-						pulseContainerId.querySelectorAll('div.pulseCore')[0].style.display = 'none';
 					}
 				}
 				
