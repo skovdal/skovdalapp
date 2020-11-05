@@ -1474,8 +1474,6 @@ else{
 			$tagsReferences_id
 		);
 	}
-	
-	httpStatusCodes($validateFlag);
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredEnd.php';
 ?>

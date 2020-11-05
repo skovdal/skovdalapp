@@ -62,9 +62,6 @@ if($validateFlag == 200){
 		echo '200';
 	}
 }
-else{
-	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request', true, 400);
-}
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/required/requiredEnd.php';
 ?>

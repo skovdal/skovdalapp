@@ -157,9 +157,6 @@ if($validateFlag == 200){
 	}
 }
 else{
-	header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request', true, 400);
-	echo $errorMessages_id;
-	
 	if(getSystemConfigurations('logSystemStorages') == 1 || getSystemConfigurations('logSystemStorages') == -1){
 		$type = 'view';
 		$trigger_systemUsers_id = $_SESSION['systemUsers_id'];
