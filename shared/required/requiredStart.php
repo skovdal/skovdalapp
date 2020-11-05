@@ -16,4 +16,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/systemPreferences/getSystemPre
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/tableVersions/getTableVersion.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/tableVersions/setTableVersion.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/xss/purify.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/shared/httpStatusCodes/httpStatusCodeHeader.php';
 ?>
